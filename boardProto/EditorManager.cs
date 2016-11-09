@@ -63,7 +63,8 @@ namespace boardProto
                                     (int)(Math.Abs(mouseWorldPosition.X) / 80) * 80) - 40) - 14.56;
             float calcYValue = (float)(80 * Math.Tan(20 * Math.PI / 180));
 
-            if (Math.Abs(mouseWorldPosition.Y) <= 14.56)    // Checks for tiles at Y = 0
+            // Checks for tiles at Y = 0
+            if (Math.Abs(mouseWorldPosition.Y) <= 14.56)    
             {
                 if (mouseWorldPosition.Y <= bottomBoundary
                     && mouseWorldPosition.Y > topBoundary)
@@ -79,12 +80,14 @@ namespace boardProto
                 }
             }
             else
-            {   // When mouse y value is greater than the closest multiple of 29
-                if (mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) <= bottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                    && mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) > topBoundary)    // Top boundary y value should be smaller than mouse y value
+            {
+                // When mouse Y value is POSITIVE
+                if (mouseWorldPosition.Y > 0)
                 {
-                    /*if ((int)(mouseWorldPosition.Y / calcYValue) < (int)(mouseWorldPosition.Y / 29))    // 
-                    {*/
+                    // When mouse Y value is POSITIVE and GREATER than the closest multiple of 29
+                    if (mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) <= bottomBoundary    // Bottom boundary y value should be greater than mouse y value
+                        && mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) > topBoundary)    // Top boundary y value should be smaller than mouse y value
+                    {
                         if (mouseWorldPosition.X > 0)
                         {   // When X is positive
                             return new Vector2((float)((int)(mouseWorldPosition.X / 80) * 80),
@@ -95,34 +98,55 @@ namespace boardProto
                             return new Vector2((float)((int)(mouseWorldPosition.X / 80 - 1) * 80),
                                            (int)(mouseWorldPosition.Y / calcYValue) * calcYValue);
                         }
-                    /*}
-                    else
-                    {   // When X is positive
+                    }
+                    // When mouse Y value is POSITIVE and LESS than the closest multiple of 29
+                    else if (((int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue) - mouseWorldPosition.Y <= bottomBoundary    // Bottom boundary y value should be greater than mouse y value
+                        && mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue) > topBoundary)    // Top boundary y value should be smaller than mouse y value
+                    {
                         if (mouseWorldPosition.X > 0)
-                        {
+                        {   // When X is positive
                             return new Vector2((float)((int)(mouseWorldPosition.X / 80) * 80),
-                                               (int)(mouseWorldPosition.Y / calcYValue) * calcYValue);
+                                               (int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue);
                         }
                         else
                         {   // When X is negative
                             return new Vector2((float)((int)(mouseWorldPosition.X / 80 - 1) * 80),
-                                               (int)(mouseWorldPosition.Y / calcYValue) * calcYValue);
+                                               (int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue);
                         }
-                    }*/
-                }
-                // When mouse y value is less than the closest multiple of 29
-                else if (((int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue) - mouseWorldPosition.Y <= bottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                    && mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue) > topBoundary)    // Top boundary y value should be smaller than mouse y value
-                {
-                    if (mouseWorldPosition.X > 0)
-                    {   // When X is positive
-                        return new Vector2((float)((int)(mouseWorldPosition.X / 80) * 80),
-                                           (int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue);
                     }
-                    else
-                    {   // When X is negative
-                        return new Vector2((float)((int)(mouseWorldPosition.X / 80 - 1) * 80),
-                                           (int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue);
+                }
+                // When mouse Y value is NEGATIVE
+                else
+                {
+                    // When mouse Y value is NEGATIVE and GREATER than the closest multiple of 29
+                    if (mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) <= bottomBoundary    // Bottom boundary y value should be greater than mouse y value
+                        && mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) > topBoundary)    // Top boundary y value should be smaller than mouse y value
+                    {
+                        if (mouseWorldPosition.X > 0)
+                        {   // When X is positive
+                            return new Vector2((float)((int)(mouseWorldPosition.X / 80) * 80),
+                                           (int)(mouseWorldPosition.Y / calcYValue) * calcYValue);
+                        }
+                        else
+                        {   // When X is negative
+                            return new Vector2((float)((int)(mouseWorldPosition.X / 80 - 1) * 80),
+                                           (int)(mouseWorldPosition.Y / calcYValue) * calcYValue);
+                        }
+                    }
+                    // When mouse Y value is NEGATIVE and LESS than the closest multiple of 29
+                    else if (((int)(Math.Abs(mouseWorldPosition.Y) / calcYValue + 1) * calcYValue) + mouseWorldPosition.Y <= bottomBoundary    // Bottom boundary y value should be greater than mouse y value
+                        && ((int)(Math.Abs(mouseWorldPosition.Y) / calcYValue + 1) * calcYValue) - mouseWorldPosition.Y > topBoundary)    // Top boundary y value should be smaller than mouse y value
+                    {
+                        if (mouseWorldPosition.X > 0)
+                        {   // When X is positive
+                            return new Vector2((float)((int)(mouseWorldPosition.X / 80) * 80),
+                                               (int)(mouseWorldPosition.Y / calcYValue - 1) * calcYValue);
+                        }
+                        else
+                        {   // When X is negative
+                            return new Vector2((float)((int)(mouseWorldPosition.X / 80 - 1) * 80),
+                                               (int)(mouseWorldPosition.Y / calcYValue - 1) * calcYValue);
+                        }
                     }
                 }
             }
