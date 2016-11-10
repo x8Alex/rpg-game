@@ -12,6 +12,7 @@ namespace boardProto
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
+        Vector2 virtualResolution = new Vector2(1366, 768);
         SpriteBatch spriteBatch;
         SpriteFont debugFont;
         Vector2 mouseWorldPosition;
@@ -29,8 +30,8 @@ namespace boardProto
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.IsFullScreen = true;
-            graphics.PreferredBackBufferWidth = 1366;
-            graphics.PreferredBackBufferHeight = 768;
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             this.IsMouseVisible = true;
             Content.RootDirectory = "Content";
         }
@@ -86,6 +87,7 @@ namespace boardProto
             Vector2 playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Width / 2, 
                                                  GraphicsDevice.Viewport.TitleSafeArea.Y + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
             player.Initialize(Content.Load<Texture2D>("Graphics\\PlayerXS"), playerPosition);
+            mouseManager.Initialize(virtualResolution);
             editorManager.Initialize(TEXTURE_LIST);  // Will later pass a list of textures to the manager
         }
 
@@ -109,9 +111,9 @@ namespace boardProto
                 Exit();
 
             // TODO: Add your update logic here
-            editorManager.ScrollWorld(mouseManager.GetMouseState());
-            mouseWorldPosition.X = mouseManager.GetMouseState().X - editorManager.GetWorldOffset().X;
-            mouseWorldPosition.Y = mouseManager.GetMouseState().Y - editorManager.GetWorldOffset().Y;
+            editorManager.ScrollWorld(mouseManager.GetMouseState(), mouseManager.GetMousePosition());
+            mouseWorldPosition.X = mouseManager.GetMousePosition().X - editorManager.GetWorldOffset().X;
+            mouseWorldPosition.Y = mouseManager.GetMousePosition().Y - editorManager.GetWorldOffset().Y;
             base.Update(gameTime);
         }
 
@@ -124,7 +126,7 @@ namespace boardProto
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            spriteBatch.Begin(transformMatrix: GetScaleMatrix());
 
             editorManager.DrawEmptySpace(spriteBatch, graphics.GraphicsDevice.Viewport);
             editorManager.DrawTiles(spriteBatch, editorManager.DetectClosestTilePosition(mouseWorldPosition));
@@ -139,6 +141,13 @@ namespace boardProto
                                    new Vector2(5, 15), Color.Yellow);
             spriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        public Matrix GetScaleMatrix()
+        {
+            var scaleX = (float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / virtualResolution.X;
+            var scaleY = (float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / virtualResolution.Y;
+            return Matrix.CreateScale(scaleX, scaleY, 1.0f);
         }
     }
 }

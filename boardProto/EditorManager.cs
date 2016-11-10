@@ -35,20 +35,20 @@ namespace boardProto
             DIRT_TILE1 = TEXTURE_LIST[2];
         }
 
-        public void ScrollWorld(MouseState mouseState)
+        public void ScrollWorld(MouseState mouseState, Vector2 mousePosition)
         {
             MOUSE_STATE = mouseState;
             if (MOUSE_STATE.RightButton != ButtonState.Pressed)
             {
-                LAST_MOUSE_POSITION.X = MOUSE_STATE.X;
-                LAST_MOUSE_POSITION.Y = MOUSE_STATE.Y;
+                LAST_MOUSE_POSITION.X = mousePosition.X;
+                LAST_MOUSE_POSITION.Y = mousePosition.Y;
             }
             if (MOUSE_STATE.RightButton == ButtonState.Pressed)
             {
-                WORLD_OFFSET.X += MOUSE_STATE.X - LAST_MOUSE_POSITION.X;
-                WORLD_OFFSET.Y += MOUSE_STATE.Y - LAST_MOUSE_POSITION.Y;
-                LAST_MOUSE_POSITION.X = MOUSE_STATE.X;
-                LAST_MOUSE_POSITION.Y = MOUSE_STATE.Y;
+                WORLD_OFFSET.X += mousePosition.X - LAST_MOUSE_POSITION.X;
+                WORLD_OFFSET.Y += mousePosition.Y - LAST_MOUSE_POSITION.Y;
+                LAST_MOUSE_POSITION.X = mousePosition.X;
+                LAST_MOUSE_POSITION.Y = mousePosition.Y;
             }
         }
 
