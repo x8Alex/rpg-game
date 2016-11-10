@@ -84,6 +84,18 @@ namespace boardProto
                         return new Vector2((float)((int)(mouseWorldPosition.X / 80 - 1) * 80), 0f);
                     }
                 }
+                 
+                // EVEN ROWS NEGATIVE Y values:
+                // If the mouse is in the RIGHT half of the tile
+                else if (mouseWorldPosition.Y < 0 && Math.Abs(mouseWorldPosition.Y) < 14.56)
+                {
+                    if (Math.Abs(mouseWorldPosition.Y) > oddRowBottomBoundary && 
+                        Math.Abs(mouseWorldPosition.Y) - calcYValue <= oddRowTopBoundary)
+                    {
+                        return new Vector2((float)((int)(mouseWorldPosition.X / 80 - 1) * 80) + 40, calcYValue / -2);
+                    }
+                }
+                // If the mouse is in the LEFT half of the tile
 
                 // EVEN ROWS:
                 else if (mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
