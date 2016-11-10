@@ -57,17 +57,23 @@ namespace boardProto
         public Vector2 DetectClosestTilePosition(Vector2 mouseWorldPosition)
         {
             Vector2 MOUSE_POSITION = new Vector2(mouseWorldPosition.X, mouseWorldPosition.Y);
-            double bottomBoundary = -0.36375 * Math.Abs((Math.Abs(mouseWorldPosition.X) -
+            double oddRowBottomBoundary = -0.36375 * Math.Abs((Math.Abs(mouseWorldPosition.X) -
                                     (int)(Math.Abs(mouseWorldPosition.X) / 80) * 80) - 40) + 14.56;
-            double topBoundary = 0.36375 * Math.Abs((Math.Abs(mouseWorldPosition.X) - 
+            double oddRowTopBoundary = 0.36375 * Math.Abs((Math.Abs(mouseWorldPosition.X) - 
                                     (int)(Math.Abs(mouseWorldPosition.X) / 80) * 80) - 40) - 14.56;
+
+            double evenRowBottomBoundary = -0.36375 * Math.Abs((Math.Abs(mouseWorldPosition.X) -
+                                    (int)(Math.Abs(mouseWorldPosition.X) / 80) * 80) - 40) + 14.56;
+            double evenRowTopBoundary = 0.36375 * Math.Abs((Math.Abs(mouseWorldPosition.X) -
+                                    (int)(Math.Abs(mouseWorldPosition.X) / 80) * 80) - 40) - 14.56;
+
             float calcYValue = (float)(80 * Math.Tan(20 * Math.PI / 180));
 
             // Checks for tiles at Y = 0
             if (Math.Abs(mouseWorldPosition.Y) <= 14.56)    
             {
-                if (mouseWorldPosition.Y <= bottomBoundary
-                    && mouseWorldPosition.Y > topBoundary)
+                if (mouseWorldPosition.Y <= oddRowBottomBoundary
+                    && mouseWorldPosition.Y > oddRowTopBoundary)
                 {
                     if (mouseWorldPosition.X > 0)
                     {   // When X is positive
@@ -84,9 +90,9 @@ namespace boardProto
                 // When mouse Y value is POSITIVE
                 if (mouseWorldPosition.Y > 0)
                 {
-                    // When mouse Y value is POSITIVE and GREATER than the closest multiple of 29
-                    if (mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) <= bottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                        && mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) > topBoundary)    // Top boundary y value should be smaller than mouse y value
+                    // ODD ROWS: When mouse Y value is POSITIVE and GREATER than the closest multiple of 29
+                    if (mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) <= oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
+                        && mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
                     {
                         if (mouseWorldPosition.X > 0)
                         {   // When X is positive
@@ -99,9 +105,26 @@ namespace boardProto
                                            (int)(mouseWorldPosition.Y / calcYValue) * calcYValue);
                         }
                     }
-                    // When mouse Y value is POSITIVE and LESS than the closest multiple of 29
-                    else if (((int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue) - mouseWorldPosition.Y <= bottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                        && mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue) > topBoundary)    // Top boundary y value should be smaller than mouse y value
+
+                    // EVEN ROWS: When mouse Y value is POSITIVE and GREATER than the closest multiple of 29
+                    else if (mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
+                        && mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue) <= oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
+                    {
+                        if (mouseWorldPosition.X >= (int)(mouseWorldPosition.X / 80) * 80 + 40 &&
+                            mouseWorldPosition.X < (int)(mouseWorldPosition.X / 80 + 1) * 80 + 40)
+                        {
+                            return new Vector2((float)((int)(mouseWorldPosition.X / 80) * 80 + 40),
+                                               (int)(mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
+                        }
+                        else if (mouseWorldPosition.X % 80 >= 0)
+                        {
+                            return new Vector2((float)((int)(mouseWorldPosition.X / 80) * 80 - 40),
+                                               (int)(mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
+                        }
+                    }
+                    // ODD ROWS: When mouse Y value is POSITIVE and LESS than the closest multiple of 29
+                    else if (((int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue) - mouseWorldPosition.Y <= oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
+                        && mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue + 1) * calcYValue) > oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
                     {
                         if (mouseWorldPosition.X > 0)
                         {   // When X is positive
@@ -119,8 +142,8 @@ namespace boardProto
                 else
                 {
                     // When mouse Y value is NEGATIVE and GREATER than the closest multiple of 29
-                    if (mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) <= bottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                        && mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) > topBoundary)    // Top boundary y value should be smaller than mouse y value
+                    if (mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) <= oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
+                        && mouseWorldPosition.Y - ((int)(mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
                     {
                         if (mouseWorldPosition.X > 0)
                         {   // When X is positive
@@ -134,8 +157,8 @@ namespace boardProto
                         }
                     }
                     // When mouse Y value is NEGATIVE and LESS than the closest multiple of 29
-                    else if (((int)(Math.Abs(mouseWorldPosition.Y) / calcYValue + 1) * calcYValue) + mouseWorldPosition.Y <= bottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                        && ((int)(Math.Abs(mouseWorldPosition.Y) / calcYValue + 1) * calcYValue) - mouseWorldPosition.Y > topBoundary)    // Top boundary y value should be smaller than mouse y value
+                    else if (((int)(Math.Abs(mouseWorldPosition.Y) / calcYValue + 1) * calcYValue) + mouseWorldPosition.Y <= oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
+                        && ((int)(Math.Abs(mouseWorldPosition.Y) / calcYValue + 1) * calcYValue) - mouseWorldPosition.Y > oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
                     {
                         if (mouseWorldPosition.X > 0)
                         {   // When X is positive
