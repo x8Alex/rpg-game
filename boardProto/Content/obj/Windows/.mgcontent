@@ -4,7 +4,7 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/DebugFont.spritefont</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileDirt1.png</File>
+    <File>C:/Users/mxalex/Documents/Visual Studio 2013/Projects/boardProto/boardProto/Content/DebugFont.spritefont</File>
+    <File>C:/Users/mxalex/Documents/Visual Studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileDirt1.png</File>
   </SourceFiles>
 </SourceFileCollection>

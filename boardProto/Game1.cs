@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -26,8 +27,9 @@ namespace boardProto
         EditorManager editorManager;
         MouseManager mouseManager;
 
-        public Game1()
+        public Game1(Vector2 resolution)
         {
+            virtualResolution = resolution;
             graphics = new GraphicsDeviceManager(this);
             graphics.IsFullScreen = true;
             graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
@@ -128,16 +130,17 @@ namespace boardProto
             // TODO: Add your drawing code here
             spriteBatch.Begin(transformMatrix: GetScaleMatrix());
 
-            editorManager.DrawEmptySpace(spriteBatch, graphics.GraphicsDevice.Viewport);
+            editorManager.DrawEmptySpace(spriteBatch, virtualResolution);
             editorManager.DrawTiles(spriteBatch, editorManager.DetectClosestTilePosition(mouseWorldPosition));
-            editorManager.DrawGrid(spriteBatch, graphics.GraphicsDevice.Viewport);
+            editorManager.DrawGrid(spriteBatch, virtualResolution);
 
             player.Draw(spriteBatch,editorManager.GetWorldOffset());
 
             spriteBatch.DrawString(debugFont, "World coords:", new Vector2(5, 5), Color.Yellow);
             spriteBatch.DrawString(debugFont, mouseWorldPosition.ToString(), new Vector2(80, 5), Color.Yellow);
             spriteBatch.DrawString(debugFont, 
-                                   editorManager.DetectClosestTilePosition(mouseWorldPosition).ToString(),
+                                   new Vector2 ((float)Math.Round(editorManager.DetectClosestTilePosition(mouseWorldPosition).X, 0),
+                                                (float)Math.Round(editorManager.DetectClosestTilePosition(mouseWorldPosition).Y, 0)).ToString(),
                                    new Vector2(5, 15), Color.Yellow);
             spriteBatch.End();
             base.Draw(gameTime);

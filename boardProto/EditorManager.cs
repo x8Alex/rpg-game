@@ -312,8 +312,9 @@ namespace boardProto
             return new Vector2(mouseWorldPosition.X, mouseWorldPosition.Y);
         }
 
-        public void DrawEmptySpace(SpriteBatch spriteBatch, Viewport viewport){
-            spriteBatch.Draw(EMPTY_SPACE, new Rectangle(0, 0, viewport.Width, viewport.Height), Color.White);
+        public void DrawEmptySpace(SpriteBatch spriteBatch, Vector2 windowSize){
+            spriteBatch.Draw(EMPTY_SPACE, new Rectangle(0, 0, (int)windowSize.X, (int)windowSize.Y), Color.White);
+
         }
 
         public void DrawTiles(SpriteBatch spriteBatch, Vector2 pos)
@@ -322,15 +323,15 @@ namespace boardProto
                              null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
-        public void DrawGrid(SpriteBatch spriteBatch, Viewport viewport)
+        public void DrawGrid(SpriteBatch spriteBatch, Vector2 windowSize)
         {
-            for (int x = (int)(-0.5 * viewport.Width); x <= viewport.Width / 80; x++)
+            for (int x = (int)(-0.5 * (int)windowSize.X); x <= (int)windowSize.X / 80; x++)
                 DrawLine(spriteBatch, new Vector2(x * 80 + WORLD_OFFSET.X % 80, -29.1176f + WORLD_OFFSET.Y % 29.1176f),
-                                                  new Vector2(viewport.Width, viewport.Height), 20f);
+                                                  windowSize, 20f);
 
-            for (int x = 0; x <= viewport.Width * 3 / 80; x++)
+            for (int x = 0; x <= (int)windowSize.X * 3 / 80; x++)
                 DrawLine(spriteBatch, new Vector2(x * 80 + WORLD_OFFSET.X % 80, -29.1176f + WORLD_OFFSET.Y % 29.1176f),
-                                                  new Vector2(0, viewport.Height), 160f);
+                                                  new Vector2(0, windowSize.Y), 160f);
         }
 
         // Method used to draw lines, takes in SpriteBatch, begining point and end point.

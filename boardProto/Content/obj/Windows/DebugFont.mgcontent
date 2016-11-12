@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/DebugFont.spritefont</SourceFile>
+  <SourceFile>C:/Users/mxalex/Documents/Visual Studio 2013/Projects/boardProto/boardProto/Content/DebugFont.spritefont</SourceFile>
   <SourceTime>2016-11-01T18:53:31.4508363-04:00</SourceTime>
-  <DestFile>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/bin/Windows/DebugFont.xnb</DestFile>
-  <DestTime>2016-11-08T19:00:43.2442475-05:00</DestTime>
+  <DestFile>C:/Users/mxalex/Documents/Visual Studio 2013/Projects/boardProto/boardProto/Content/bin/Windows/DebugFont.xnb</DestFile>
+  <DestTime>2016-11-11T11:54:23.3478329-05:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2016-03-30T02:36:08-04:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

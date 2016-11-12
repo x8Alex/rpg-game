@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Microsoft.Xna.Framework;
 
 namespace boardProto
 {
@@ -14,8 +19,19 @@ namespace boardProto
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            // Launches resolution selection screen
+            ResolutionQuery resolutionQuery = new ResolutionQuery();
+            Application.Run(resolutionQuery);
+
+            // Executes if the form returns true for LAUNCHGAME
+            if (resolutionQuery.getLaunchGame())
+            {
+                using (var game = new Game1(resolutionQuery.getResolution()))
+                    game.Run();
+            }
         }
     }
 #endif
