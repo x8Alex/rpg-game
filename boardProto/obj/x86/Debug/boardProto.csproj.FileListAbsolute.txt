@@ -31,6 +31,7 @@ c:\users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\
 c:\users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\boardProto.application
 c:\users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\obj\x86\Debug\boardProto.exe.manifest
 c:\users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\obj\x86\Debug\boardProto.application
-c:\users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDirt1.xnb
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\obj\x86\Debug\boardProto.ResolutionQuery.resources
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\obj\x86\Debug\boardProto.csproj.GenerateResource.Cache
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDirt1x1.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDirt2x2.xnb

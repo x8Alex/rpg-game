@@ -69,14 +69,14 @@ namespace boardProto
             // Load textures.
             EMPTY_SPACE = new Texture2D (graphics.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
             GRID_TEXTURE = new Texture2D(graphics.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
-            TILE_DIRT1 = Content.Load<Texture2D>("Tiles/Ground/TileDirt1");
 
             EMPTY_SPACE.SetData<Color>(new Color[] { Color.Black });
             GRID_TEXTURE.SetData<Color>(new Color[] { Color.Gray });
 
             TEXTURE_LIST.Add(EMPTY_SPACE);
             TEXTURE_LIST.Add(GRID_TEXTURE);
-            TEXTURE_LIST.Add(TILE_DIRT1);
+            TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/TileDirt1x1"));
+            TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/TileDirt2x2"));
 
             // Adds textures to a list that is passed to EditorManager
 
@@ -114,6 +114,10 @@ namespace boardProto
 
             // TODO: Add your update logic here
             editorManager.ScrollWorld(mouseManager.GetMouseState(), mouseManager.GetMousePosition());
+            // Places tiles when LMB is pressed
+            if (editorManager.ActiveTool != EditorManager.EditorTools.None)
+                editorManager.PlaceTiles(mouseManager.GetMouseState(), editorManager.DetectClosestTilePosition(mouseWorldPosition, new Rectangle(0, 0, 600, 100)));
+
             mouseWorldPosition.X = mouseManager.GetMousePosition().X - editorManager.GetWorldOffset().X;
             mouseWorldPosition.Y = mouseManager.GetMousePosition().Y - editorManager.GetWorldOffset().Y;
             base.Update(gameTime);
@@ -135,6 +139,11 @@ namespace boardProto
             editorManager.DrawGrid(spriteBatch, virtualResolution);
 
             player.Draw(spriteBatch,editorManager.GetWorldOffset());
+
+            if (editorManager.ActiveToolMenuShow)
+            {
+                editorManager.DrawActivePanel(spriteBatch, new Rectangle(0, 0, 600, 100));
+            }
 
             spriteBatch.DrawString(debugFont, "World coords:", new Vector2(5, 5), Color.Yellow);
             spriteBatch.DrawString(debugFont, mouseWorldPosition.ToString(), new Vector2(80, 5), Color.Yellow);

@@ -22,6 +22,7 @@ namespace boardProto
             RESOLUTION = resolution;
         }
 
+        // Returns the mouse position adjusted for the virtual resolution
         public Vector2 GetMousePosition()
         {
             MOUSE_STATE = Mouse.GetState();
@@ -29,6 +30,7 @@ namespace boardProto
                                MOUSE_STATE.Y * (RESOLUTION.Y / GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height));
         }
 
+        // Returns the mouse state
         public MouseState GetMouseState()
         {
             MOUSE_STATE = Mouse.GetState();

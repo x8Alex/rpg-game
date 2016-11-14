@@ -68,6 +68,8 @@
   <ItemGroup>
     <Compile Include="EditorManager.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="L1Tile.cs" />
+    <Compile Include="L1TileTool.cs" />
     <Compile Include="MouseManager.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

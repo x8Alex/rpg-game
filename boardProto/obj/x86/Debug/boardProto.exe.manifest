@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boardProto.exe" size="167336">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boardProto.exe" size="175016">
       <assemblyIdentity name="boardProto" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ZQUbT3YMlDOuFcsE0ktoOBmfppn5AxfIlsHDok++ysQ=</dsig:DigestValue>
+        <dsig:DigestValue>/MTtYwE8S3NtQFovTY/wlio76R02m2+08D7KEAa92fI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -210,7 +210,16 @@
       <dsig:DigestValue>2KWRrrW9NRgH9HE4Jv/zzI69xPQDpI7JEJMWHqvCrt4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Tiles\Ground\TileDirt1.xnb" size="37205">
+  <file name="Content\Tiles\Ground\TileDirt1x1.xnb" size="9365">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>mKV0kzxBimp8XNadAqDJWOAFpdYKnveyWXw9l/J2Qp4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\Ground\TileDirt2x2.xnb" size="37205">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
