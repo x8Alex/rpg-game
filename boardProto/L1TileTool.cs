@@ -18,13 +18,15 @@ namespace boardProto
         {
             listTileTextures = _listTileTextures;
             selectedTileTexture = listTileTextures[0];
-            tileSelectionMenuShow = false;
+            tileSelectionMenuShow = true;
         }
 
         public void TileSelection()
         {
 
         }
+
+        
 
         public List<Texture2D> ListTileTextures
         {

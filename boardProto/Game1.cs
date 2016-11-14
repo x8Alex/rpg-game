@@ -26,6 +26,8 @@ namespace boardProto
         Player player;
         EditorManager editorManager;
         MouseManager mouseManager;
+        KeyboardState kbState;
+        KeyboardState kbStateOld;
 
         public Game1(Vector2 resolution)
         {
@@ -51,6 +53,8 @@ namespace boardProto
             player = new Player();
             editorManager = new EditorManager();
             mouseManager = new MouseManager();
+            kbState = Keyboard.GetState();
+            kbStateOld = kbState;
 
             base.Initialize();
         }
@@ -114,6 +118,14 @@ namespace boardProto
 
             // TODO: Add your update logic here
             editorManager.ScrollWorld(mouseManager.GetMouseState(), mouseManager.GetMousePosition());
+
+            // Toggle whether to display editor menus
+            kbState = Keyboard.GetState();
+            if (kbStateOld.IsKeyUp(Keys.Tab) && kbState.IsKeyDown(Keys.Tab))
+                    editorManager.ActiveToolMenuShow = !editorManager.ActiveToolMenuShow;
+            kbStateOld = kbState;
+            
+
             // Places tiles when LMB is pressed
             if (editorManager.ActiveTool != EditorManager.EditorTools.None)
                 editorManager.PlaceTiles(mouseManager.GetMouseState(), editorManager.DetectClosestTilePosition(mouseWorldPosition, new Rectangle(0, 0, 600, 100)));

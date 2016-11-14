@@ -98,13 +98,13 @@ namespace boardProto
             if (activeTool == EditorTools.L1TilePlacer)
             {
                 // Open tile selection menu
-                l1TileTool.TileSelectionMenuShow = true;
-                activeToolMenuShow = l1TileTool.TileSelectionMenuShow;
+                if (l1TileTool.TileSelectionMenuShow != activeToolMenuShow)
+                {
+                    l1TileTool.TileSelectionMenuShow = activeToolMenuShow;
+                }
 
                 // Tile selection
                 l1TileTool.TileSelection();
-
-                Console.WriteLine("sdfs");
 
                 // Tile placement
                 if (_mouseState.LeftButton == ButtonState.Pressed)
