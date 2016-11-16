@@ -19,7 +19,7 @@
 /processorParam:TextureFormat=Compressed
 /build:DebugFont.spritefont
 
-#begin Tiles\Ground\TileDirt2x2
+#begin Tiles/Ground/TileDirt1x1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -29,9 +29,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Tiles\Ground\TileDirt2x2
+/build:Tiles/Ground/TileDirt1x1.png
 
-#begin Tiles\Ground\TileDirt1x1
+#begin Tiles/Ground/TileDirt2x2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -41,5 +41,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Tiles\Ground\TileDirt1x1
+/build:Tiles/Ground/TileDirt2x2.png
 

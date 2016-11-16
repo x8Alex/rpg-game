@@ -128,8 +128,11 @@ namespace boardProto
 
             // Places tiles when LMB is pressed
             if (editorManager.ActiveTool != EditorManager.EditorTools.None)
-                editorManager.PlaceTiles(mouseManager.GetMouseState(), editorManager.DetectClosestTilePosition(mouseWorldPosition, new Rectangle(0, 0, 600, 100)));
+                editorManager.PlaceTiles(mouseManager.GetMouseState(), 
+                                         editorManager.DetectClosestTilePosition(mouseWorldPosition, 
+                                         editorManager.IgnoredMenuAreas));
 
+            // Updates mouse world position
             mouseWorldPosition.X = mouseManager.GetMousePosition().X - editorManager.GetWorldOffset().X;
             mouseWorldPosition.Y = mouseManager.GetMousePosition().Y - editorManager.GetWorldOffset().Y;
             base.Update(gameTime);
@@ -146,16 +149,14 @@ namespace boardProto
             // TODO: Add your drawing code here
             spriteBatch.Begin(transformMatrix: GetScaleMatrix());
 
-            editorManager.DrawEmptySpace(spriteBatch, virtualResolution);
+            editorManager.DrawEmptySpace(spriteBatch, virtualResolution);   // Draws empty black background
             editorManager.DrawTiles(spriteBatch, editorManager.DetectClosestTilePosition(mouseWorldPosition));
-            editorManager.DrawGrid(spriteBatch, virtualResolution);
+            //editorManager.DrawGrid(spriteBatch, virtualResolution);
 
             player.Draw(spriteBatch,editorManager.GetWorldOffset());
 
-            if (editorManager.ActiveToolMenuShow)
-            {
-                editorManager.DrawActivePanel(spriteBatch, new Rectangle(0, 0, 600, 100));
-            }
+            // Draws the active tool menus
+            editorManager.DrawActivePanel(spriteBatch, editorManager.IgnoredMenuAreas);
 
             spriteBatch.DrawString(debugFont, "World coords:", new Vector2(5, 5), Color.Yellow);
             spriteBatch.DrawString(debugFont, mouseWorldPosition.ToString(), new Vector2(80, 5), Color.Yellow);

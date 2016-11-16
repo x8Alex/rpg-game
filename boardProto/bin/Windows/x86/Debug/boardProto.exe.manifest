@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boardProto.exe" size="175016">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boardProto.exe" size="176040">
       <assemblyIdentity name="boardProto" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Ok04qNoamcJw6gsZ24KtfhpLqkq+HppJlo/5w8rk6FA=</dsig:DigestValue>
+        <dsig:DigestValue>WhWIb0qFOdWirZWl0QMohI/gCi6Uo8b7SFR4A5gMnno=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -216,7 +216,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>mKV0kzxBimp8XNadAqDJWOAFpdYKnveyWXw9l/J2Qp4=</dsig:DigestValue>
+      <dsig:DigestValue>7cJq8p+03OeM+l73T9eZRShsfN9aNp9HIPfUxGzBI9I=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Tiles\Ground\TileDirt2x2.xnb" size="37205">
@@ -225,7 +225,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>q3CGIvBitc5g7V/YPDpBHZn1DL0Fv/rB+jvgsg3JcHA=</dsig:DigestValue>
+      <dsig:DigestValue>9kWiyPitg76RITZ/YMWIjTNTKjmX1HaqXfuDIwhW6fY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Icon.ico" size="147541">
