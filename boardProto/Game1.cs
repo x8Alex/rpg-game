@@ -81,6 +81,7 @@ namespace boardProto
             TEXTURE_LIST.Add(GRID_TEXTURE);
             TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/TileDirt1x1"));
             TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/TileDirt2x2"));
+            TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/TileDirt4x4"));
 
             // Adds textures to a list that is passed to EditorManager
 
@@ -119,10 +120,36 @@ namespace boardProto
             // TODO: Add your update logic here
             editorManager.ScrollWorld(mouseManager.GetMouseState(), mouseManager.GetMousePosition());
 
-            // Toggle whether to display editor menus
             kbState = Keyboard.GetState();
+            // Toggle whether to display editor menus
             if (kbStateOld.IsKeyUp(Keys.Tab) && kbState.IsKeyDown(Keys.Tab))
-                    editorManager.ActiveToolMenuShow = !editorManager.ActiveToolMenuShow;
+                editorManager.ActiveToolMenuShow = !editorManager.ActiveToolMenuShow;
+            // Toggle whether to display the grid
+            if (kbStateOld.IsKeyUp(Keys.G) && kbState.IsKeyDown(Keys.G))
+                editorManager.GridShow = !editorManager.GridShow;
+            
+            // Increase or decrease tile size
+            // Works if a tile tool is active
+            // Works if the texture has a "#x#" at the end of it
+            if (kbStateOld.IsKeyUp(Keys.OemPlus) && kbState.IsKeyDown(Keys.OemPlus) &&
+                editorManager.ActiveTool == EditorManager.EditorTools.L1TilePlacer)
+            {
+                if (editorManager.SelectedTileTexture.ToString().Contains("1x1") ||
+                    editorManager.SelectedTileTexture.ToString().Contains("2x2") ||
+                    editorManager.SelectedTileTexture.ToString().Contains("4x4"))
+                {
+                    editorManager.L1TileTool.TileSelection("BIGGER");   // Increase tile size
+                }
+            }
+            else if (kbStateOld.IsKeyUp(Keys.OemMinus) && kbState.IsKeyDown(Keys.OemMinus))
+            {
+                if (editorManager.SelectedTileTexture.ToString().Contains("1x1") ||
+                    editorManager.SelectedTileTexture.ToString().Contains("2x2") ||
+                    editorManager.SelectedTileTexture.ToString().Contains("4x4"))
+                {
+                    editorManager.L1TileTool.TileSelection("SMALLER");  // Decrease tile size
+                }
+            }
             kbStateOld = kbState;
             
 
@@ -150,8 +177,10 @@ namespace boardProto
             spriteBatch.Begin(transformMatrix: GetScaleMatrix());
 
             editorManager.DrawEmptySpace(spriteBatch, virtualResolution);   // Draws empty black background
-            editorManager.DrawTiles(spriteBatch, editorManager.DetectClosestTilePosition(mouseWorldPosition));
-            //editorManager.DrawGrid(spriteBatch, virtualResolution);
+            editorManager.DrawTiles(spriteBatch, editorManager.DetectClosestTilePosition(mouseWorldPosition), 
+                                    editorManager.SelectedTileTexture);
+            if (editorManager.GridShow)     // Draws the grid if GridShow is true
+                editorManager.DrawGrid(spriteBatch, virtualResolution);
 
             player.Draw(spriteBatch,editorManager.GetWorldOffset());
 

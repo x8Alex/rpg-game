@@ -16,21 +16,27 @@ namespace boardProto
         Rectangle openMenuRectangle = new Rectangle(0, 0, 600, 110);    // Rectangle boundaries for the menu while open
         Rectangle closedMenuRectangle = new Rectangle(0, 0, 100, 100);  // Rectangle boundaries for the menu while closed, only shows selected texture
 
+        int tileTextureIndex = 0;
         Texture2D selectedTileTexture;
         bool tileSelectionMenuShow;
 
         public L1TileTool(List <Texture2D> _listTileTextures)
         {
             listTileTextures = _listTileTextures;
-            selectedTileTexture = listTileTextures[1];
+            selectedTileTexture = listTileTextures[tileTextureIndex];
             tileSelectionMenuShow = true;
             ignoredAreas = new List<Rectangle>();   // Initializes an empty list
             ignoredAreas.Add(openMenuRectangle);    
         }
 
-        public void TileSelection()
+        public void TileSelection(String _changeSize)
         {
-
+            if (_changeSize == "BIGGER" && !selectedTileTexture.ToString().Contains("4x4"))
+                // Increase tile size
+                selectedTileTexture = listTileTextures[++tileTextureIndex];
+            else if (_changeSize == "SMALLER" && !selectedTileTexture.ToString().Contains("1x1"))
+                // Decrease tile size
+                selectedTileTexture = listTileTextures[--tileTextureIndex];
         }
 
         public List<L1Tile> PlaceTile(List <L1Tile> _listL1Tiles, Vector2 _tilePosition)

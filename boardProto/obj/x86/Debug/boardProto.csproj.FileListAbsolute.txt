@@ -35,3 +35,4 @@ C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\obj\
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\obj\x86\Debug\boardProto.csproj.GenerateResource.Cache
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDirt1x1.xnb
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDirt2x2.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDirt4x4.xnb

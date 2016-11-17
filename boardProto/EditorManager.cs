@@ -20,12 +20,14 @@ namespace boardProto
         List<Texture2D> listL1Textures;     // A list of LAYER1 textures to be loaded
         Texture2D textureEmptySpace;
         Texture2D textureGridGray;
+        Texture2D selectedTileTexture;
         Texture2D DIRT_TILE1;
 
-        L1TileTool l1TileTool;
         EditorTools activeTool;
+        L1TileTool l1TileTool;
         List<Rectangle> ignoredMenuAreas;
         bool activeToolMenuShow = false;
+        bool gridShow = true;
 
         // Editor tools
         public enum EditorTools
@@ -40,7 +42,8 @@ namespace boardProto
         List<Vector3> layer3;
 
         // Layer 1 tiles
-        public enum L1TileType {
+        public enum L1TileType 
+        {
             Dirt1x1,
             Dirt2x2,
             Grass1x1,
@@ -56,6 +59,7 @@ namespace boardProto
             textureGridGray = listAllTextures[1];
             listL1Textures.Add(listAllTextures[2]);   // Adds TileDirt1x1
             listL1Textures.Add(listAllTextures[3]);   // Adds TileDirt2x2
+            listL1Textures.Add(listAllTextures[4]);   // Adds TileDirt4x4
 
             activeTool = EditorTools.L1TilePlacer;      // Makes all panels inactive by default
             l1TileTool = new L1TileTool(listL1Textures);
@@ -86,7 +90,7 @@ namespace boardProto
         {
             // Check which panel is active
             // ===========================================================================
-            if (activeTool == EditorTools.L1TilePlacer)
+            if (activeTool == EditorTools.L1TilePlacer)         // ======= LAYER 1 =======
             {
                 // Toggle tile selection menu
                 if (l1TileTool.TileSelectionMenuShow != activeToolMenuShow)
@@ -100,7 +104,8 @@ namespace boardProto
                 }
 
                 // Tile selection
-                l1TileTool.TileSelection();
+                //l1TileTool.TileSelection();
+                selectedTileTexture = l1TileTool.SelectedTileTexture;
 
                 // Tile placement
                 if (_mouseState.LeftButton == ButtonState.Pressed)
@@ -658,9 +663,9 @@ namespace boardProto
         }
 
         // Draws the tiles
-        public void DrawTiles(SpriteBatch spriteBatch, Vector2 pos)
+        public void DrawTiles(SpriteBatch spriteBatch, Vector2 pos, Texture2D _selectedTileTexture)
         {
-            spriteBatch.Draw(listL1Textures[1], new Vector2(pos.X, pos.Y - listL1Textures[1].Height / 2) + worldOffset, 
+            spriteBatch.Draw(_selectedTileTexture, new Vector2(pos.X, pos.Y - _selectedTileTexture.Height / 2) + worldOffset, 
                              null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
 
             foreach (var _tile in listL1Tiles)
@@ -720,6 +725,21 @@ namespace boardProto
         {
             get { return ignoredMenuAreas; }
             set { ignoredMenuAreas = value; }
+        }
+        public bool GridShow
+        {
+            get { return gridShow; }
+            set { gridShow = value; }
+        }
+        public Texture2D SelectedTileTexture
+        {
+            get { return selectedTileTexture; }
+            set { selectedTileTexture = value; }
+        }
+        internal L1TileTool L1TileTool1
+        {
+            get { return l1TileTool; }
+            set { l1TileTool = value; }
         }
     }
 }
