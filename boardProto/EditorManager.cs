@@ -16,12 +16,13 @@ namespace boardProto
         Vector2 lastMousePosition;
         Vector2 MOUSE_POSITION;
 
-        List<Texture2D> listAllTextures;    // A list of all textures to be loaded
+        List<Texture2D> listTileTextures;    // A list of all textures to be loaded
         List<Texture2D> listL1Textures;     // A list of LAYER1 textures to be loaded
         Texture2D textureEmptySpace;
         Texture2D textureGridGray;
         Texture2D selectedTileTexture;
-        Texture2D DIRT_TILE1;
+        Texture2D textureMenuOpen;
+        Texture2D textureMenuClosed;
 
         EditorTools activeTool;
         L1TileTool l1TileTool;
@@ -50,19 +51,23 @@ namespace boardProto
             Grass2x2
         };
 
-        public void Initialize(List<Texture2D> texture_list)
+        public void Initialize(List<Texture2D> _texture_list)
         {
-            listAllTextures = texture_list;
+            listTileTextures = new List<Texture2D>();
+            for (int i = 4; i < _texture_list.Count; i++)
+                listTileTextures.Add(_texture_list[i]);
             listL1Textures = new List<Texture2D>();
             listL1Tiles = new List<L1Tile>();
-            textureEmptySpace = listAllTextures[0];
-            textureGridGray = listAllTextures[1];
-            listL1Textures.Add(listAllTextures[2]);   // Adds TileDirt1x1
-            listL1Textures.Add(listAllTextures[3]);   // Adds TileDirt2x2
-            listL1Textures.Add(listAllTextures[4]);   // Adds TileDirt4x4
+            textureEmptySpace = _texture_list[0];
+            textureGridGray = _texture_list[1];
+            textureMenuOpen = _texture_list[2];
+            textureMenuClosed = _texture_list[3];
+            listL1Textures.Add(listTileTextures[0]);   // Adds TileDirt1x1
+            listL1Textures.Add(listTileTextures[1]);   // Adds TileDirt2x2
+            listL1Textures.Add(listTileTextures[2]);   // Adds TileDirt4x4
 
             activeTool = EditorTools.L1TilePlacer;      // Makes all panels inactive by default
-            l1TileTool = new L1TileTool(listL1Textures);
+            l1TileTool = new L1TileTool(textureMenuOpen, textureMenuClosed, listL1Textures);
             // ignoredMenuAreas will be shared between all tools
             ignoredMenuAreas = l1TileTool.IgnoredAreas; // ASSUMES L1EDITORTOOL AND MENUS ARE ACTIVE **********
         }
@@ -98,9 +103,9 @@ namespace boardProto
                     l1TileTool.TileSelectionMenuShow = activeToolMenuShow;
 
                     if (activeToolMenuShow)
-                        ignoredMenuAreas = new List<Rectangle>() { l1TileTool.ClosedMenuRectangle };
+                        ignoredMenuAreas = new List<Rectangle>() { l1TileTool.RectangleMenuOpen };
                     else
-                        ignoredMenuAreas = new List<Rectangle>(l1TileTool.IgnoredAreas);
+                        ignoredMenuAreas = new List<Rectangle>() { l1TileTool.RectangleMenuClosed };
                 }
 
                 // Tile selection
@@ -646,14 +651,17 @@ namespace boardProto
         }
 
         // Draws editor panels
-        public void DrawActivePanel(SpriteBatch spriteBatch, List<Rectangle> _frames)
+        public void DrawActivePanel(SpriteBatch spriteBatch, EditorTools _activeTool)
         {
-            foreach (Rectangle _frame in _frames)
-                spriteBatch.Draw(textureEmptySpace, _frame, Color.White);
-
-            /*for (int i = 0; i < l1TileTool.ListTileTextures.Count(); i++ )
-                spriteBatch.Draw(listL1Textures[i], new Vector2(10 + 90 * i, 50 - listL1Textures[i].Height / 2),
-                                 null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f); */
+            if (_activeTool == EditorTools.L1TilePlacer && activeToolMenuShow)
+            {
+                spriteBatch.Draw(l1TileTool.TextureMenuOpen, l1TileTool.RectangleMenuOpen, Color.White);
+            }
+            else if (_activeTool == EditorTools.L1TilePlacer && !activeToolMenuShow)
+            {
+                spriteBatch.Draw(l1TileTool.TextureMenuClosed, l1TileTool.RectangleMenuClosed, Color.White);
+                Console.WriteLine(activeToolMenuShow);
+            }
         }
 
         // Draws a black background
@@ -740,6 +748,16 @@ namespace boardProto
         {
             get { return l1TileTool; }
             set { l1TileTool = value; }
+        }
+        public Texture2D TextureMenuOpen
+        {
+            get { return textureMenuOpen; }
+            set { textureMenuOpen = value; }
+        }
+        public Texture2D TextureMenuClosed
+        {
+            get { return textureMenuClosed; }
+            set { textureMenuClosed = value; }
         }
     }
 }

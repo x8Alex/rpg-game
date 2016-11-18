@@ -79,6 +79,8 @@ namespace boardProto
 
             TEXTURE_LIST.Add(EMPTY_SPACE);
             TEXTURE_LIST.Add(GRID_TEXTURE);
+            TEXTURE_LIST.Add(Content.Load<Texture2D>("Panels/ToolMenuOpen"));
+            TEXTURE_LIST.Add(Content.Load<Texture2D>("Panels/ToolMenuClosed"));
             TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/TileDirt1x1"));
             TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/TileDirt2x2"));
             TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/TileDirt4x4"));
@@ -152,7 +154,6 @@ namespace boardProto
             }
             kbStateOld = kbState;
             
-
             // Places tiles when LMB is pressed
             if (editorManager.ActiveTool != EditorManager.EditorTools.None)
                 editorManager.PlaceTiles(mouseManager.GetMouseState(), 
@@ -182,17 +183,19 @@ namespace boardProto
             if (editorManager.GridShow)     // Draws the grid if GridShow is true
                 editorManager.DrawGrid(spriteBatch, virtualResolution);
 
-            player.Draw(spriteBatch,editorManager.GetWorldOffset());
+            player.Draw(spriteBatch, editorManager.GetWorldOffset());
 
             // Draws the active tool menus
-            editorManager.DrawActivePanel(spriteBatch, editorManager.IgnoredMenuAreas);
+            editorManager.DrawActivePanel(spriteBatch, editorManager.ActiveTool);
 
-            spriteBatch.DrawString(debugFont, "World coords:", new Vector2(5, 5), Color.Yellow);
-            spriteBatch.DrawString(debugFont, mouseWorldPosition.ToString(), new Vector2(80, 5), Color.Yellow);
+            spriteBatch.DrawString(debugFont, "World coords:", new Vector2(5, 1), Color.Yellow);
+            spriteBatch.DrawString(debugFont, mouseWorldPosition.ToString(), new Vector2(80, 1), Color.Yellow);
             spriteBatch.DrawString(debugFont, 
                                    new Vector2 ((float)Math.Round(editorManager.DetectClosestTilePosition(mouseWorldPosition).X, 0),
                                                 (float)Math.Round(editorManager.DetectClosestTilePosition(mouseWorldPosition).Y, 0)).ToString(),
-                                   new Vector2(5, 15), Color.Yellow);
+                                   new Vector2(5, 11), Color.Yellow);
+            spriteBatch.DrawString(debugFont, "Active tool: " + editorManager.ActiveTool.ToString(), new Vector2(180, 1), Color.LimeGreen);
+            spriteBatch.DrawString(debugFont, "Selected tile: " + editorManager.SelectedTileTexture.ToString(), new Vector2(310, 1), Color.Magenta);
             spriteBatch.End();
             base.Draw(gameTime);
         }

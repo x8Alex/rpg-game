@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boardProto.exe" size="177064">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boardProto.exe" size="178600">
       <assemblyIdentity name="boardProto" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>anOqLKRCJDju4rUX9Xs8Lerl+CBnxxpeT9SbOxW94s0=</dsig:DigestValue>
+        <dsig:DigestValue>bbeiFZMwQxQ9MokSrfE+cmsRv4GVmZqjkmO4PaUsn9w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -208,6 +208,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>2KWRrrW9NRgH9HE4Jv/zzI69xPQDpI7JEJMWHqvCrt4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Panels\ToolMenuClosed.xnb" size="53229">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>dTfuyTBiFtaaq+A/XasnuWeispvGXF/c/bqHUT3lFOQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Panels\ToolMenuOpen.xnb" size="390085">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>oJAWdCeR/WlrYFKmoFVqITLkf1QwW22LcGSj/3pC0Sg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Tiles\Ground\TileDirt1x1.xnb" size="9365">

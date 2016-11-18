@@ -13,20 +13,26 @@ namespace boardProto
         List<Texture2D> listTileTextures;
         List<Rectangle> ignoredAreas;
 
-        Rectangle openMenuRectangle = new Rectangle(0, 0, 600, 110);    // Rectangle boundaries for the menu while open
-        Rectangle closedMenuRectangle = new Rectangle(0, 0, 100, 100);  // Rectangle boundaries for the menu while closed, only shows selected texture
+        Rectangle rectangleMenuOpen;    // Rectangle boundaries for the menu while open
+        Rectangle rectangleMenuClosed;  // Rectangle boundaries for the menu while closed, only shows selected texture
 
         int tileTextureIndex = 0;
+        Texture2D textureMenuOpen;
+        Texture2D textureMenuClosed;
         Texture2D selectedTileTexture;
         bool tileSelectionMenuShow;
 
-        public L1TileTool(List <Texture2D> _listTileTextures)
+        public L1TileTool(Texture2D _textureMenuOpen, Texture2D _textureMenuClosed, List <Texture2D> _listTileTextures)
         {
             listTileTextures = _listTileTextures;
+            textureMenuOpen = _textureMenuOpen;
+            textureMenuClosed = _textureMenuClosed;
             selectedTileTexture = listTileTextures[tileTextureIndex];
             tileSelectionMenuShow = true;
+            rectangleMenuOpen = new Rectangle(0, 0, textureMenuOpen.Width, textureMenuOpen.Height);
+            rectangleMenuClosed = new Rectangle(0, 0, textureMenuClosed.Width, textureMenuClosed.Height);
             ignoredAreas = new List<Rectangle>();   // Initializes an empty list
-            ignoredAreas.Add(openMenuRectangle);    
+            ignoredAreas.Add(rectangleMenuOpen);    
         }
 
         public void TileSelection(String _changeSize)
@@ -84,10 +90,25 @@ namespace boardProto
             get { return selectedTileTexture; }
             set { selectedTileTexture = value; }
         }
-        public Rectangle ClosedMenuRectangle
+        public Texture2D TextureMenuOpen
         {
-            get { return closedMenuRectangle; }
-            set { closedMenuRectangle = value; }
+            get { return textureMenuOpen; }
+            set { textureMenuOpen = value; }
+        }
+        public Texture2D TextureMenuClosed
+        {
+            get { return textureMenuClosed; }
+            set { textureMenuClosed = value; }
+        }
+        public Rectangle RectangleMenuOpen
+        {
+            get { return rectangleMenuOpen; }
+            set { rectangleMenuOpen = value; }
+        }
+        public Rectangle RectangleMenuClosed
+        {
+            get { return rectangleMenuClosed; }
+            set { rectangleMenuClosed = value; }
         }
     }
 }
