@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileDirt4x4.png</SourceFile>
-  <SourceTime>2016-11-18T00:47:44.4304259-05:00</SourceTime>
-  <DestFile>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/bin/Windows/Tiles/Ground/TileDirt4x4.xnb</DestFile>
-  <DestTime>2016-11-18T01:05:09.421196-05:00</DestTime>
+  <SourceFile>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Panels/Buttons/ButtonTileOFF.png</SourceFile>
+  <SourceTime>2016-11-22T22:00:39.0880833-05:00</SourceTime>
+  <DestFile>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/bin/Windows/Panels/Buttons/ButtonTileOFF.xnb</DestFile>
+  <DestTime>2016-11-22T22:01:37.5324261-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T02:36:08-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

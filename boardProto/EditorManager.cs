@@ -17,7 +17,7 @@ namespace boardProto
         Vector2 MOUSE_POSITION;
 
         List<Texture2D> listTileTextures;    // A list of all textures to be loaded
-        List<Texture2D> listL1Textures;     // A list of LAYER1 textures to be loaded
+        //List<Texture2D> listL1Textures;     // A list of LAYER1 textures to be loaded
         Texture2D textureEmptySpace;
         Texture2D textureGridGray;
         Texture2D selectedTileTexture;
@@ -54,20 +54,20 @@ namespace boardProto
         public void Initialize(List<Texture2D> _texture_list)
         {
             listTileTextures = new List<Texture2D>();
-            for (int i = 4; i < _texture_list.Count; i++)
+            listL1Tiles = new List<L1Tile>();       // L1Tile objects that will be written and read from the map files
+
+            // Adds tile textures to listTileTextures. "i" equals to the first tile texture
+            for (int i = 4; i < _texture_list.Count; i++)   // Passes textures starting from the button textures
                 listTileTextures.Add(_texture_list[i]);
-            listL1Textures = new List<Texture2D>();
-            listL1Tiles = new List<L1Tile>();
+            
             textureEmptySpace = _texture_list[0];
             textureGridGray = _texture_list[1];
             textureMenuOpen = _texture_list[2];
             textureMenuClosed = _texture_list[3];
-            listL1Textures.Add(listTileTextures[0]);   // Adds TileDirt1x1
-            listL1Textures.Add(listTileTextures[1]);   // Adds TileDirt2x2
-            listL1Textures.Add(listTileTextures[2]);   // Adds TileDirt4x4
 
             activeTool = EditorTools.L1TilePlacer;      // Makes all panels inactive by default
-            l1TileTool = new L1TileTool(textureMenuOpen, textureMenuClosed, listL1Textures);
+            l1TileTool = new L1TileTool(textureMenuOpen, textureMenuClosed, listTileTextures);
+
             // ignoredMenuAreas will be shared between all tools
             ignoredMenuAreas = l1TileTool.IgnoredAreas; // ASSUMES L1EDITORTOOL AND MENUS ARE ACTIVE **********
         }
@@ -109,7 +109,7 @@ namespace boardProto
                 }
 
                 // Tile selection
-                //l1TileTool.TileSelection();
+                //l1TileTool.TileSelection();   -------> This will be called by Game1 not EditorManager???
                 selectedTileTexture = l1TileTool.SelectedTileTexture;
 
                 // Tile placement
@@ -347,7 +347,6 @@ namespace boardProto
                     else if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) < oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
                         && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) <= oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
                     {
-                        Console.WriteLine(_mouseWorldPosition.ToString());
                         // If the mouse is in the LEFT half of the tile
                         if (Math.Abs(_mouseWorldPosition.X) >= (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80 + 40 &&
                             Math.Abs(_mouseWorldPosition.X) < (int)(Math.Abs(_mouseWorldPosition.X) / 80 + 1) * 80 + 40)
@@ -616,7 +615,6 @@ namespace boardProto
                             else if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) < oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
                                 && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) <= oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
                             {
-                                Console.WriteLine(_mouseWorldPosition.ToString());
                                 // If the mouse is in the LEFT half of the tile
                                 if (Math.Abs(_mouseWorldPosition.X) >= (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80 + 40 &&
                                     Math.Abs(_mouseWorldPosition.X) < (int)(Math.Abs(_mouseWorldPosition.X) / 80 + 1) * 80 + 40)
@@ -653,14 +651,22 @@ namespace boardProto
         // Draws editor panels
         public void DrawActivePanel(SpriteBatch spriteBatch, EditorTools _activeTool)
         {
+            // LAYER 1 Tile Tool
             if (_activeTool == EditorTools.L1TilePlacer && activeToolMenuShow)
             {
+                // Draws the OPEN menu frame
                 spriteBatch.Draw(l1TileTool.TextureMenuOpen, l1TileTool.RectangleMenuOpen, Color.White);
+                
+
+                // Draws the tile selection buttons
+                foreach (ToolTileButton _button in l1TileTool.ListMenuButtons)
+                {
+                    _button.Draw(spriteBatch, l1TileTool.SelectedTileTexture);
+                }
             }
             else if (_activeTool == EditorTools.L1TilePlacer && !activeToolMenuShow)
             {
                 spriteBatch.Draw(l1TileTool.TextureMenuClosed, l1TileTool.RectangleMenuClosed, Color.White);
-                Console.WriteLine(activeToolMenuShow);
             }
         }
 

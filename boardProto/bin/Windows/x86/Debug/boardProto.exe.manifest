@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boardProto.exe" size="178600">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boardProto.exe" size="180648">
       <assemblyIdentity name="boardProto" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bbeiFZMwQxQ9MokSrfE+cmsRv4GVmZqjkmO4PaUsn9w=</dsig:DigestValue>
+        <dsig:DigestValue>f1oHqRRmEdymNZd84YzbXJtjBkiG06BkdUOSr4T2gOk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -210,6 +210,24 @@
       <dsig:DigestValue>2KWRrrW9NRgH9HE4Jv/zzI69xPQDpI7JEJMWHqvCrt4=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Panels\Buttons\ButtonTileOFF.xnb" size="26045">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>aWqXy2FROMSKxf20s27UNcEhH/l4e/gIp9jB+x3AY/4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Panels\Buttons\ButtonTileON.xnb" size="26045">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Hs3i6XMWM5vsiSUXt+Zwj29ZIv4yOXd3A02KapVhJF4=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Panels\ToolMenuClosed.xnb" size="53229">
     <hash>
       <dsig:Transforms>
@@ -253,6 +271,33 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>WqyU7Z/I8B3Io0R8TkqmGSx1U3M/eOCNPyu85tZBlvo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\Ground\TileGrassThick1x1.xnb" size="12565">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>tlAda/byKuy451X0x0IpIQYy2P4GnvYdISvnKdcQqIY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\Ground\TileGrassThick2x2.xnb" size="43605">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>cDEZ0wTXnT2bTwloY8tWz5a73CsoVzao/nN6N/qC68E=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\Ground\TileGrassThick4x4.xnb" size="161365">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>m5oil7OdeeXpkrHyusRJ7o95EJZPVzPZK1brV6t8drs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Icon.ico" size="147541">

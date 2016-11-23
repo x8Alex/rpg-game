@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ namespace boardProto
     /// </summary>
     public class Game1 : Game
     {
+        DirectoryInfo tileDirectory;
         GraphicsDeviceManager graphics;
         Vector2 virtualResolution = new Vector2(1366, 768);
         SpriteBatch spriteBatch;
@@ -38,6 +41,7 @@ namespace boardProto
             graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             this.IsMouseVisible = true;
             Content.RootDirectory = "Content";
+            tileDirectory = new DirectoryInfo(Content.RootDirectory + "/Tiles/Ground");
         }
 
         /// <summary>
@@ -71,6 +75,7 @@ namespace boardProto
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load textures.
+            FileInfo[] contentFiles = tileDirectory.GetFiles("*.*");
             EMPTY_SPACE = new Texture2D (graphics.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
             GRID_TEXTURE = new Texture2D(graphics.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
 
@@ -81,9 +86,23 @@ namespace boardProto
             TEXTURE_LIST.Add(GRID_TEXTURE);
             TEXTURE_LIST.Add(Content.Load<Texture2D>("Panels/ToolMenuOpen"));
             TEXTURE_LIST.Add(Content.Load<Texture2D>("Panels/ToolMenuClosed"));
+            TEXTURE_LIST.Add(Content.Load<Texture2D>("Panels/Buttons/ButtonTileOFF"));
+            TEXTURE_LIST.Add(Content.Load<Texture2D>("Panels/Buttons/ButtonTileON"));
+
+            foreach (FileInfo _contentFile in contentFiles)
+            {
+                TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/" + _contentFile.Name.Split('.')[0]));
+            }
+            /*
             TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/TileDirt1x1"));
             TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/TileDirt2x2"));
             TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/TileDirt4x4"));
+            TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/TileGrassThick4x4"));*/
+            Console.WriteLine("==========" + TEXTURE_LIST.Count);
+            foreach (Texture2D _texture in TEXTURE_LIST)
+            {
+                Console.WriteLine(_texture.ToString());
+            }
 
             // Adds textures to a list that is passed to EditorManager
 
@@ -185,7 +204,7 @@ namespace boardProto
 
             player.Draw(spriteBatch, editorManager.GetWorldOffset());
 
-            // Draws the active tool menus
+            // Draws the active tool menus and buttons
             editorManager.DrawActivePanel(spriteBatch, editorManager.ActiveTool);
 
             spriteBatch.DrawString(debugFont, "World coords:", new Vector2(5, 1), Color.Yellow);

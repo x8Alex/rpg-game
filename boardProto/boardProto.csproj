@@ -80,6 +80,7 @@
     <Compile Include="ResolutionQuery.Designer.cs">
       <DependentUpon>ResolutionQuery.cs</DependentUpon>
     </Compile>
+    <Compile Include="ToolTileButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

@@ -10,39 +10,67 @@ namespace boardProto
 {
     class L1TileTool
     {
-        List<Texture2D> listTileTextures;
+        List<Texture2D> listTextures;
+        List<Texture2D> listButtonTextures;     // Odd indexes are off, even are on
+        List<ToolTileButton> listMenuButtons;   // List of buttons. There are as many buttons as there are 1x1 tiles
         List<Rectangle> ignoredAreas;
 
         Rectangle rectangleMenuOpen;    // Rectangle boundaries for the menu while open
         Rectangle rectangleMenuClosed;  // Rectangle boundaries for the menu while closed, only shows selected texture
 
-        int tileTextureIndex = 0;
+        int tileTextureIndex;
         Texture2D textureMenuOpen;
         Texture2D textureMenuClosed;
         Texture2D selectedTileTexture;
         bool tileSelectionMenuShow;
 
-        public L1TileTool(Texture2D _textureMenuOpen, Texture2D _textureMenuClosed, List <Texture2D> _listTileTextures)
+        public L1TileTool(Texture2D _textureMenuOpen, Texture2D _textureMenuClosed, List <Texture2D> _listTextures)
         {
-            listTileTextures = _listTileTextures;
+            listButtonTextures = new List<Texture2D>();
+            ignoredAreas = new List<Rectangle>();           // Initializes an empty list
+            listMenuButtons = new List<ToolTileButton>();
+            
+            listTextures = _listTextures;
             textureMenuOpen = _textureMenuOpen;
             textureMenuClosed = _textureMenuClosed;
-            selectedTileTexture = listTileTextures[tileTextureIndex];
-            tileSelectionMenuShow = true;
             rectangleMenuOpen = new Rectangle(0, 0, textureMenuOpen.Width, textureMenuOpen.Height);
             rectangleMenuClosed = new Rectangle(0, 0, textureMenuClosed.Width, textureMenuClosed.Height);
-            ignoredAreas = new List<Rectangle>();   // Initializes an empty list
-            ignoredAreas.Add(rectangleMenuOpen);    
+            tileSelectionMenuShow = true;
+            ignoredAreas.Add(rectangleMenuOpen);
+
+            // Isolates the button textures and assigns them to listTileButtons
+            foreach (var _buttonTexture in listTextures)
+            {
+                if (_buttonTexture.ToString().Substring(14).Contains("ButtonTile"))
+                {
+                    listButtonTextures.Add(_buttonTexture);
+                }
+            }
+
+            // Creates buttons and assigns them to a list
+            tileTextureIndex = 0;
+            foreach (var _texture in listTextures)
+            {
+                if (_texture.ToString().Substring(12).Contains("1x1"))
+                {
+                    listMenuButtons.Add(new ToolTileButton(tileTextureIndex++, listButtonTextures, _texture));
+                    Console.WriteLine(_texture.ToString());
+                }
+            }
+            Console.WriteLine("========" + ListMenuButtons.Count);
+            tileTextureIndex = listTextures.FindIndex(a => a.ToString().Substring(14).Contains("1x1"));
+            selectedTileTexture = listTextures[tileTextureIndex];
         }
 
         public void TileSelection(String _changeSize)
         {
+            // Handles enlarging and shrinking of tiles
             if (_changeSize == "BIGGER" && !selectedTileTexture.ToString().Contains("4x4"))
                 // Increase tile size
-                selectedTileTexture = listTileTextures[++tileTextureIndex];
+                selectedTileTexture = listTextures[++tileTextureIndex];
             else if (_changeSize == "SMALLER" && !selectedTileTexture.ToString().Contains("1x1"))
                 // Decrease tile size
-                selectedTileTexture = listTileTextures[--tileTextureIndex];
+                selectedTileTexture = listTextures[--tileTextureIndex];
         }
 
         public List<L1Tile> PlaceTile(List <L1Tile> _listL1Tiles, Vector2 _tilePosition)
@@ -75,10 +103,10 @@ namespace boardProto
         {
             get { return ignoredAreas; }
         }
-        public List<Texture2D> ListTileTextures
+        public List<Texture2D> ListTextures
         {
-            get { return listTileTextures; }
-            set { listTileTextures = value; }
+            get { return listTextures; }
+            set { listTextures = value; }
         }
         public bool TileSelectionMenuShow
         {
@@ -110,5 +138,12 @@ namespace boardProto
             get { return rectangleMenuClosed; }
             set { rectangleMenuClosed = value; }
         }
+        internal List<ToolTileButton> ListMenuButtons
+        {
+            get { return listMenuButtons; }
+            set { listMenuButtons = value; }
+        }
+
+        //public List<Texture2D> listTextures { get; set; }
     }
 }
