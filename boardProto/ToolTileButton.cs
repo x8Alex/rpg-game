@@ -49,5 +49,23 @@ namespace boardProto
             spriteBatch.Draw(buttonTileTexture, buttonTilePosition, null, Color.White, 0f, 
                                  Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
+
+        public Rectangle GetButtonBoundaries()
+        {
+            return new Rectangle((int)(buttonPosition.X), (int)(buttonPosition.Y), 
+                                                      buttonTextureOFF.Width, buttonTextureOFF.Height);
+        }
+
+        // Getters and setters ========================================
+        public Vector2 ButtonPosition
+        {
+            get { return buttonPosition; }
+            set { buttonPosition = value; }
+        }
+        public Texture2D ButtonTileTexture
+        {
+            get { return buttonTileTexture; }
+            set { buttonTileTexture = value; }
+        }
     }
 }

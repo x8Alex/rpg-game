@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace boardProto
 {
     class L1TileTool
     {
         List<Texture2D> listTextures;
+        Vector2 tileOffset = new Vector2(0, 0); // Tile offset for textures like grass that are not fully flat. Ex: Grass
         List<Texture2D> listButtonTextures;     // Odd indexes are off, even are on
         List<ToolTileButton> listMenuButtons;   // List of buttons. There are as many buttons as there are 1x1 tiles
         List<Rectangle> ignoredAreas;
@@ -22,6 +24,7 @@ namespace boardProto
         Texture2D textureMenuOpen;
         Texture2D textureMenuClosed;
         Texture2D selectedTileTexture;
+        EditorManager.L1TileType selectedTileType;
         bool tileSelectionMenuShow;
 
         public L1TileTool(Texture2D _textureMenuOpen, Texture2D _textureMenuClosed, List <Texture2D> _listTextures)
@@ -57,11 +60,17 @@ namespace boardProto
                     Console.WriteLine(_texture.ToString());
                 }
             }
-            Console.WriteLine("========" + ListMenuButtons.Count);
+            
             tileTextureIndex = listTextures.FindIndex(a => a.ToString().Substring(14).Contains("1x1"));
             selectedTileTexture = listTextures[tileTextureIndex];
+
+            if (selectedTileTexture.ToString().Contains("Dirt"))
+                selectedTileType = EditorManager.L1TileType.Dirt;
+            else if (selectedTileTexture.ToString().Contains("GrassThick"))
+                selectedTileType = EditorManager.L1TileType.GrassThick;
         }
 
+        // Tile selection for increasing or decreasing the tile size
         public void TileSelection(String _changeSize)
         {
             // Handles enlarging and shrinking of tiles
@@ -73,6 +82,33 @@ namespace boardProto
                 selectedTileTexture = listTextures[--tileTextureIndex];
         }
 
+        // Tile selection for different tiles
+        public void TileSelection(MouseState _mouseState)
+        {
+            foreach (ToolTileButton _button in listMenuButtons)
+            {
+                if (_mouseState.X >= _button.GetButtonBoundaries().Left &&
+                    _mouseState.X <= _button.GetButtonBoundaries().Right &&
+                    _mouseState.Y >= _button.GetButtonBoundaries().Top &&
+                    _mouseState.Y <= _button.GetButtonBoundaries().Bottom &&
+                    _mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    selectedTileTexture = _button.ButtonTileTexture;
+                    tileTextureIndex = listTextures.FindIndex(a => a.ToString().Contains(_button.ButtonTileTexture.ToString()));
+                    if (selectedTileTexture.ToString().Contains("Dirt"))
+                        selectedTileType = EditorManager.L1TileType.Dirt;
+                    else if (selectedTileTexture.ToString().Contains("GrassThick"))
+                        selectedTileType = EditorManager.L1TileType.GrassThick;
+
+                    if (selectedTileTexture.ToString().Contains("Grass"))
+                        
+                        tileOffset = new Vector2(0, -5);    // Compensates for the blades of grass at the top of texture
+                    else
+                        tileOffset = new Vector2(0, 0);
+                }
+            }
+        }
+
         public List<L1Tile> PlaceTile(List <L1Tile> _listL1Tiles, Vector2 _tilePosition)
         {
             // 0.00001f is passed when mouse clicks occur within the boundaries of displayed menus
@@ -82,7 +118,7 @@ namespace boardProto
                 if (!_listL1Tiles.Exists(a => a.TilePosition == _tilePosition))
                 {
                     // Add a tile to Layer1Tiles with arguments "tile type", "tile position", "passable T/F", "texture".
-                    _listL1Tiles.Add(new L1Tile(EditorManager.L1TileType.Dirt1x1, _tilePosition, true, SelectedTileTexture));
+                    _listL1Tiles.Add(new L1Tile(selectedTileType, _tilePosition, true, SelectedTileTexture));
                 }
                 // If tile is occupied check if the tile being placed is the same as the one that already exists
                 else if (_listL1Tiles[_listL1Tiles.FindIndex(a => a.TilePosition == _tilePosition)].TileTexture !=
@@ -90,7 +126,7 @@ namespace boardProto
                 {
                     // Overwrites the tile to Layer1Tiles with arguments "tile type", "tile position", "passable T/F", "texture".
                     _listL1Tiles[_listL1Tiles.FindIndex(a => a.TilePosition == _tilePosition)] =
-                                new L1Tile(EditorManager.L1TileType.Dirt1x1, _tilePosition, true, SelectedTileTexture);
+                                new L1Tile(selectedTileType, _tilePosition, true, SelectedTileTexture);
                 }
             }
 
@@ -138,10 +174,15 @@ namespace boardProto
             get { return rectangleMenuClosed; }
             set { rectangleMenuClosed = value; }
         }
-        internal List<ToolTileButton> ListMenuButtons
+        public List<ToolTileButton> ListMenuButtons
         {
             get { return listMenuButtons; }
             set { listMenuButtons = value; }
+        }
+        public Vector2 TileOffset
+        {
+            get { return tileOffset; }
+            set { tileOffset = value; }
         }
 
         //public List<Texture2D> listTextures { get; set; }

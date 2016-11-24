@@ -17,10 +17,10 @@ namespace boardProto
         Vector2 MOUSE_POSITION;
 
         List<Texture2D> listTileTextures;    // A list of all textures to be loaded
-        //List<Texture2D> listL1Textures;     // A list of LAYER1 textures to be loaded
         Texture2D textureEmptySpace;
         Texture2D textureGridGray;
         Texture2D selectedTileTexture;
+        //Vector2 tileOffset;
         Texture2D textureMenuOpen;
         Texture2D textureMenuClosed;
 
@@ -45,10 +45,8 @@ namespace boardProto
         // Layer 1 tiles
         public enum L1TileType 
         {
-            Dirt1x1,
-            Dirt2x2,
-            Grass1x1,
-            Grass2x2
+            Dirt,
+            GrassThick
         };
 
         public void Initialize(List<Texture2D> _texture_list)
@@ -93,6 +91,7 @@ namespace boardProto
         // Places tiles in the world
         public void PlaceTiles(MouseState _mouseState, Vector2 _tilePosition)
         {
+            //_tilePosition += L1TileTool.TileOffset;
             // Check which panel is active
             // ===========================================================================
             if (activeTool == EditorTools.L1TilePlacer)         // ======= LAYER 1 =======
@@ -109,7 +108,6 @@ namespace boardProto
                 }
 
                 // Tile selection
-                //l1TileTool.TileSelection();   -------> This will be called by Game1 not EditorManager???
                 selectedTileTexture = l1TileTool.SelectedTileTexture;
 
                 // Tile placement
@@ -396,7 +394,7 @@ namespace boardProto
                                     (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80) - 40) - 14.56;
 
             float calcYValue = (float)(80 * Math.Tan(20 * Math.PI / 180));
-
+            
             // Runs the check for each area in the list of ignored areas
             foreach (Rectangle _area in _ignoredAreas)
             {
@@ -657,7 +655,6 @@ namespace boardProto
                 // Draws the OPEN menu frame
                 spriteBatch.Draw(l1TileTool.TextureMenuOpen, l1TileTool.RectangleMenuOpen, Color.White);
                 
-
                 // Draws the tile selection buttons
                 foreach (ToolTileButton _button in l1TileTool.ListMenuButtons)
                 {
@@ -679,15 +676,23 @@ namespace boardProto
         // Draws the tiles
         public void DrawTiles(SpriteBatch spriteBatch, Vector2 pos, Texture2D _selectedTileTexture)
         {
-            spriteBatch.Draw(_selectedTileTexture, new Vector2(pos.X, pos.Y - _selectedTileTexture.Height / 2) + worldOffset, 
-                             null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-
+            // Draws all created tiles
             foreach (var _tile in listL1Tiles)
             {
-                spriteBatch.Draw(_tile.TileTexture, new Vector2(_tile.TilePosition.X,
-                                                                _tile.TilePosition.Y - _tile.TileTexture.Height / 2) + worldOffset,
-                             null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                if (_tile.TileOffset == new Vector2(0,0))
+                    spriteBatch.Draw(_tile.TileTexture, new Vector2(_tile.TilePosition.X, _tile.TilePosition.Y - _tile.TileTexture.Height / 2)
+                                                    + worldOffset,
+                                 null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                else
+                    spriteBatch.Draw(_tile.TileTexture, new Vector2(_tile.TilePosition.X, _tile.TilePosition.Y - _tile.TileTexture.Height / 2)
+                                                    + worldOffset + _tile.TileOffset,
+                                 null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             }
+
+            // Draw the selected tile
+            spriteBatch.Draw(_selectedTileTexture, new Vector2(pos.X, pos.Y - _selectedTileTexture.Height / 2) +
+                             worldOffset + L1TileTool.TileOffset,
+                             null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
         // Draws the grid for the editor
@@ -749,11 +754,6 @@ namespace boardProto
         {
             get { return selectedTileTexture; }
             set { selectedTileTexture = value; }
-        }
-        internal L1TileTool L1TileTool1
-        {
-            get { return l1TileTool; }
-            set { l1TileTool = value; }
         }
         public Texture2D TextureMenuOpen
         {
