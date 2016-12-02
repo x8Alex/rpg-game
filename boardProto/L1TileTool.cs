@@ -12,7 +12,7 @@ namespace boardProto
     class L1TileTool
     {
         List<Texture2D> listTextures;
-        Vector2 tileOffset = new Vector2(0, 0); // Tile offset for textures like grass that are not fully flat. Ex: Grass
+        Vector2 tileOffset;                     // Tile offset for textures like grass that are not fully flat. Ex: Grass
         List<Texture2D> listButtonTextures;     // Odd indexes are off, even are on
         List<ToolTileButton> listMenuButtons;   // List of buttons. There are as many buttons as there are 1x1 tiles
         List<Rectangle> ignoredAreas;
@@ -64,10 +64,17 @@ namespace boardProto
             tileTextureIndex = listTextures.FindIndex(a => a.ToString().Substring(14).Contains("1x1"));
             selectedTileTexture = listTextures[tileTextureIndex];
 
-            if (selectedTileTexture.ToString().Contains("Dirt"))
-                selectedTileType = EditorManager.L1TileType.Dirt;
+            if (selectedTileTexture.ToString().Contains("Sand"))
+                selectedTileType = EditorManager.L1TileType.Sand;
             else if (selectedTileTexture.ToString().Contains("GrassThick"))
+            {
+                tileOffset = new Vector2(0, -5);
                 selectedTileType = EditorManager.L1TileType.GrassThick;
+            }
+            else
+            {
+                selectedTileType = EditorManager.L1TileType.Default;
+            }
         }
 
         // Tile selection for increasing or decreasing the tile size
@@ -83,20 +90,20 @@ namespace boardProto
         }
 
         // Tile selection for different tiles
-        public void TileSelection(MouseState _mouseState)
+        public void TileSelection(MouseState _mouseState, Vector2 _mousePosition)
         {
             foreach (ToolTileButton _button in listMenuButtons)
             {
-                if (_mouseState.X >= _button.GetButtonBoundaries().Left &&
-                    _mouseState.X <= _button.GetButtonBoundaries().Right &&
-                    _mouseState.Y >= _button.GetButtonBoundaries().Top &&
-                    _mouseState.Y <= _button.GetButtonBoundaries().Bottom &&
+                if (_mousePosition.X >= _button.GetButtonBoundaries().Left &&
+                    _mousePosition.X <= _button.GetButtonBoundaries().Right &&
+                    _mousePosition.Y >= _button.GetButtonBoundaries().Top &&
+                    _mousePosition.Y <= _button.GetButtonBoundaries().Bottom &&
                     _mouseState.LeftButton == ButtonState.Pressed)
                 {
                     selectedTileTexture = _button.ButtonTileTexture;
                     tileTextureIndex = listTextures.FindIndex(a => a.ToString().Contains(_button.ButtonTileTexture.ToString()));
-                    if (selectedTileTexture.ToString().Contains("Dirt"))
-                        selectedTileType = EditorManager.L1TileType.Dirt;
+                    if (selectedTileTexture.ToString().Contains("Sand"))
+                        selectedTileType = EditorManager.L1TileType.Sand;
                     else if (selectedTileTexture.ToString().Contains("GrassThick"))
                         selectedTileType = EditorManager.L1TileType.GrassThick;
 

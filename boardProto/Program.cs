@@ -29,7 +29,7 @@ namespace boardProto
             // Executes if the form returns true for LAUNCHGAME
             if (resolutionQuery.getLaunchGame())
             {
-                using (var game = new Game1(resolutionQuery.getResolution()))
+                using (var game = new Game1(resolutionQuery.getResolution(), resolutionQuery.getScreenMode(), resolutionQuery.TitleBarHeight))
                     game.Run();
             }
         }

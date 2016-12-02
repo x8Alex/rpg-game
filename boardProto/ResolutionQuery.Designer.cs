@@ -32,6 +32,7 @@
             this.dropBoxResolution = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonExit = new System.Windows.Forms.Button();
+            this.checkBoxFullscreen = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonLaunch
@@ -73,11 +74,23 @@
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
+            // checkBoxFullscreen
+            // 
+            this.checkBoxFullscreen.AutoSize = true;
+            this.checkBoxFullscreen.Location = new System.Drawing.Point(12, 52);
+            this.checkBoxFullscreen.Name = "checkBoxFullscreen";
+            this.checkBoxFullscreen.Size = new System.Drawing.Size(74, 17);
+            this.checkBoxFullscreen.TabIndex = 4;
+            this.checkBoxFullscreen.Text = "Fullscreen";
+            this.checkBoxFullscreen.UseVisualStyleBackColor = true;
+            this.checkBoxFullscreen.CheckedChanged += new System.EventHandler(this.checkBoxFullscreen_CheckedChanged);
+            // 
             // ResolutionQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(204, 125);
+            this.Controls.Add(this.checkBoxFullscreen);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dropBoxResolution);
@@ -96,6 +109,7 @@
         private System.Windows.Forms.ComboBox dropBoxResolution;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.CheckBox checkBoxFullscreen;
 
 
     }

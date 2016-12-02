@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="boardProto.exe.manifest" size="16141">
+    <dependentAssembly dependencyType="install" codebase="boardProto.exe.manifest" size="19888">
       <assemblyIdentity name="boardProto.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>s9kHVp58q2PJf/Wn+1CfOb9QVlUeY9xU4ldx5RCJeVY=</dsig:DigestValue>
+        <dsig:DigestValue>7DkZEZSEuA+Kf4SkJ0m1tKC2T0r9NaX8dPFU/BwZkBs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

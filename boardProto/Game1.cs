@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -15,8 +17,11 @@ namespace boardProto
     public class Game1 : Game
     {
         DirectoryInfo tileDirectory;
+        RenderTarget2D scene;
+        Texture2D renderTargetTexture;
+        int titleBarHeight;
         GraphicsDeviceManager graphics;
-        Vector2 virtualResolution = new Vector2(1366, 768);
+        Vector2 virtualResolution;
         SpriteBatch spriteBatch;
         SpriteFont debugFont;
         Vector2 mouseWorldPosition;
@@ -24,7 +29,7 @@ namespace boardProto
         List<Texture2D> TEXTURE_LIST;
         Texture2D EMPTY_SPACE;      // Black texture for the background of the map editor
         Texture2D GRID_TEXTURE;     // Gray texture for the grid lines of the map editor
-        Texture2D TILE_DIRT1;
+        Texture2D TILE_Sand1;
 
         Player player;
         EditorManager editorManager;
@@ -32,14 +37,22 @@ namespace boardProto
         KeyboardState kbState;
         KeyboardState kbStateOld;
 
-        public Game1(Vector2 resolution)
+        public Game1(Vector2 resolution, bool _screenMode, int _titleBarHeight)
         {
+            titleBarHeight = _titleBarHeight;
             virtualResolution = resolution;
             graphics = new GraphicsDeviceManager(this);
-            graphics.IsFullScreen = true;
-            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            graphics.IsFullScreen = _screenMode;
+            /*graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;*/
+            graphics.PreferredBackBufferWidth = (int)virtualResolution.X;
+            graphics.PreferredBackBufferHeight = (int)virtualResolution.Y;
+
+            
+
+
             this.IsMouseVisible = true;
+            //graphics.ApplyChanges();
             Content.RootDirectory = "Content";
             tileDirectory = new DirectoryInfo(Content.RootDirectory + "/Tiles/Ground");
         }
@@ -60,6 +73,12 @@ namespace boardProto
             kbState = Keyboard.GetState();
             kbStateOld = kbState;
 
+            // Render to target
+            scene = new RenderTarget2D(graphics.GraphicsDevice, (int)virtualResolution.X, (int)virtualResolution.Y,
+                                       false, SurfaceFormat.Color, DepthFormat.None,
+                                       graphics.GraphicsDevice.PresentationParameters.MultiSampleCount,
+                                       RenderTargetUsage.DiscardContents);
+
             base.Initialize();
         }
 
@@ -72,7 +91,7 @@ namespace boardProto
             // Creates the fonts
             debugFont = Content.Load<SpriteFont>("DebugFont");
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            spriteBatch = new SpriteBatch(graphics.GraphicsDevice);
 
             // Load textures.
             FileInfo[] contentFiles = tileDirectory.GetFiles("*.*");
@@ -103,7 +122,14 @@ namespace boardProto
             Vector2 playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Width / 2, 
                                                  GraphicsDevice.Viewport.TitleSafeArea.Y + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
             player.Initialize(Content.Load<Texture2D>("Graphics\\PlayerXS"), playerPosition);
-            mouseManager.Initialize(virtualResolution);
+
+            if(graphics.IsFullScreen)
+                mouseManager.Initialize(virtualResolution, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width,
+                                                                       GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height));
+            else
+                mouseManager.Initialize(virtualResolution, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width,
+                                                                       GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - titleBarHeight));
+
             editorManager.Initialize(TEXTURE_LIST);  // Will later pass a list of textures to the manager
         }
 
@@ -142,8 +168,11 @@ namespace boardProto
             TileSizeControl(kbStateOld, kbState);
 
             // Tile selection
-            TileSelection(mouseManager.GetMouseState());
+            TileSelection(mouseManager.GetMouseState(), mouseManager.GetMousePosition());
 
+            // Organizes the tiles created based on their Y values
+            editorManager.ListL1Tiles = new List<L1Tile>(editorManager.ListL1Tiles.OrderBy(a => a.TilePosition.Y));
+            
             kbStateOld = kbState;
             
             // Places tiles when LMB is pressed
@@ -164,11 +193,18 @@ namespace boardProto
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            graphics.GraphicsDevice.SetRenderTarget(scene);
+            graphics.GraphicsDevice.Clear(Color.Blue);
+
+            spriteBatch.Begin(SpriteSortMode.Immediate,
+                                BlendState.AlphaBlend,
+                                SamplerState.PointClamp,
+                                DepthStencilState.None,
+                                RasterizerState.CullNone);
+            
             // TODO: Add your drawing code here
-            spriteBatch.Begin(transformMatrix: GetScaleMatrix());
-
             editorManager.DrawEmptySpace(spriteBatch, virtualResolution);   // Draws empty black background
             editorManager.DrawTiles(spriteBatch, editorManager.DetectClosestTilePosition(mouseWorldPosition), 
                                     editorManager.SelectedTileTexture);
@@ -190,14 +226,28 @@ namespace boardProto
                                    new Vector2(5, 11), Color.Yellow);
             spriteBatch.DrawString(debugFont, "Active tool: " + editorManager.ActiveTool.ToString(), new Vector2(180, 1), Color.LimeGreen);
             spriteBatch.DrawString(debugFont, "Selected tile: " + editorManager.SelectedTileTexture.ToString(), new Vector2(310, 1), Color.Magenta);
+
+            spriteBatch.DrawString(debugFont, GraphicsDevice.Viewport.Width.ToString() + "  " +
+                                              GraphicsDevice.Viewport.Height.ToString() + "  " +
+                                              GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width.ToString(), 
+                                              new Vector2(15, 30), Color.White);
             spriteBatch.End();
+            graphics.GraphicsDevice.SetRenderTarget(null);
+
+            renderTargetTexture = (Texture2D)scene;
+            spriteBatch.Begin();
+            spriteBatch.Draw(renderTargetTexture, new Vector2(0, 0), null, Color.White, 0, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+            spriteBatch.End();
+            
+            //spriteBatch.Draw(scene, Vector2.Zero);
+            
             base.Draw(gameTime);
         }
 
         public Matrix GetScaleMatrix()
         {
-            var scaleX = (float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / virtualResolution.X;
-            var scaleY = (float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / virtualResolution.Y;
+            var scaleX = virtualResolution.X / (float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            var scaleY = virtualResolution.Y / (float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             return Matrix.CreateScale(scaleX, scaleY, 1.0f);
         }
 
@@ -226,11 +276,11 @@ namespace boardProto
             }
         }
 
-        public void TileSelection(MouseState _mouseState)
+        public void TileSelection(MouseState _mouseState, Vector2 _mousePosition)
         {
             if (editorManager.ActiveTool == EditorManager.EditorTools.L1TilePlacer)
             {
-                editorManager.L1TileTool.TileSelection(_mouseState);
+                editorManager.L1TileTool.TileSelection(_mouseState, _mousePosition);
             }
         }
     }

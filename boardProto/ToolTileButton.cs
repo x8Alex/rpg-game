@@ -24,13 +24,21 @@ namespace boardProto
             buttonTextureON = _buttonTextures[1];
             buttonTileTexture = _texture;
             buttonStateON = false;
-
             buttonRow = _tileIndex / 5;     // 5 buttons per row
+
             // Figures out the position depending on the row and _tileIndex (the count for 1x1 tiles)
             buttonPosition.X = 17 + buttonTextureON.Width * (_tileIndex - (int)(_tileIndex / 5) * 5);
             buttonTilePosition.X = buttonPosition.X + (buttonTextureON.Width / 2 - buttonTileTexture.Width / 2);
-            buttonPosition.Y = 12 + buttonRow * buttonTextureON.Height;
-            buttonTilePosition.Y = buttonPosition.Y + (buttonTextureON.Height / 2 - buttonTileTexture.Height / 2);
+            if (!buttonTileTexture.ToString().Contains("GrassThick"))
+            {
+                buttonPosition.Y = 12 + buttonRow * buttonTextureON.Height;
+                buttonTilePosition.Y = buttonPosition.Y + (buttonTextureON.Height / 2 - buttonTileTexture.Height / 2);
+            }
+            else
+            {
+                buttonPosition.Y = 12 + buttonRow * buttonTextureON.Height;
+                buttonTilePosition.Y = buttonPosition.Y + (buttonTextureON.Height / 2 - buttonTileTexture.Height / 2 - 0);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D _selectedTile)

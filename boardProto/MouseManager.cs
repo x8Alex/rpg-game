@@ -16,18 +16,22 @@ namespace boardProto
         Vector2 WORLD_SCROLL = new Vector2(0,0);
         Vector2 MOUSE_POSITION = new Vector2 (0, 0);
         Vector2 LAST_MOUSE_POSITION = new Vector2 (0, 0);
+        Vector2 VIEWPORT;
 
-        public void Initialize(Vector2 resolution)
+        public void Initialize(Vector2 resolution, Vector2 _viewport)
         {
             RESOLUTION = resolution;
+            VIEWPORT = _viewport;
         }
 
         // Returns the mouse position adjusted for the virtual resolution
         public Vector2 GetMousePosition()
         {
             MOUSE_STATE = Mouse.GetState();
-            return new Vector2(MOUSE_STATE.X * (RESOLUTION.X / GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width),
-                               MOUSE_STATE.Y * (RESOLUTION.Y / GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height));
+            return new Vector2(MOUSE_STATE.X * (RESOLUTION.X / VIEWPORT.X),
+                               MOUSE_STATE.Y * (RESOLUTION.Y / VIEWPORT.Y));
+            /*return new Vector2(MOUSE_STATE.X,
+                               MOUSE_STATE.Y);*/
         }
 
         // Returns the mouse state

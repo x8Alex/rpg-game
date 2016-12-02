@@ -14,7 +14,7 @@ namespace boardProto
         Vector2 worldOffset = new Vector2(0, 0);
         MouseState mouseState;
         Vector2 lastMousePosition;
-        Vector2 MOUSE_POSITION;
+        //Vector2 MOUSE_POSITION;
 
         List<Texture2D> listTileTextures;    // A list of all textures to be loaded
         Texture2D textureEmptySpace;
@@ -45,14 +45,15 @@ namespace boardProto
         // Layer 1 tiles
         public enum L1TileType 
         {
-            Dirt,
+            Default,
+            Sand,
             GrassThick
         };
 
         public void Initialize(List<Texture2D> _texture_list)
         {
             listTileTextures = new List<Texture2D>();
-            listL1Tiles = new List<L1Tile>();       // L1Tile objects that will be written and read from the map files
+            listL1Tiles = new List<L1Tile>();               // L1Tile objects that will be written and read from the map files
 
             // Adds tile textures to listTileTextures. "i" equals to the first tile texture
             for (int i = 4; i < _texture_list.Count; i++)   // Passes textures starting from the button textures
@@ -764,6 +765,11 @@ namespace boardProto
         {
             get { return textureMenuClosed; }
             set { textureMenuClosed = value; }
+        }
+        internal List<L1Tile> ListL1Tiles
+        {
+            get { return listL1Tiles; }
+            set { listL1Tiles = value; }
         }
     }
 }

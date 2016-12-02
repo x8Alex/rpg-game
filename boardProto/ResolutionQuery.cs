@@ -14,16 +14,23 @@ namespace boardProto
     public partial class ResolutionQuery : Form
     {
         bool LAUNCHGAME = false;
+        bool WINDOWED = false;
+        int titleBarHeight;
+        System.Drawing.Rectangle screenRectangle;
 
         public ResolutionQuery()
         {
             InitializeComponent();
+            screenRectangle = RectangleToScreen(this.ClientRectangle);
+            titleBarHeight = screenRectangle.Top - this.Top - 3;
+            Console.WriteLine(titleBarHeight);
         }
 
         private void ResolutionQuery_Load(object sender, EventArgs e)
         {
             Dictionary<String, Vector2> dropBoxResolutionDictionary = new Dictionary<String, Vector2>();
             // Creates a dictionary of resolution values
+            dropBoxResolutionDictionary.Add("1920x1200", new Vector2(1920, 1200));
             dropBoxResolutionDictionary.Add("1680x1050", new Vector2(1680, 1050));
             dropBoxResolutionDictionary.Add("1366x768", new Vector2(1366,768));
             dropBoxResolutionDictionary.Add("1280x800", new Vector2(1280, 800));
@@ -35,7 +42,7 @@ namespace boardProto
             dropBoxResolution.ValueMember = "Value";
 
             // Set the default choice to the second member of the dictionary
-            dropBoxResolution.SelectedIndex = 1;
+            dropBoxResolution.SelectedIndex = 2;
         }
 
         private void dropBoxResolution_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,6 +53,11 @@ namespace boardProto
         public Vector2 getResolution()
         {
             return ((KeyValuePair<String, Vector2>)dropBoxResolution.SelectedItem).Value;
+        }
+
+        public bool getScreenMode()
+        {
+            return WINDOWED;
         }
 
         public bool getLaunchGame()
@@ -62,6 +74,17 @@ namespace boardProto
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void checkBoxFullscreen_CheckedChanged(object sender, EventArgs e)
+        {
+            WINDOWED = !WINDOWED;
+        }
+
+        public int TitleBarHeight
+        {
+            get { return titleBarHeight; }
+            set { titleBarHeight = value; }
         }
     }
 }

@@ -33,9 +33,6 @@ c:\users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\obj\
 c:\users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\obj\x86\Debug\boardProto.application
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\obj\x86\Debug\boardProto.ResolutionQuery.resources
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\obj\x86\Debug\boardProto.csproj.GenerateResource.Cache
-C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDirt1x1.xnb
-C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDirt2x2.xnb
-C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDirt4x4.xnb
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Panels\ToolMenuClosed.xnb
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Panels\ToolMenuOpen.xnb
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileGrassThick4x4.xnb
@@ -43,3 +40,15 @@ C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Panels\Buttons\ButtonTileON.xnb
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileGrassThick1x1.xnb
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileGrassThick2x2.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileSand1x1.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileSand2x2.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileSand4x4.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDirt1x1.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDirt2x2.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDirt4x4.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDryDirt4x4.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDryDirt1x1.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileDryDirt2x2.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileStone1x1.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileStone2x2.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileStone4x4.xnb
