@@ -77,6 +77,8 @@
             // checkBoxFullscreen
             // 
             this.checkBoxFullscreen.AutoSize = true;
+            this.checkBoxFullscreen.Checked = true;
+            this.checkBoxFullscreen.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxFullscreen.Location = new System.Drawing.Point(12, 52);
             this.checkBoxFullscreen.Name = "checkBoxFullscreen";
             this.checkBoxFullscreen.Size = new System.Drawing.Size(74, 17);

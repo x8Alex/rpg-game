@@ -12,9 +12,15 @@ namespace boardProto
     class EditorManager
     {
         Vector2 worldOffset = new Vector2(0, 0);
+        static float tileAngleRads = (float)(26.565 * (Math.PI/180));
+        Vector2 tileSize = new Vector2(80f, (float)(80 * Math.Tan(tileAngleRads)));
         MouseState mouseState;
         Vector2 lastMousePosition;
-        //Vector2 MOUSE_POSITION;
+        Vector2 mouseMapTilePosition;
+        Vector2 gridVisibilityLower;
+        Vector2 gridVisibilityUpper;
+        Vector2 gridVisibilityLowerTransformed;
+        Vector2 gridVisibilityUpperTransformed;
 
         List<Texture2D> listTileTextures;    // A list of all textures to be loaded
         Texture2D textureEmptySpace;
@@ -38,7 +44,7 @@ namespace boardProto
         };
 
         // Layers of the map
-        List<L1Tile> listL1Tiles;   // X, Y, PASSABLE
+        List<L1Tile> listL1Tiles;   // X, Y position
         List<Vector3> layer2;
         List<Vector3> layer3;
 
@@ -119,283 +125,9 @@ namespace boardProto
             }
         }
 
-        // Detects which tile the mouse is hovered over and returns the
-        // calculated coordinates of the left corner.
-        public Vector2 DetectClosestTilePosition(Vector2 _mouseWorldPosition)
-        {
-            // ===================================================
-            // ==   THIS CODE NEEDS TO BE CLEANED UP ONE DAY!   ==
-            // ==   IT IS VERY MESSY!!!                         ==
-            // ===================================================
-            Vector2 MOUSE_POSITION = new Vector2(_mouseWorldPosition.X, _mouseWorldPosition.Y);
-            double oddRowBottomBoundary = -0.36375 * Math.Abs((Math.Abs(_mouseWorldPosition.X) -
-                                    (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80) - 40) + 14.56;
-            double oddRowTopBoundary = 0.36375 * Math.Abs((Math.Abs(_mouseWorldPosition.X) - 
-                                    (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80) - 40) - 14.56;
-
-            double evenRowBottomBoundary = -0.36375 * Math.Abs((Math.Abs(_mouseWorldPosition.X) -
-                                    (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80) - 40) + 14.56;
-            double evenRowTopBoundary = 0.36375 * Math.Abs((Math.Abs(_mouseWorldPosition.X) -
-                                    (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80) - 40) - 14.56;
-
-            float calcYValue = (float)(80 * Math.Tan(20 * Math.PI / 180));
-
-            // Checks for tiles at Y = 0
-            if (Math.Abs(_mouseWorldPosition.Y) <= 14.56)    
-            {
-                if (_mouseWorldPosition.Y <= oddRowBottomBoundary
-                    && _mouseWorldPosition.Y > oddRowTopBoundary)
-                {
-                    if (_mouseWorldPosition.X > 0)
-                    {   // When X is positive
-                        return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80), 0f);
-                    }
-                    else
-                    {   // When X is negative
-                        return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 1) * 80), 0f);
-                    }
-                }
-                 
-                // EVEN ROWS NEGATIVE Y values:
-                else if (_mouseWorldPosition.Y < 0 && Math.Abs(_mouseWorldPosition.Y) < 14.56)
-                {
-                    // If the mouse is in the RIGHT half of the tile
-                    if (Math.Abs(_mouseWorldPosition.Y) > oddRowBottomBoundary && 
-                        Math.Abs(_mouseWorldPosition.Y) - calcYValue <= oddRowTopBoundary)
-                    {
-                        // If the mouse is in the LEFT half of the tile AND X value is POSITIVE
-                        if (_mouseWorldPosition.X >= 0 && (_mouseWorldPosition.X - ((int)(_mouseWorldPosition.X / 80) * 80) - 40) % 80 <= 0.5)
-                        {
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80) - 40, calcYValue / -2);
-                        }
-                        else if (_mouseWorldPosition.X > 0)
-                        {
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80) + 40, calcYValue / -2);
-                        }
-                        // If the mouse is in the LEFT half the tile AND X value is NEGATIVE
-                        else if (_mouseWorldPosition.X < 0 && (Math.Abs(_mouseWorldPosition.X) - 
-                                 ((int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80) - 40) % 80 <= 0.5)
-                        {
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 1) * 80) + 40, calcYValue / -2);
-                        }
-                        else if (_mouseWorldPosition.X < 0)
-                        {
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 2) * 80) + 40, calcYValue / -2);
-                        }
-                    }
-                    
-                }
-
-                // EVEN ROWS:
-                else if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                      && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) <= oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                {
-                    // If the mouse is in the LEFT half of the tile
-                    if (Math.Abs(_mouseWorldPosition.X) >= (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80 + 40 &&
-                        Math.Abs(_mouseWorldPosition.X) < (int)(Math.Abs(_mouseWorldPosition.X) / 80 + 1) * 80 + 40)
-                    {
-                        // When X is positive
-                        if (_mouseWorldPosition.X > 0)
-                        {
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 + 40),
-                                               (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                        }
-                        // When X is negative
-                        else
-                        {
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 2) * 80 + 40),
-                                               (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                        }
-                    }
-                    // If the mouse is in the RIGHT half of the tile
-                    else if (Math.Abs(_mouseWorldPosition.X) % 80 >= 0)
-                    {
-                        return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 - 40),
-                                           (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                    }
-                }
-            }
-            else
-            {
-                // When mouse Y value is POSITIVE
-                if (_mouseWorldPosition.Y > 0)
-                {
-                    // ODD ROWS: When mouse Y value is POSITIVE and GREATER than the closest multiple of 29
-                    if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) <= oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                        && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                    {
-                        if (_mouseWorldPosition.X > 0)
-                        {   // When X is positive
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80),
-                                           (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue);
-                        }
-                        else
-                        {   // When X is negative
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 1) * 80),
-                                           (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue);
-                        }
-                    } else if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                        && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) <= oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                    {
-                        // If the mouse is in the LEFT half of the tile
-                        if (Math.Abs(_mouseWorldPosition.X) >= (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80 + 40 &&
-                            Math.Abs(_mouseWorldPosition.X) < (int)(Math.Abs(_mouseWorldPosition.X) / 80 + 1) * 80 + 40)
-                        {
-                            // When X is positive
-                            if (_mouseWorldPosition.X > 0)
-                            {
-                                return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 + 40),
-                                                   (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                            }
-                            // When X is negative
-                            else
-                            {
-                                return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 2) * 80 + 40),
-                                                   (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                            }
-                        }
-                        // If the mouse is in the RIGHT half of the tile
-                        else if (Math.Abs(_mouseWorldPosition.X) % 80 >= 0)
-                        {
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 - 40),
-                                               (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                        }
-                    }
-
-                    // ODD ROWS: When mouse Y value is POSITIVE and LESS than the closest multiple of 29
-                    else if (((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) - _mouseWorldPosition.Y <= oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                        && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) > oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                    {
-                        if (_mouseWorldPosition.X > 0)
-                        {   // When X is positive
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80),
-                                               (int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue);
-                        }
-                        else
-                        {   // When X is negative
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 1) * 80),
-                                               (int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue);
-                        }
-                    } 
-                    
-                    // EVEN ROWS: Uses the same calculations as odd rows but reverses the comparison signs
-                    else if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                        && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) <= oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                    {
-                        // If the mouse is in the LEFT half of the tile
-                        if (Math.Abs(_mouseWorldPosition.X) >= (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80 + 40 &&
-                            Math.Abs(_mouseWorldPosition.X) < (int)(Math.Abs(_mouseWorldPosition.X) / 80 + 1) * 80 + 40)
-                        {
-                            // When X is positive
-                            if (_mouseWorldPosition.X > 0)
-                            {
-                                return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 + 40),
-                                                   (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                            }
-                            // When X is negative
-                            else
-                            {
-                                return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 2) * 80 + 40),
-                                                   (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                            }
-                        }
-                        // If the mouse is in the RIGHT half of the tile
-                        else if (Math.Abs(_mouseWorldPosition.X) % 80 >= 0)
-                        {
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 - 40),
-                                               (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                        }
-                    }
-                }
-
-                // When mouse Y value is NEGATIVE ==========================================================
-                else
-                {
-                    // ODD ROWS: When mouse Y value is NEGATIVE and GREATER than the closest multiple of 29
-                    if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) <= oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                        && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                    {
-                        if (_mouseWorldPosition.X > 0)
-                        {   // When X is positive
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80),
-                                           (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue);
-                        }
-                        else
-                        {   // When X is negative
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 1) * 80),
-                                           (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue);
-                        }
-                    }
-                    // ODD ROWS: When mouse Y value is NEGATIVE and LESS than the closest multiple of 29
-                    else if (((int)(Math.Abs(_mouseWorldPosition.Y) / calcYValue + 1) * calcYValue) + _mouseWorldPosition.Y <= oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                        && ((int)(Math.Abs(_mouseWorldPosition.Y) / calcYValue + 1) * calcYValue) - _mouseWorldPosition.Y > oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                    {
-                        if (_mouseWorldPosition.X > 0)
-                        {   // When X is positive
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80),
-                                               (int)(_mouseWorldPosition.Y / calcYValue - 1) * calcYValue);
-                        }
-                        else
-                        {   // When X is negative
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 1) * 80),
-                                               (int)(_mouseWorldPosition.Y / calcYValue - 1) * calcYValue);
-                        }
-                    }
-
-                    // EVEN ROWS: Uses the same calculations as odd rows but reverses the comparison signs
-                    else if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) < oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                        && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) <= oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                    {
-                        // If the mouse is in the LEFT half of the tile
-                        if (Math.Abs(_mouseWorldPosition.X) >= (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80 + 40 &&
-                            Math.Abs(_mouseWorldPosition.X) < (int)(Math.Abs(_mouseWorldPosition.X) / 80 + 1) * 80 + 40)
-                        {
-                            // When X is positive
-                            if (_mouseWorldPosition.X > 0)
-                            {
-                                return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 + 40),
-                                                   (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue - calcYValue / 2);
-                            }
-                            // When X is negative
-                            else
-                            {
-                                return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 2) * 80 + 40),
-                                                   (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue - calcYValue / 2);
-                            }
-                        }
-                        // If the mouse is in the RIGHT half of the tile
-                        else if (Math.Abs(_mouseWorldPosition.X) % 80 >= 0)
-                        {
-                            return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 - 40),
-                                               (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue - calcYValue / 2);
-                        }
-                    }
-                }
-            }
-
-            // Slope is 0.36375
-            // Vertical gap between tiles is 29.1176
-            return new Vector2(_mouseWorldPosition.X, _mouseWorldPosition.Y);
-        }
+        // Detects which tile the mouse is hovered over and returns the matrix position
         public Vector2 DetectClosestTilePosition(Vector2 _mouseWorldPosition, List<Rectangle> _ignoredAreas)
         {
-            // ===================================================
-            // ==   THIS CODE NEEDS TO BE CLEANED UP ONE DAY!   ==
-            // ==   IT IS VERY MESSY!!!                         ==
-            // ===================================================
-            Vector2 MOUSE_POSITION = new Vector2(_mouseWorldPosition.X, _mouseWorldPosition.Y);
-            double oddRowBottomBoundary = -0.36375 * Math.Abs((Math.Abs(_mouseWorldPosition.X) -
-                                    (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80) - 40) + 14.56;
-            double oddRowTopBoundary = 0.36375 * Math.Abs((Math.Abs(_mouseWorldPosition.X) -
-                                    (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80) - 40) - 14.56;
-
-            double evenRowBottomBoundary = -0.36375 * Math.Abs((Math.Abs(_mouseWorldPosition.X) -
-                                    (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80) - 40) + 14.56;
-            double evenRowTopBoundary = 0.36375 * Math.Abs((Math.Abs(_mouseWorldPosition.X) -
-                                    (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80) - 40) - 14.56;
-
-            float calcYValue = (float)(80 * Math.Tan(20 * Math.PI / 180));
-            
             // Runs the check for each area in the list of ignored areas
             foreach (Rectangle _area in _ignoredAreas)
             {
@@ -405,246 +137,19 @@ namespace boardProto
                 {
                     return new Vector2(0.00001f, 0.00001f); // Returns this when mouse is within menu boundaries
                 }
+                // If mouse is not within the ignored areas
                 else
                 {
-                    // Checks for tiles at Y = 0
-                    if (Math.Abs(_mouseWorldPosition.Y) <= 14.56)
-                    {
-                        if (_mouseWorldPosition.Y <= oddRowBottomBoundary
-                            && _mouseWorldPosition.Y > oddRowTopBoundary)
-                        {
-                            if (_mouseWorldPosition.X > 0)
-                            {   // When X is positive
-                                return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80), 0f);
-                            }
-                            else
-                            {   // When X is negative
-                                return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 1) * 80), 0f);
-                            }
-                        }
+                    mouseMapTilePosition.X = (int)((_mouseWorldPosition.X / (tileSize.X / 2) + 
+                                                    _mouseWorldPosition.Y / (tileSize.Y / 2)) / 2);
+                    mouseMapTilePosition.Y = (int)((_mouseWorldPosition.Y / (tileSize.Y / 2) -
+                                                    _mouseWorldPosition.X / (tileSize.X / 2)) / 2);
 
-                        // EVEN ROWS NEGATIVE Y values:
-                        else if (_mouseWorldPosition.Y < 0 && Math.Abs(_mouseWorldPosition.Y) < 14.56)
-                        {
-                            // If the mouse is in the RIGHT half of the tile
-                            if (Math.Abs(_mouseWorldPosition.Y) > oddRowBottomBoundary &&
-                                Math.Abs(_mouseWorldPosition.Y) - calcYValue <= oddRowTopBoundary)
-                            {
-                                // If the mouse is in the LEFT half of the tile AND X value is POSITIVE
-                                if (_mouseWorldPosition.X >= 0 && (_mouseWorldPosition.X - ((int)(_mouseWorldPosition.X / 80) * 80) - 40) % 80 <= 0.5)
-                                {
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80) - 40, calcYValue / -2);
-                                }
-                                else if (_mouseWorldPosition.X > 0)
-                                {
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80) + 40, calcYValue / -2);
-                                }
-                                // If the mouse is in the LEFT half the tile AND X value is NEGATIVE
-                                else if (_mouseWorldPosition.X < 0 && (Math.Abs(_mouseWorldPosition.X) -
-                                         ((int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80) - 40) % 80 <= 0.5)
-                                {
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 1) * 80) + 40, calcYValue / -2);
-                                }
-                                else if (_mouseWorldPosition.X < 0)
-                                {
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 2) * 80) + 40, calcYValue / -2);
-                                }
-                            }
-
-                        }
-
-                        // EVEN ROWS:
-                        else if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                              && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) <= oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                        {
-                            // If the mouse is in the LEFT half of the tile
-                            if (Math.Abs(_mouseWorldPosition.X) >= (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80 + 40 &&
-                                Math.Abs(_mouseWorldPosition.X) < (int)(Math.Abs(_mouseWorldPosition.X) / 80 + 1) * 80 + 40)
-                            {
-                                // When X is positive
-                                if (_mouseWorldPosition.X > 0)
-                                {
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 + 40),
-                                                       (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                                }
-                                // When X is negative
-                                else
-                                {
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 2) * 80 + 40),
-                                                       (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                                }
-                            }
-                            // If the mouse is in the RIGHT half of the tile
-                            else if (Math.Abs(_mouseWorldPosition.X) % 80 >= 0)
-                            {
-                                return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 - 40),
-                                                   (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        // When mouse Y value is POSITIVE
-                        if (_mouseWorldPosition.Y > 0)
-                        {
-                            // ODD ROWS: When mouse Y value is POSITIVE and GREATER than the closest multiple of 29
-                            if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) <= oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                                && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                            {
-                                if (_mouseWorldPosition.X > 0)
-                                {   // When X is positive
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80),
-                                                   (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue);
-                                }
-                                else
-                                {   // When X is negative
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 1) * 80),
-                                                   (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue);
-                                }
-                            }
-                            else if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                              && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) <= oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                            {
-                                // If the mouse is in the LEFT half of the tile
-                                if (Math.Abs(_mouseWorldPosition.X) >= (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80 + 40 &&
-                                    Math.Abs(_mouseWorldPosition.X) < (int)(Math.Abs(_mouseWorldPosition.X) / 80 + 1) * 80 + 40)
-                                {
-                                    // When X is positive
-                                    if (_mouseWorldPosition.X > 0)
-                                    {
-                                        return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 + 40),
-                                                           (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                                    }
-                                    // When X is negative
-                                    else
-                                    {
-                                        return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 2) * 80 + 40),
-                                                           (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                                    }
-                                }
-                                // If the mouse is in the RIGHT half of the tile
-                                else if (Math.Abs(_mouseWorldPosition.X) % 80 >= 0)
-                                {
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 - 40),
-                                                       (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                                }
-                            }
-
-                          // ODD ROWS: When mouse Y value is POSITIVE and LESS than the closest multiple of 29
-                            else if (((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) - _mouseWorldPosition.Y <= oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                                && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) > oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                            {
-                                if (_mouseWorldPosition.X > 0)
-                                {   // When X is positive
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80),
-                                                       (int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue);
-                                }
-                                else
-                                {   // When X is negative
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 1) * 80),
-                                                       (int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue);
-                                }
-                            }
-
-                            // EVEN ROWS: Uses the same calculations as odd rows but reverses the comparison signs
-                            else if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                                && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) <= oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                            {
-                                // If the mouse is in the LEFT half of the tile
-                                if (Math.Abs(_mouseWorldPosition.X) >= (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80 + 40 &&
-                                    Math.Abs(_mouseWorldPosition.X) < (int)(Math.Abs(_mouseWorldPosition.X) / 80 + 1) * 80 + 40)
-                                {
-                                    // When X is positive
-                                    if (_mouseWorldPosition.X > 0)
-                                    {
-                                        return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 + 40),
-                                                           (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                                    }
-                                    // When X is negative
-                                    else
-                                    {
-                                        return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 2) * 80 + 40),
-                                                           (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                                    }
-                                }
-                                // If the mouse is in the RIGHT half of the tile
-                                else if (Math.Abs(_mouseWorldPosition.X) % 80 >= 0)
-                                {
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 - 40),
-                                                       (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue + calcYValue / 2);
-                                }
-                            }
-                        }
-
-                        // When mouse Y value is NEGATIVE ==========================================================
-                        else
-                        {
-                            // ODD ROWS: When mouse Y value is NEGATIVE and GREATER than the closest multiple of 29
-                            if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) <= oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                                && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) > oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                            {
-                                if (_mouseWorldPosition.X > 0)
-                                {   // When X is positive
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80),
-                                                   (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue);
-                                }
-                                else
-                                {   // When X is negative
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 1) * 80),
-                                                   (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue);
-                                }
-                            }
-                            // ODD ROWS: When mouse Y value is NEGATIVE and LESS than the closest multiple of 29
-                            else if (((int)(Math.Abs(_mouseWorldPosition.Y) / calcYValue + 1) * calcYValue) + _mouseWorldPosition.Y <= oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                                && ((int)(Math.Abs(_mouseWorldPosition.Y) / calcYValue + 1) * calcYValue) - _mouseWorldPosition.Y > oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                            {
-                                if (_mouseWorldPosition.X > 0)
-                                {   // When X is positive
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80),
-                                                       (int)(_mouseWorldPosition.Y / calcYValue - 1) * calcYValue);
-                                }
-                                else
-                                {   // When X is negative
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 1) * 80),
-                                                       (int)(_mouseWorldPosition.Y / calcYValue - 1) * calcYValue);
-                                }
-                            }
-
-                            // EVEN ROWS: Uses the same calculations as odd rows but reverses the comparison signs
-                            else if (_mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue) * calcYValue) < oddRowBottomBoundary    // Bottom boundary y value should be greater than mouse y value
-                                && _mouseWorldPosition.Y - ((int)(_mouseWorldPosition.Y / calcYValue + 1) * calcYValue) <= oddRowTopBoundary)    // Top boundary y value should be smaller than mouse y value
-                            {
-                                // If the mouse is in the LEFT half of the tile
-                                if (Math.Abs(_mouseWorldPosition.X) >= (int)(Math.Abs(_mouseWorldPosition.X) / 80) * 80 + 40 &&
-                                    Math.Abs(_mouseWorldPosition.X) < (int)(Math.Abs(_mouseWorldPosition.X) / 80 + 1) * 80 + 40)
-                                {
-                                    // When X is positive
-                                    if (_mouseWorldPosition.X > 0)
-                                    {
-                                        return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 + 40),
-                                                           (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue - calcYValue / 2);
-                                    }
-                                    // When X is negative
-                                    else
-                                    {
-                                        return new Vector2((float)((int)(_mouseWorldPosition.X / 80 - 2) * 80 + 40),
-                                                           (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue - calcYValue / 2);
-                                    }
-                                }
-                                // If the mouse is in the RIGHT half of the tile
-                                else if (Math.Abs(_mouseWorldPosition.X) % 80 >= 0)
-                                {
-                                    return new Vector2((float)((int)(_mouseWorldPosition.X / 80) * 80 - 40),
-                                                       (int)(_mouseWorldPosition.Y / calcYValue) * calcYValue - calcYValue / 2);
-                                }
-                            }
-                        }
-                    }
+                    if (mouseMapTilePosition.X >= 0 && mouseMapTilePosition.Y >= 0)
+                        return mouseMapTilePosition;
                 }
             }
-            // Slope is 0.36375
-            // Vertical gap between tiles is 29.1176
-            return new Vector2(_mouseWorldPosition.X, _mouseWorldPosition.Y);
+            return new Vector2(0.00001f, 0.00001f);
         }
 
         // Draws editor panels
@@ -671,7 +176,6 @@ namespace boardProto
         // Draws a black background
         public void DrawEmptySpace(SpriteBatch spriteBatch, Vector2 windowSize){
             spriteBatch.Draw(textureEmptySpace, new Rectangle(0, 0, (int)windowSize.X, (int)windowSize.Y), Color.White);
-
         }
 
         // Draws the tiles
@@ -681,17 +185,23 @@ namespace boardProto
             foreach (var _tile in listL1Tiles)
             {
                 if (_tile.TileOffset == new Vector2(0,0))
-                    spriteBatch.Draw(_tile.TileTexture, new Vector2(_tile.TilePosition.X, _tile.TilePosition.Y - _tile.TileTexture.Height / 2)
+                    spriteBatch.Draw(_tile.TileTexture, new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) * 
+                                                                    (tileSize.X / 2) - _tile.TileTexture.Width / 2,
+                                                                    (_tile.TilePosition.X + _tile.TilePosition.Y) * (tileSize.Y / 2))
                                                     + worldOffset,
                                  null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                 else
-                    spriteBatch.Draw(_tile.TileTexture, new Vector2(_tile.TilePosition.X, _tile.TilePosition.Y - _tile.TileTexture.Height / 2)
+                    spriteBatch.Draw(_tile.TileTexture, new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
+                                                                    (tileSize.X / 2) - _tile.TileTexture.Width / 2,
+                                                                    (_tile.TilePosition.X + _tile.TilePosition.Y) * (tileSize.Y / 2))
                                                     + worldOffset + _tile.TileOffset,
                                  null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             }
 
             // Draw the selected tile
-            spriteBatch.Draw(_selectedTileTexture, new Vector2(pos.X, pos.Y - _selectedTileTexture.Height / 2) +
+            if(pos.X != 0.00001f)
+            spriteBatch.Draw(_selectedTileTexture, new Vector2((pos.X - pos.Y) * (tileSize.X / 2) - _selectedTileTexture.Width / 2,
+                                                               (pos.X + pos.Y) * (tileSize.Y / 2)) +
                              worldOffset + L1TileTool.TileOffset,
                              null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
@@ -699,13 +209,27 @@ namespace boardProto
         // Draws the grid for the editor
         public void DrawGrid(SpriteBatch spriteBatch, Vector2 windowSize)
         {
-            for (int x = (int)(-0.5 * (int)windowSize.X); x <= (int)windowSize.X / 80; x++)
-                DrawLine(spriteBatch, new Vector2(x * 80 + worldOffset.X % 80, -29.1176f + worldOffset.Y % 29.1176f),
-                                                  windowSize, 20f);
+            gridVisibilityLower = new Vector2(windowSize.X / 2 - worldOffset.X,
+                                             -worldOffset.Y - windowSize.Y / 2);
+            gridVisibilityUpper = new Vector2(windowSize.X / 2 - worldOffset.X,
+                                             windowSize.Y * 1.5f - worldOffset.Y);
+            
+            gridVisibilityLowerTransformed.X = (int)((gridVisibilityLower.X / (tileSize.X / 2) + gridVisibilityLower.Y / (tileSize.Y / 2)) / 2);
+            gridVisibilityLowerTransformed.Y = (int)((gridVisibilityLower.Y / (tileSize.Y / 2) - gridVisibilityLower.X / (tileSize.X / 2)) / 2);
 
-            for (int x = 0; x <= (int)windowSize.X * 3 / 80; x++)
-                DrawLine(spriteBatch, new Vector2(x * 80 + worldOffset.X % 80, -29.1176f + worldOffset.Y % 29.1176f),
-                                                  new Vector2(0, windowSize.Y), 160f);
+            gridVisibilityUpperTransformed.X = (int)((gridVisibilityUpper.X / (tileSize.X / 2) + gridVisibilityUpper.Y / (tileSize.Y / 2)) / 2);
+            gridVisibilityUpperTransformed.Y = (int)((gridVisibilityUpper.Y / (tileSize.Y / 2) - gridVisibilityUpper.X / (tileSize.X / 2)) / 2);
+
+            for (int x = (int)gridVisibilityLowerTransformed.X; x <= gridVisibilityUpperTransformed.X; x++)
+            {
+                for (int y = (int)gridVisibilityLowerTransformed.Y; y <= gridVisibilityUpperTransformed.Y; y++)
+                {
+                    if(x >= 0 && y >= 0)
+                        spriteBatch.Draw(textureGridGray, new Vector2((x - y) * (tileSize.X / 2) + worldOffset.X - tileSize.X / 2, 
+                                                                      (x + y) * (tileSize.Y / 2) + worldOffset.Y), 
+                                        null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                }
+            }
         }
 
         // Method used to draw lines, takes in SpriteBatch, begining point and end point.

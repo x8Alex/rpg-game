@@ -14,16 +14,18 @@ namespace boardProto
     public partial class ResolutionQuery : Form
     {
         bool LAUNCHGAME = false;
-        bool WINDOWED = false;
-        int titleBarHeight;
+        bool WINDOWED = true;
+        int borderWidth;
+        Vector2 borderSize;
         System.Drawing.Rectangle screenRectangle;
 
         public ResolutionQuery()
         {
             InitializeComponent();
             screenRectangle = RectangleToScreen(this.ClientRectangle);
-            titleBarHeight = screenRectangle.Top - this.Top - 3;
-            Console.WriteLine(titleBarHeight);
+            borderWidth = (this.Width - this.ClientSize.Width) / 2;
+            borderSize = new Vector2((float)(borderWidth), (float)(this.Height - this.ClientSize.Height - 2 * borderWidth));
+            Console.WriteLine(borderSize.ToString());
         }
 
         private void ResolutionQuery_Load(object sender, EventArgs e)
@@ -81,10 +83,14 @@ namespace boardProto
             WINDOWED = !WINDOWED;
         }
 
-        public int TitleBarHeight
+        public Vector2 BorderSize
         {
-            get { return titleBarHeight; }
-            set { titleBarHeight = value; }
+            get { return borderSize; }
+        }
+
+        public int BorderWidth
+        {
+            get { return borderWidth; }
         }
     }
 }

@@ -38,8 +38,8 @@ namespace boardProto
             textureMenuClosed = _textureMenuClosed;
             rectangleMenuOpen = new Rectangle(0, 0, textureMenuOpen.Width, textureMenuOpen.Height);
             rectangleMenuClosed = new Rectangle(0, 0, textureMenuClosed.Width, textureMenuClosed.Height);
-            tileSelectionMenuShow = true;
-            ignoredAreas.Add(rectangleMenuOpen);
+            tileSelectionMenuShow = false;
+            ignoredAreas.Add(rectangleMenuClosed);
 
             // Isolates the button textures and assigns them to listTileButtons
             foreach (var _buttonTexture in listTextures)
@@ -98,7 +98,8 @@ namespace boardProto
                     _mousePosition.X <= _button.GetButtonBoundaries().Right &&
                     _mousePosition.Y >= _button.GetButtonBoundaries().Top &&
                     _mousePosition.Y <= _button.GetButtonBoundaries().Bottom &&
-                    _mouseState.LeftButton == ButtonState.Pressed)
+                    _mouseState.LeftButton == ButtonState.Pressed &&
+                    tileSelectionMenuShow)
                 {
                     selectedTileTexture = _button.ButtonTileTexture;
                     tileTextureIndex = listTextures.FindIndex(a => a.ToString().Contains(_button.ButtonTileTexture.ToString()));
