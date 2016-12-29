@@ -28,10 +28,12 @@ namespace boardProto
         public Vector2 GetMousePosition()
         {
             MOUSE_STATE = Mouse.GetState();
-            return new Vector2(MOUSE_STATE.X / (VIEWPORT.X / RESOLUTION.X),
-                               MOUSE_STATE.Y / (VIEWPORT.Y / RESOLUTION.Y));
-            //return new Vector2(MOUSE_STATE.X,
-            //                   MOUSE_STATE.Y);
+            if (VIEWPORT.X < RESOLUTION.X && VIEWPORT.Y < RESOLUTION.Y)
+                return new Vector2(MOUSE_STATE.X / (VIEWPORT.X / RESOLUTION.X),
+                                   MOUSE_STATE.Y / (VIEWPORT.Y / RESOLUTION.Y));
+            else
+                return new Vector2(MOUSE_STATE.X,
+                                   MOUSE_STATE.Y);
         }
 
         // Returns the mouse state

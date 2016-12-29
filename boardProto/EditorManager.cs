@@ -11,29 +11,40 @@ namespace boardProto
 {
     class EditorManager
     {
+        // Name of the map
+        string mapName;
+        // Offset from the bottom corner of the map
         Vector2 worldOffset = new Vector2(0, 0);
+
         static float tileAngleRads = (float)(26.565 * (Math.PI/180));
         Vector2 tileSize = new Vector2(80f, (float)(80 * Math.Tan(tileAngleRads)));
+
         MouseState mouseState;
         Vector2 lastMousePosition;
         Vector2 mouseMapTilePosition;
+
         Vector2 gridVisibilityLower;
         Vector2 gridVisibilityUpper;
         Vector2 gridVisibilityLowerTransformed;
         Vector2 gridVisibilityUpperTransformed;
-
-        List<Texture2D> listTileTextures;    // A list of all textures to be loaded
+        // A list of all textures to be loaded
+        List<Texture2D> listTileTextures;
         Texture2D textureEmptySpace;
         Texture2D textureGridGray;
+        // Used to draw the current selected texture
         Texture2D selectedTileTexture;
         //Vector2 tileOffset;
+        // Menu frame textures
         Texture2D textureMenuOpen;
         Texture2D textureMenuClosed;
-
+        
+        // Currently selected tool - enum value
         EditorTools activeTool;
         L1TileTool l1TileTool;
         List<Rectangle> ignoredMenuAreas;
+        // Tool menu isn't displayed by default
         bool activeToolMenuShow = false;
+        // Shows the grid by default
         bool gridShow = true;
 
         // Editor tools
@@ -45,8 +56,9 @@ namespace boardProto
 
         // Layers of the map
         List<L1Tile> listL1Tiles;   // X, Y position
-        List<Vector3> layer2;
-        List<Vector3> layer3;
+        List<Vector3> listL2Tiles;
+        List<Vector3> listL3Tiles;
+
 
         // Layer 1 tiles
         public enum L1TileType 
@@ -232,7 +244,7 @@ namespace boardProto
             }
         }
 
-        // Method used to draw lines, takes in SpriteBatch, begining point and end point.
+        // Method used to draw lines, takes in SpriteBatch, begining point and end point
         private void DrawLine(SpriteBatch spriteBatch, Vector2 point1, Vector2 point2, float angleDeg)
         {
             Vector2 line = point2 - point1;
@@ -242,6 +254,14 @@ namespace boardProto
             spriteBatch.Draw(textureGridGray,
                              new Rectangle((int)point1.X, (int)point1.Y, (int)line.Length(), 1),
                              null, Color.DarkGray, angleRad, new Vector2(0, 0), SpriteEffects.None, 0);
+        }
+
+        // Generate a MapData object to write to file.
+        public MapData GenerateMapData()
+        {
+            MapData mapData = new MapData(mapName, listL1Tiles);
+
+            return mapData;
         }
 
         public Vector2 GetWorldOffset()
@@ -294,6 +314,11 @@ namespace boardProto
         {
             get { return listL1Tiles; }
             set { listL1Tiles = value; }
+        }
+        public string MapName
+        {
+            get { return mapName; }
+            set { mapName = value; }
         }
     }
 }

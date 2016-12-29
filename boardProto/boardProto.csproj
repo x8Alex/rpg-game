@@ -71,6 +71,9 @@
     <Compile Include="L1Tile.cs" />
     <Compile Include="L1TileTool.cs" />
     <Compile Include="MainMenuManager.cs" />
+    <Compile Include="MapData.cs" />
+    <Compile Include="MapLoader.cs" />
+    <Compile Include="MapSaver.cs" />
     <Compile Include="MouseManager.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
@@ -80,6 +83,12 @@
     </Compile>
     <Compile Include="ResolutionQuery.Designer.cs">
       <DependentUpon>ResolutionQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveMap.Designer.cs">
+      <DependentUpon>SaveMap.cs</DependentUpon>
     </Compile>
     <Compile Include="ToolTileButton.cs" />
   </ItemGroup>
@@ -131,6 +140,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ResolutionQuery.resx">
       <DependentUpon>ResolutionQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveMap.resx">
+      <DependentUpon>SaveMap.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

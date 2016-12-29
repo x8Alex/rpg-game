@@ -53,3 +53,4 @@ C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileStone2x2.xnb
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\Ground\TileStone4x4.xnb
 C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\bin\Windows\x86\Debug\Content\Tiles\gridTile.xnb
+C:\Users\mxalex\documents\visual studio 2013\Projects\boardProto\boardProto\obj\x86\Debug\boardProto.SaveMap.resources

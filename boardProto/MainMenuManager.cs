@@ -11,7 +11,14 @@ namespace boardProto
 {
     class MainMenuManager
     {
-        Boolean exitGame = false;
+        bool exitGame = false;
+        bool newMap = false;
+        bool generateMapData = false;
+        bool loadMapData = false;
+
+        MapLoader mapLoader;
+        MapSaver mapSaver;
+
         Texture2D buttonTexture;
         List<MainMenuButton> listMenuButtons = new List<MainMenuButton>();
         MouseState oldState;
@@ -19,6 +26,9 @@ namespace boardProto
 
         public void Initialize(Texture2D _buttonTexture, SpriteFont _font)
         {
+            mapLoader = new MapLoader();
+            mapSaver = new MapSaver();
+
             buttonTexture = _buttonTexture;
             CreateButton("New Map", _font);
             CreateButton("Load Map", _font);
@@ -49,14 +59,17 @@ namespace boardProto
                 {
                     case 0:
                         {
+                            newMap = true;
                             break;
                         }
                     case 1:
                         {
+                            loadMapData = true;
                             break;
                         }
                     case 2:
                         {
+                            generateMapData = true;
                             break;
                         }
                     case 3:
@@ -84,6 +97,32 @@ namespace boardProto
         {
             get { return exitGame; }
         }
+        public bool NewMap
+        {
+            get { return newMap; }
+            set { newMap = value; }
+        }
+        public bool RetrieveMapData
+        {
+            get { return generateMapData; }
+            set { generateMapData = value; }
+        }
+        public bool LoadMapData
+        {
+            get { return loadMapData; }
+            set { loadMapData = value; }
+        }
+        internal MapSaver MapSaver
+        {
+            get { return mapSaver; }
+            set { mapSaver = value; }
+        }
+        internal MapLoader MapLoader
+        {
+            get { return mapLoader; }
+            set { mapLoader = value; }
+        }
+
     }
 
     // Class for individual the individual button objects

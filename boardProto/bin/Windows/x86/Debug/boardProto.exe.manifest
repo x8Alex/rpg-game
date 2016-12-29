@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boardProto.exe" size="181160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boardProto.exe" size="188840">
       <assemblyIdentity name="boardProto" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dcibCkcQwnlN4G9dGTJbn3xlhU8Ke97K/hhb59QQVvU=</dsig:DigestValue>
+        <dsig:DigestValue>SgGPS3XhPOCOqpvD4cp6pjA7IXwD4dikEIpY5DoC1IE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

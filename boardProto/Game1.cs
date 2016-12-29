@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
-//using Shooter;
 
 namespace boardProto
 {
@@ -16,22 +15,24 @@ namespace boardProto
     /// </summary>
     public class Game1 : Game
     {
-        DirectoryInfo tileDirectory;
-        RenderTarget2D scene;
-        Texture2D renderTargetTexture;
-        Vector2 borderSize;
         GraphicsDeviceManager graphics;
         Vector2 virtualResolution;
+        RenderTarget2D scene;
+        Texture2D renderTargetTexture;
         SpriteBatch spriteBatch;
+        DirectoryInfo tileDirectory;
+        Vector2 borderSize;
         SpriteFont debugFont;
         Vector2 mouseWorldPosition;
-
         List<Texture2D> TEXTURE_LIST;
         Texture2D EMPTY_SPACE;          // Black texture for the background of the map editor
 
-        bool showMainMenu;
+        bool showMainMenu;              // Show menu T/F
+        SaveMap saveMapQuery;           // Query form to save the map
+        private MapData generatedMapData;
         MainMenuManager mainMenuManager;
         Player player;
+        Vector2 playerPosition;
         EditorManager editorManager;
         MouseManager mouseManager;
         KeyboardState kbState;
@@ -40,6 +41,7 @@ namespace boardProto
         public Game1(Vector2 resolution, bool _screenMode, Vector2 _borderSize)
         {
             showMainMenu = true;
+
             borderSize = _borderSize;
             virtualResolution = resolution;
             graphics = new GraphicsDeviceManager(this);
@@ -48,11 +50,7 @@ namespace boardProto
             var control = System.Windows.Forms.Control.FromHandle(hWnd);
             var form = control.FindForm();
             form.Location = new System.Drawing.Point(0, 0);
-            //form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            //form.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-
-            /*graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;*/
+            
             graphics.PreferredBackBufferWidth = (int)virtualResolution.X;
             graphics.PreferredBackBufferHeight = (int)virtualResolution.Y;
 
@@ -73,7 +71,7 @@ namespace boardProto
             // TODO: Add your initialization logic here
             TEXTURE_LIST = new List<Texture2D>();
 
-            // Initializes the manager for the main menu
+            // Initializes the managers for the main menu
             mainMenuManager = new MainMenuManager();
 
             player = new Player();
@@ -127,10 +125,12 @@ namespace boardProto
             }
 
             // Initialize mainMenuManager
+            if (EMPTY_SPACE == null)
+                Console.WriteLine("button texture is null");
             mainMenuManager.Initialize(EMPTY_SPACE, debugFont);
 
             // Load player resources
-            Vector2 playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Width / 2, 
+            playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Width / 2, 
                                                  GraphicsDevice.Viewport.TitleSafeArea.Y + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
             player.Initialize(Content.Load<Texture2D>("Graphics\\PlayerXS"), playerPosition);
 
@@ -202,6 +202,38 @@ namespace boardProto
             else        // Main menu logic
             {
                 mainMenuManager.MenuClickDetector(mouseManager.GetMouseState());
+                if (mainMenuManager.NewMap)
+                    NewMap();   // If newMap == true, starts a new map, otherwise does nothing.
+
+                // Loads map
+                if (mainMenuManager.LoadMapData)
+                {
+                    mainMenuManager.MapLoader.LoadMap();
+                    mainMenuManager.LoadMapData = false;
+                }
+
+                // Saves map
+                if (mainMenuManager.RetrieveMapData)
+                {
+                    // Calles SaveFile method and passes it the generated map data.
+                    generatedMapData = editorManager.GenerateMapData();
+                    saveMapQuery = new SaveMap(generatedMapData);
+                    saveMapQuery.ChangeNameTextBox(editorManager.MapName);
+                    graphics.IsFullScreen = false;
+                    saveMapQuery.Show();
+                    editorManager.MapName = saveMapQuery.MapName;
+                    mainMenuManager.RetrieveMapData = false;
+                }
+
+                try
+                {
+                    if (editorManager.MapName != saveMapQuery.MapName)
+                        editorManager.MapName = saveMapQuery.MapName;
+                }
+                catch
+                {
+
+                }
             }
 
             kbStateOld = kbState;
@@ -253,7 +285,14 @@ namespace boardProto
                                        new Vector2(5, 11), Color.Yellow);
 
                 spriteBatch.DrawString(debugFont, "Active tool: " + editorManager.ActiveTool.ToString(), new Vector2(180, 1), Color.LimeGreen);
-                spriteBatch.DrawString(debugFont, "Selected tile: " + editorManager.SelectedTileTexture.ToString(), new Vector2(310, 1), Color.Magenta);
+                try
+                {
+                    spriteBatch.DrawString(debugFont, "Selected tile: " + editorManager.SelectedTileTexture.ToString(), new Vector2(310, 1), Color.Magenta);
+                }
+                catch 
+                {
+                    Console.WriteLine("SelectedTileTexture is null.");
+                }
             }
             else        // Main menu drawing
             {
@@ -313,6 +352,35 @@ namespace boardProto
             {
                 editorManager.L1TileTool.TileSelection(_mouseState, _mousePosition);
             }
+        }
+
+        public void NewMap()
+        {
+            Console.WriteLine("NewMap() called.");
+            player = new Player();
+            editorManager = new EditorManager();
+            mouseManager = new MouseManager();
+
+            playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Width / 2,
+                                                 GraphicsDevice.Viewport.TitleSafeArea.Y + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
+            player.Initialize(Content.Load<Texture2D>("Graphics\\PlayerXS"), playerPosition);
+
+            if (graphics.IsFullScreen)
+                mouseManager.Initialize(virtualResolution, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width,
+                                                                       GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height));
+            else
+                mouseManager.Initialize(virtualResolution, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - borderSize.X * 2,
+                                                                       GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - borderSize.Y - borderSize.X));
+            editorManager.Initialize(TEXTURE_LIST);
+
+            showMainMenu = false;
+            mainMenuManager.NewMap = false;
+        }
+
+        internal MapData GeneratedMapData
+        {
+            get { return generatedMapData; }
+            set { generatedMapData = value; }
         }
     }
 }
