@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+//using Microsoft.Xna.Framework.Graphics;
 
 namespace boardProto
 {
@@ -14,18 +14,26 @@ namespace boardProto
         Vector2 tileOffset;
         bool passable;
         EditorManager.L1TileType tileType;
-        Texture2D tileTexture;
+        int textureIndex;
 
-        public L1Tile(EditorManager.L1TileType _tileType , Vector2 _tilePosition, bool _passable, Texture2D _tileTexture)
+        public L1Tile(EditorManager.L1TileType _tileType , Vector2 _tilePosition, bool _passable, int _textureIndex)
         {
             tileType = _tileType;
             if (tileType == EditorManager.L1TileType.GrassThick)
                 tileOffset = new Vector2(0, -5);
             else
                 tileOffset = new Vector2(0, 0);
+
             tilePosition = _tilePosition;
             passable = _passable;
-            tileTexture = _tileTexture;
+            textureIndex = _textureIndex;
+        }
+
+        // Constructor for when loading tiles
+        public L1Tile()
+        {
+            tileType = EditorManager.L1TileType.Default;
+            passable = true;
         }
 
         public Vector2 TileOffset
@@ -38,10 +46,15 @@ namespace boardProto
             get { return tilePosition; }
             set { tilePosition = value; }
         }
-        public Texture2D TileTexture
+        internal EditorManager.L1TileType TileType
         {
-            get { return tileTexture; }
-            //set { tileTexture = value; }
+            get { return tileType; }
+            set { tileType = value; }
+        }
+        public int TextureIndex
+        {
+            get { return textureIndex; }
+            set { textureIndex = value; }
         }
     }
 }

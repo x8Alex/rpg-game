@@ -29,15 +29,21 @@ namespace boardProto
             // Figures out the position depending on the row and _tileIndex (the count for 1x1 tiles)
             buttonPosition.X = 17 + buttonTextureON.Width * (_tileIndex - (int)(_tileIndex / 5) * 5);
             buttonTilePosition.X = buttonPosition.X + (buttonTextureON.Width / 2 - buttonTileTexture.Width / 2);
-            if (!buttonTileTexture.ToString().Contains("GrassThick"))
+            if (buttonTileTexture.ToString().Contains("GrassThick"))
             {
                 buttonPosition.Y = 12 + buttonRow * buttonTextureON.Height;
+                buttonTilePosition.Y = buttonPosition.Y + (buttonTextureON.Height / 2 - buttonTileTexture.Height / 2);
+            }
+            else if (buttonTileTexture.ToString().Contains("RockA"))
+            {
+                buttonPosition.Y = 12 + buttonRow * buttonTextureON.Height;
+                //buttonTilePosition.X += 3f;
                 buttonTilePosition.Y = buttonPosition.Y + (buttonTextureON.Height / 2 - buttonTileTexture.Height / 2);
             }
             else
             {
                 buttonPosition.Y = 12 + buttonRow * buttonTextureON.Height;
-                buttonTilePosition.Y = buttonPosition.Y + (buttonTextureON.Height / 2 - buttonTileTexture.Height / 2 - 0);
+                buttonTilePosition.Y = buttonPosition.Y + (buttonTextureON.Height / 2 - buttonTileTexture.Height / 2);
             }
         }
 

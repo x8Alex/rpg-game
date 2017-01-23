@@ -9,35 +9,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace boardProto
 {
     internal partial class SaveMap : Form
     {
         private MapData mapData;
-        string mapName;
         XmlWriterSettings xmlSettings;
+        string mapName;
         string exeFilePath;
         string mapFolderName;
         string mapFolderPath;
 
         public SaveMap(MapData _mapData)
         {
+            // Changes form so it is not resizable
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
             mapName = "";
             exeFilePath = AppDomain.CurrentDomain.BaseDirectory;
             mapFolderName = "\\Maps\\";
             mapFolderPath = exeFilePath + mapFolderName;
             mapData = _mapData;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
 
             InitializeComponent();
-        }
-
-        public void ChangeNameTextBox(string _mapName)
-        {
-            textBoxMapName.Text = _mapName;
         }
 
         private void SaveMap_Load(object sender, EventArgs e)
@@ -57,8 +55,8 @@ namespace boardProto
         private void buttonSave_Click(object sender, EventArgs e)
         {
             mapName = textBoxMapName.Text;
-            Console.WriteLine("Assigned name: " + mapName);
 
+            // Checks if directory exists, creates it if doesn't
             if (!Directory.Exists(mapFolderPath))
                 Directory.CreateDirectory(mapFolderPath);
 
@@ -77,10 +75,20 @@ namespace boardProto
                 foreach (var _l1Tile in mapData.L1Tiles)
                 {
                     xmlWriter.WriteStartElement("L1Tile");
-
+                    xmlWriter.WriteElementString("Type", _l1Tile.TileType.ToString());
                     xmlWriter.WriteElementString("Position", _l1Tile.TilePosition.ToString());
                     xmlWriter.WriteElementString("Offset", _l1Tile.TileOffset.ToString());
-                    xmlWriter.WriteElementString("Texture", _l1Tile.TileTexture.ToString());
+                    xmlWriter.WriteElementString("TextureIndex", _l1Tile.TextureIndex.ToString());
+
+                    xmlWriter.WriteEndElement();
+                }
+                foreach (var _l2Tile in mapData.L2Tiles)
+                {
+                    xmlWriter.WriteStartElement("L2Tile");
+                    xmlWriter.WriteElementString("Type", _l2Tile.TileType.ToString());
+                    xmlWriter.WriteElementString("Position", _l2Tile.TilePosition.ToString());
+                    xmlWriter.WriteElementString("Offset", _l2Tile.TileOffset.ToString());
+                    xmlWriter.WriteElementString("TextureIndex", _l2Tile.TextureIndex.ToString());
 
                     xmlWriter.WriteEndElement();
                 }
@@ -95,6 +103,11 @@ namespace boardProto
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void ChangeNameTextBox(string _mapName)
+        {
+            textBoxMapName.Text = _mapName;
         }
 
         public string MapName

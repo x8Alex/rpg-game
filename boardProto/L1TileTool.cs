@@ -54,7 +54,8 @@ namespace boardProto
             tileTextureIndex = 0;
             foreach (var _texture in listTextures)
             {
-                if (_texture.ToString().Substring(12).Contains("1x1"))
+                if (_texture.ToString().Substring(12).Contains("1x1") &&
+                    _texture.ToString().Contains("Ground"))
                 {
                     listMenuButtons.Add(new ToolTileButton(tileTextureIndex++, listButtonTextures, _texture));
                     Console.WriteLine(_texture.ToString());
@@ -109,7 +110,6 @@ namespace boardProto
                         selectedTileType = EditorManager.L1TileType.GrassThick;
 
                     if (selectedTileTexture.ToString().Contains("Grass"))
-                        
                         tileOffset = new Vector2(0, -5);    // Compensates for the blades of grass at the top of texture
                     else
                         tileOffset = new Vector2(0, 0);
@@ -126,15 +126,15 @@ namespace boardProto
                 if (!_listL1Tiles.Exists(a => a.TilePosition == _tilePosition))
                 {
                     // Add a tile to Layer1Tiles with arguments "tile type", "tile position", "passable T/F", "texture".
-                    _listL1Tiles.Add(new L1Tile(selectedTileType, _tilePosition, true, SelectedTileTexture));
+                    _listL1Tiles.Add(new L1Tile(selectedTileType, _tilePosition, true, listTextures.IndexOf(SelectedTileTexture, 0, listTextures.Count)));
                 }
                 // If tile is occupied check if the tile being placed is the same as the one that already exists
-                else if (_listL1Tiles[_listL1Tiles.FindIndex(a => a.TilePosition == _tilePosition)].TileTexture !=
-                                                                                                    SelectedTileTexture)
+                else if (_listL1Tiles[_listL1Tiles.FindIndex(a => a.TilePosition == _tilePosition)].TextureIndex !=
+                                                                                                    listTextures.IndexOf(SelectedTileTexture, 0, listTextures.Count))
                 {
                     // Overwrites the tile to Layer1Tiles with arguments "tile type", "tile position", "passable T/F", "texture".
                     _listL1Tiles[_listL1Tiles.FindIndex(a => a.TilePosition == _tilePosition)] =
-                                new L1Tile(selectedTileType, _tilePosition, true, SelectedTileTexture);
+                                new L1Tile(selectedTileType, _tilePosition, true, listTextures.IndexOf(SelectedTileTexture, 0, listTextures.Count));
                 }
             }
 
