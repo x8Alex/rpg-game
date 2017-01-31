@@ -15,14 +15,12 @@ namespace boardProto
     /// </summary>
     public class Game1 : Game
     {
-        bool startedAsFullScreen;
         GraphicsDeviceManager graphics;
         Vector2 virtualResolution;
         RenderTarget2D scene;
         Texture2D renderTargetTexture;
         SpriteBatch spriteBatch;
         DirectoryInfo tileDirectory;
-        string[] tileSubfolder;
         Vector2 borderSize;
         SpriteFont debugFont;
         Vector2 mouseWorldPosition;
@@ -48,7 +46,6 @@ namespace boardProto
             virtualResolution = resolution;
             graphics = new GraphicsDeviceManager(this);
             graphics.IsFullScreen = _screenMode;
-            startedAsFullScreen = _screenMode;
             IntPtr hWnd = this.Window.Handle;
             var control = System.Windows.Forms.Control.FromHandle(hWnd);
             var form = control.FindForm();
@@ -60,7 +57,7 @@ namespace boardProto
             this.IsMouseVisible = true;
             //graphics.ApplyChanges();
             Content.RootDirectory = "Content";
-            tileSubfolder = new string[] { "Ground/", "Walls/"};
+            tileDirectory = new DirectoryInfo(Content.RootDirectory + "/Tiles/Ground");
         }
 
         /// <summary>
@@ -103,10 +100,8 @@ namespace boardProto
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(graphics.GraphicsDevice);
 
-            // Loads textures
-            tileDirectory = new DirectoryInfo(Content.RootDirectory + "/Tiles/" + tileSubfolder[0]);
-            FileInfo[] contentFilesGround = tileDirectory.GetFiles("*.*");
-
+            // Load textures.
+            FileInfo[] contentFiles = tileDirectory.GetFiles("*.*");
             EMPTY_SPACE = new Texture2D (graphics.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
             EMPTY_SPACE.SetData<Color>(new Color[] { Color.Black });
 
@@ -117,25 +112,22 @@ namespace boardProto
             TEXTURE_LIST.Add(Content.Load<Texture2D>("Panels/Buttons/ButtonTileOFF"));
             TEXTURE_LIST.Add(Content.Load<Texture2D>("Panels/Buttons/ButtonTileON"));
 
-            // Adds textures from Tiles/Ground to list
-            foreach (FileInfo _contentFile in contentFilesGround)
+            // Adds textures to list
+            foreach (FileInfo _contentFile in contentFiles)
             {
                 TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Ground/" + _contentFile.Name.Split('.')[0]));
             }
-
-            // Adds textures from Tiles/Walls to list
-            tileDirectory = new DirectoryInfo(Content.RootDirectory + "/Tiles/" + tileSubfolder[1]);
-            FileInfo[] contentFilesWalls = tileDirectory.GetFiles("*.*");
-
-            foreach (FileInfo _contentFile in contentFilesWalls)
+            
+            // Writes to console the textures loaded
+            foreach (Texture2D _texture in TEXTURE_LIST)
             {
-                TEXTURE_LIST.Add(Content.Load<Texture2D>("Tiles/Walls/" + _contentFile.Name.Split('.')[0]));
+                Console.WriteLine(_texture.ToString());
             }
 
             // Initialize mainMenuManager
             if (EMPTY_SPACE == null)
                 Console.WriteLine("button texture is null");
-            mainMenuManager.Initialize(graphics.GraphicsDevice, EMPTY_SPACE, debugFont);
+            mainMenuManager.Initialize(EMPTY_SPACE, debugFont);
 
             // Load player resources
             playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Width / 2, 
@@ -184,23 +176,6 @@ namespace boardProto
             {
                 editorManager.ScrollWorld(mouseManager.GetMouseState(), mouseManager.GetMousePosition());
 
-                // Select Layer 1 Tile Tool
-                if (kbStateOld.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.F1) &&
-                    kbState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.F1) &&
-                    editorManager.ActiveTool != EditorManager.EditorTools.L1TilePlacer)
-                {
-                    editorManager.LastActiveTool = editorManager.ActiveTool;
-                    editorManager.ActiveTool = EditorManager.EditorTools.L1TilePlacer;
-                }
-                // Select Layer 2 Tile Tool
-                if (kbStateOld.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.F2) &&
-                    kbState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.F2) &&
-                    editorManager.ActiveTool != EditorManager.EditorTools.L2TilePlacer)
-                {
-                    editorManager.LastActiveTool = editorManager.ActiveTool;
-                    editorManager.ActiveTool = EditorManager.EditorTools.L2TilePlacer;
-                }
-
                 // Toggle whether to display editor menus
                 if (kbStateOld.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.Tab) && kbState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Tab))
                     editorManager.ActiveToolMenuShow = !editorManager.ActiveToolMenuShow;
@@ -215,49 +190,26 @@ namespace boardProto
                 // Tile selection
                 TileSelection(mouseManager.GetMouseState(), mouseManager.GetMousePosition());
 
-                // Toggle tile delete tool
-                if (kbStateOld.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.Back) && kbState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Back))
-                    if (editorManager.ActiveTool == EditorManager.EditorTools.TileDelete)
-                        editorManager.ActiveTool = editorManager.LastActiveTool;
-                    else
-                    {
-                        editorManager.LastActiveTool = editorManager.ActiveTool;
-                        editorManager.ActiveTool = EditorManager.EditorTools.TileDelete;
-                    }
-
-                // Organizes the tile lists
+                // Organizes the tiles created based on their Y values
                 editorManager.ListL1Tiles = new List<L1Tile>(editorManager.ListL1Tiles.OrderBy(a => a.TilePosition.Y));
-                editorManager.ListL2Tiles = new List<L2Tile>(
-                                            editorManager.ListL2Tiles.OrderByDescending(a => a.TextureIndex)
-                                            .ThenBy(a => a.TilePosition.Y)
-                                            .ThenBy(a => a.TilePosition.X)
-                                            );
 
                 // Places tiles when LMB is pressed
                 if (editorManager.ActiveTool != EditorManager.EditorTools.None)
-                    editorManager.EditTiles(mouseManager.GetMouseState(), mouseManager.OldMouseState,
-                                            editorManager.DetectClosestTilePosition(mouseWorldPosition,
-                                                                                    editorManager.IgnoredMenuAreas));
+                    editorManager.PlaceTiles(mouseManager.GetMouseState(),
+                                             editorManager.DetectClosestTilePosition(mouseWorldPosition,
+                                             editorManager.IgnoredMenuAreas));
             }
-            else        // Main menu logic ============================================
+            else        // Main menu logic
             {
                 mainMenuManager.MenuClickDetector(mouseManager.GetMouseState());
                 if (mainMenuManager.NewMap)
-                    NewMap();                               // If newMap == true, starts a new map, otherwise does nothing
+                    NewMap();   // If newMap == true, starts a new map, otherwise does nothing.
 
                 // Loads map
                 if (mainMenuManager.LoadMapData)
                 {
-                    mainMenuManager.LoadCalled = true;
-                    mainMenuManager.MapLoaderInit();
-                    mainMenuManager.MapLoader.Show();
+                    mainMenuManager.MapLoader.LoadMap();
                     mainMenuManager.LoadMapData = false;
-                }
-                // Passes map data when window is closed
-                if (!mainMenuManager.MapLoader.Visible && mainMenuManager.LoadCalled)
-                {
-                    editorManager.PassMapData(mainMenuManager.MapLoader.MapData);
-                    mainMenuManager.LoadCalled = false;
                 }
 
                 // Saves map
@@ -273,21 +225,17 @@ namespace boardProto
                     mainMenuManager.RetrieveMapData = false;
                 }
 
-                if (saveMapQuery != null)
+                try
                 {
-                    try
-                    {
-                        if (editorManager.MapName != saveMapQuery.MapName)
-                            editorManager.MapName = saveMapQuery.MapName;
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Shits acting up");
-                    }
+                    if (editorManager.MapName != saveMapQuery.MapName)
+                        editorManager.MapName = saveMapQuery.MapName;
+                }
+                catch
+                {
+
                 }
             }
 
-            mouseManager.OldMouseState = mouseManager.MouseState;
             kbStateOld = kbState;
 
             // Updates mouse world position
@@ -377,35 +325,24 @@ namespace boardProto
         {
             // Works if a tile tool is active
             // Works if the texture has a "#x#" at the end of it
-            if (_kbStateOld.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.OemPlus) && 
-                _kbState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.OemPlus) &&
-                editorManager.ActiveTool != EditorManager.EditorTools.None &&
-                editorManager.ActiveTool != EditorManager.EditorTools.TileDelete)
+            if (_kbStateOld.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.OemPlus) && _kbState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.OemPlus) &&
+                editorManager.ActiveTool == EditorManager.EditorTools.L1TilePlacer)
             {
-                    switch (editorManager.ActiveTool) 
-                    { 
-                        case EditorManager.EditorTools.L1TilePlacer:
-                            editorManager.L1TileTool.TileSelection("BIGGER");   // Increase tile size
-                            break;
-                        case EditorManager.EditorTools.L2TilePlacer:
-                            editorManager.L2TileTool.TileSelection("BIGGER");   // Increase tile size
-                            break;
-                    }
+                if (editorManager.SelectedTileTexture.ToString().Contains("1x1") ||
+                    editorManager.SelectedTileTexture.ToString().Contains("2x2") ||
+                    editorManager.SelectedTileTexture.ToString().Contains("4x4"))
+                {
+                    editorManager.L1TileTool.TileSelection("BIGGER");   // Increase tile size
+                }
             }
-            else if (_kbStateOld.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.OemMinus) &&
-                     _kbState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.OemMinus) &&
-                     editorManager.ActiveTool != EditorManager.EditorTools.None &&
-                     editorManager.ActiveTool != EditorManager.EditorTools.TileDelete)
+            else if (_kbStateOld.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.OemMinus) && _kbState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.OemMinus))
             {
-                    switch (editorManager.ActiveTool)
-                    {
-                        case EditorManager.EditorTools.L1TilePlacer:
-                            editorManager.L1TileTool.TileSelection("SMALLER");   // Decrease tile size
-                            break;
-                        case EditorManager.EditorTools.L2TilePlacer:
-                            editorManager.L2TileTool.TileSelection("SMALLER");   // Decrease tile size
-                            break;
-                    }
+                if (editorManager.SelectedTileTexture.ToString().Contains("1x1") ||
+                    editorManager.SelectedTileTexture.ToString().Contains("2x2") ||
+                    editorManager.SelectedTileTexture.ToString().Contains("4x4"))
+                {
+                    editorManager.L1TileTool.TileSelection("SMALLER");  // Decrease tile size
+                }
             }
         }
 
@@ -414,10 +351,6 @@ namespace boardProto
             if (editorManager.ActiveTool == EditorManager.EditorTools.L1TilePlacer)
             {
                 editorManager.L1TileTool.TileSelection(_mouseState, _mousePosition);
-            }
-            else if (editorManager.ActiveTool == EditorManager.EditorTools.L2TilePlacer)
-            {
-                editorManager.L2TileTool.TileSelection(_mouseState, _mousePosition);
             }
         }
 

@@ -40,29 +40,25 @@ namespace boardProto
         
         // Currently selected tool - enum value
         EditorTools activeTool;
-        EditorTools lastActiveTool;
         L1TileTool l1TileTool;
-        L2TileTool l2TileTool;
         List<Rectangle> ignoredMenuAreas;
         // Tool menu isn't displayed by default
         bool activeToolMenuShow = false;
         // Shows the grid by default
         bool gridShow = true;
-        bool deleteTool = false;
 
         // Editor tools
         public enum EditorTools
         {
             None,
-            TileDelete,
-            L1TilePlacer,
-            L2TilePlacer
+            L1TilePlacer
         };
 
         // Layers of the map
         List<L1Tile> listL1Tiles;   // X, Y position
-        List<L2Tile> listL2Tiles;
+        List<Vector3> listL2Tiles;
         List<Vector3> listL3Tiles;
+
 
         // Layer 1 tiles
         public enum L1TileType 
@@ -72,20 +68,10 @@ namespace boardProto
             GrassThick
         };
 
-        // Layer 2 tiles
-        public enum L2TileType
-        {
-            Default,
-            RockS,
-            RockM,
-            RockL
-        };
-
         public void Initialize(List<Texture2D> _texture_list)
         {
             listTileTextures = new List<Texture2D>();
             listL1Tiles = new List<L1Tile>();               // L1Tile objects that will be written and read from the map files
-            listL2Tiles = new List<L2Tile>();               // L2Tile...
 
             // Adds tile textures to listTileTextures. "i" equals to the first tile texture
             for (int i = 4; i < _texture_list.Count; i++)   // Passes textures starting from the button textures
@@ -96,41 +82,11 @@ namespace boardProto
             textureMenuOpen = _texture_list[2];
             textureMenuClosed = _texture_list[3];
 
-            activeTool = EditorTools.None;      // Default active tool
-            lastActiveTool = activeTool;                // Sets the last active tool. Used when tool needs to be temporarily disabled
+            activeTool = EditorTools.L1TilePlacer;      // Makes all panels inactive by default
             l1TileTool = new L1TileTool(textureMenuOpen, textureMenuClosed, listTileTextures);
-            l2TileTool = new L2TileTool(textureMenuOpen, textureMenuClosed, listTileTextures);
 
             // ignoredMenuAreas will be shared between all tools
             ignoredMenuAreas = l1TileTool.IgnoredAreas; // ASSUMES L1EDITORTOOL AND MENUS ARE ACTIVE **********
-        }
-
-        public void PassMapData(MapData _mapData)
-        {
-            try
-            {
-                mapName = _mapData.MapName;
-                try
-                {
-                    listL1Tiles = _mapData.L1Tiles;
-                }
-                catch
-                {
-                    Console.WriteLine("Could not pass L1 data.");
-                }
-                try
-                {
-                    listL2Tiles = _mapData.L2Tiles;
-                }
-                catch
-                {
-                    Console.WriteLine("Could not pass L2 data.");
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Could not pass map data.");
-            }
         }
 
         // Scrolls the world when RMB is held down and mouse moved around
@@ -151,8 +107,8 @@ namespace boardProto
             }
         }
 
-        // Places, edits, deletes tiles in the world
-        public void EditTiles(MouseState _mouseState, MouseState _oldMouseState, Vector2 _tilePosition)
+        // Places tiles in the world
+        public void PlaceTiles(MouseState _mouseState, Vector2 _tilePosition)
         {
             //_tilePosition += L1TileTool.TileOffset;
             // Check which panel is active
@@ -177,57 +133,6 @@ namespace boardProto
                 if (_mouseState.LeftButton == ButtonState.Pressed)
                 {
                     listL1Tiles = l1TileTool.PlaceTile(listL1Tiles, _tilePosition);
-                }
-            }
-            else if (activeTool == EditorTools.L2TilePlacer)         // ======= LAYER 2 =======
-            {
-                // Toggle tile selection menu
-                if (l2TileTool.TileSelectionMenuShow != activeToolMenuShow)
-                {
-                    l2TileTool.TileSelectionMenuShow = activeToolMenuShow;
-
-                    if (activeToolMenuShow)
-                        ignoredMenuAreas = new List<Rectangle>() { l2TileTool.RectangleMenuOpen };
-                    else
-                        ignoredMenuAreas = new List<Rectangle>() { l2TileTool.RectangleMenuClosed };
-                }
-
-                // Tile selection
-                selectedTileTexture = l2TileTool.SelectedTileTexture;
-
-                // Tile placement
-                if (_mouseState.LeftButton == ButtonState.Pressed)
-                {
-                    listL2Tiles = l2TileTool.PlaceTile(listL2Tiles, _tilePosition);
-                }
-            }
-            else if (activeTool == EditorTools.TileDelete)
-            {
-                
-                while (_mouseState.LeftButton == ButtonState.Pressed && _oldMouseState.LeftButton == ButtonState.Released)
-                {
-                    // Tries to remove a tile if found in each list. Throws error on blank tiles.
-                    // Removal is done from the highest layer to the lowest in order to not accidentally remove
-                    // any tiles underneath.
-                    try
-                    {
-                        listL2Tiles.RemoveAt(listL2Tiles.FindIndex(a => a.TilePosition == mouseMapTilePosition));
-                        break;
-                    }
-                    catch
-                    {
-                        Console.WriteLine("No tile to delete.");
-                    }
-                    try
-                    {
-                        listL1Tiles.RemoveAt(listL1Tiles.FindIndex(a => a.TilePosition == mouseMapTilePosition));
-                        break;
-                    }
-                    catch
-                    {
-                        Console.WriteLine("No tile to delete.");
-                    }
-                    break;
                 }
             }
         }
@@ -274,21 +179,7 @@ namespace boardProto
                     _button.Draw(spriteBatch, l1TileTool.SelectedTileTexture);
                 }
             }
-            // LAYER 2 Tile Tool
-            else if (_activeTool == EditorTools.L2TilePlacer && activeToolMenuShow)
-            {
-                // Draws the OPEN menu frame
-                spriteBatch.Draw(l2TileTool.TextureMenuOpen, l1TileTool.RectangleMenuOpen, Color.White);
-
-                // Draws the tile selection buttons
-                foreach (ToolTileButton _button in l2TileTool.ListMenuButtons)
-                {
-                    _button.Draw(spriteBatch, l2TileTool.SelectedTileTexture);
-                }
-            }
-            else if (_activeTool != EditorTools.None &&
-                     _activeTool != EditorTools.TileDelete &&
-                     !activeToolMenuShow)
+            else if (_activeTool == EditorTools.L1TilePlacer && !activeToolMenuShow)
             {
                 spriteBatch.Draw(l1TileTool.TextureMenuClosed, l1TileTool.RectangleMenuClosed, Color.White);
             }
@@ -303,51 +194,27 @@ namespace boardProto
         public void DrawTiles(SpriteBatch spriteBatch, Vector2 pos, Texture2D _selectedTileTexture)
         {
             // Draws all created tiles
-            // Layer 1
             foreach (var _tile in listL1Tiles)
             {
                 if (_tile.TileOffset == new Vector2(0,0))
-                    spriteBatch.Draw(listTileTextures[_tile.TextureIndex], new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
-                                                                    (tileSize.X / 2) - listTileTextures[_tile.TextureIndex].Width / 2,
+                    spriteBatch.Draw(_tile.TileTexture, new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) * 
+                                                                    (tileSize.X / 2) - _tile.TileTexture.Width / 2,
                                                                     (_tile.TilePosition.X + _tile.TilePosition.Y) * (tileSize.Y / 2))
                                                     + worldOffset,
                                  null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                 else
-                    spriteBatch.Draw(listTileTextures[_tile.TextureIndex], new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
-                                                                    (tileSize.X / 2) - listTileTextures[_tile.TextureIndex].Width / 2,
-                                                                    (_tile.TilePosition.X + _tile.TilePosition.Y) * (tileSize.Y / 2))
-                                                    + worldOffset + _tile.TileOffset,
-                                 null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-            }
-            // Layer 2
-            foreach (var _tile in listL2Tiles)
-            {
-                if (_tile.TileOffset == new Vector2(0, 0))
-                    spriteBatch.Draw(listTileTextures[_tile.TextureIndex], new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
-                                                                    (tileSize.X / 2) - listTileTextures[_tile.TextureIndex].Width / 2,
-                                                                    (_tile.TilePosition.X + _tile.TilePosition.Y) * (tileSize.Y / 2))
-                                                    + worldOffset,
-                                 null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-                else
-                    spriteBatch.Draw(listTileTextures[_tile.TextureIndex], new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
-                                                                    (tileSize.X / 2) - listTileTextures[_tile.TextureIndex].Width / 2,
+                    spriteBatch.Draw(_tile.TileTexture, new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
+                                                                    (tileSize.X / 2) - _tile.TileTexture.Width / 2,
                                                                     (_tile.TilePosition.X + _tile.TilePosition.Y) * (tileSize.Y / 2))
                                                     + worldOffset + _tile.TileOffset,
                                  null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             }
 
             // Draw the selected tile
-            // Layer 1
-            if(pos.X != 0.00001f && activeTool == EditorTools.L1TilePlacer)
+            if(pos.X != 0.00001f)
             spriteBatch.Draw(_selectedTileTexture, new Vector2((pos.X - pos.Y) * (tileSize.X / 2) - _selectedTileTexture.Width / 2,
                                                                (pos.X + pos.Y) * (tileSize.Y / 2)) +
                              worldOffset + L1TileTool.TileOffset,
-                             null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-            // Layer 2
-            else if(pos.X != 0.00001f && activeTool == EditorTools.L2TilePlacer)
-            spriteBatch.Draw(_selectedTileTexture, new Vector2((pos.X - pos.Y) * (tileSize.X / 2) - _selectedTileTexture.Width / 2,
-                                                               (pos.X + pos.Y) * (tileSize.Y / 2)) +
-                             worldOffset + L2TileTool.TileOffset,
                              null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
@@ -392,7 +259,7 @@ namespace boardProto
         // Generate a MapData object to write to file.
         public MapData GenerateMapData()
         {
-            MapData mapData = new MapData(mapName, listL1Tiles, listL2Tiles);
+            MapData mapData = new MapData(mapName, listL1Tiles);
 
             return mapData;
         }
@@ -408,11 +275,6 @@ namespace boardProto
             get { return l1TileTool; }
             set { l1TileTool = value; }
         }
-        internal L2TileTool L2TileTool
-        {
-            get { return l2TileTool; }
-            set { l2TileTool = value; }
-        }
         public bool ActiveToolMenuShow
         {
             get { return activeToolMenuShow; }
@@ -422,11 +284,6 @@ namespace boardProto
         {
             get { return activeTool; }
             set { activeTool = value; }
-        }
-        internal EditorTools LastActiveTool
-        {
-            get { return lastActiveTool; }
-            set { lastActiveTool = value; }
         }
         public List<Rectangle> IgnoredMenuAreas
         {
@@ -457,11 +314,6 @@ namespace boardProto
         {
             get { return listL1Tiles; }
             set { listL1Tiles = value; }
-        }
-        internal List<L2Tile> ListL2Tiles
-        {
-            get { return listL2Tiles; }
-            set { listL2Tiles = value; }
         }
         public string MapName
         {
