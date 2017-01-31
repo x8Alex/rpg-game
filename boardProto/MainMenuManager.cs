@@ -15,25 +15,31 @@ namespace boardProto
         bool newMap = false;
         bool generateMapData = false;
         bool loadMapData = false;
+        bool loadCalled = false;
 
-        MapLoader mapLoader;
-        MapSaver mapSaver;
+        GraphicsDevice graphicsDevice;
+        LoadMap mapLoader;
 
         Texture2D buttonTexture;
         List<MainMenuButton> listMenuButtons = new List<MainMenuButton>();
         MouseState oldState;
         int menuButtonIndex = -1;
 
-        public void Initialize(Texture2D _buttonTexture, SpriteFont _font)
+        public void Initialize(GraphicsDevice _graphicsDevice, Texture2D _buttonTexture, SpriteFont _font)
         {
-            mapLoader = new MapLoader();
-            mapSaver = new MapSaver();
+            graphicsDevice = _graphicsDevice;
+            MapLoaderInit();
 
             buttonTexture = _buttonTexture;
             CreateButton("New Map", _font);
             CreateButton("Load Map", _font);
             CreateButton("Save Map", _font);
             CreateButton("Exit", _font);
+        }
+
+        public void MapLoaderInit()
+        {
+            mapLoader = new LoadMap(graphicsDevice);
         }
 
         // Create menu buttons
@@ -112,17 +118,16 @@ namespace boardProto
             get { return loadMapData; }
             set { loadMapData = value; }
         }
-        internal MapSaver MapSaver
-        {
-            get { return mapSaver; }
-            set { mapSaver = value; }
-        }
-        internal MapLoader MapLoader
+        internal LoadMap MapLoader
         {
             get { return mapLoader; }
             set { mapLoader = value; }
         }
-
+        public bool LoadCalled
+        {
+            get { return loadCalled; }
+            set { loadCalled = value; }
+        }
     }
 
     // Class for individual the individual button objects

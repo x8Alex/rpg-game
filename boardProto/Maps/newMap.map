@@ -1,0 +1,2781 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MapData>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:93 Y:6}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:95 Y:6}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:92 Y:6}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:97 Y:6}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:87 Y:7}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:91 Y:7}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:97 Y:7}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:99 Y:7}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:101 Y:7}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:101 Y:8}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:91 Y:9}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:102 Y:10}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:108 Y:10}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:110 Y:10}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:112 Y:10}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:101 Y:10}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:104 Y:10}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:114 Y:10}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:105 Y:10}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:86 Y:11}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:104 Y:11}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:106 Y:11}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:114 Y:11}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:116 Y:11}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:88 Y:11}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:118 Y:11}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:102 Y:12}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:118 Y:12}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:124 Y:12}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:108 Y:12}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:113 Y:12}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:120 Y:12}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:123 Y:12}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:126 Y:12}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:86 Y:13}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:120 Y:13}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:122 Y:13}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:126 Y:13}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:88 Y:13}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:128 Y:13}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:92 Y:14}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:90 Y:14}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:88 Y:14}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:101 Y:14}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:128 Y:14}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:103 Y:14}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:130 Y:14}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:130 Y:15}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:94 Y:15}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:132 Y:15}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:93 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:102 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:132 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:134 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:92 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:101 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:20 Y:17}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:21 Y:17}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:19 Y:17}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:18 Y:17}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:19 Y:18}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:17 Y:18}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:18 Y:18}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:93 Y:18}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:18 Y:19}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:23 Y:19}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:17 Y:19}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:16 Y:19}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:95 Y:19}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:17 Y:20}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:23 Y:20}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:16 Y:20}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:95 Y:20}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:94 Y:20}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:16 Y:21}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:25 Y:21}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:15 Y:21}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:97 Y:21}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:15 Y:22}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:19 Y:22}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:23 Y:22}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:96 Y:22}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:97 Y:23}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:14 Y:24}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:27 Y:24}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:14 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:27 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:42 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:43 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:46 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:37 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:36 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:35 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:13 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:17 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:21 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:25 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:41 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:45 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:39 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:37 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:37 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:98 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:52 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:29 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:31 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:36 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:52 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:53 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:12 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:32 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:31 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:33 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:49 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:57 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:64 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:74 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:12 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:11 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:98 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:53 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:54 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:29 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:31 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:53 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:61 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:65 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:73 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:47 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:45 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:42 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:24 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:23 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:16 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:14 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:15 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:10 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:9 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:7 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:8 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:81 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:25 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:39 Y:31}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:77 Y:31}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:79 Y:31}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:81 Y:31}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:69 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:72 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:39 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:81 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:83 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:85 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:92 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:93 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:102 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:51 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:69 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:34 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:85 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:86 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:87 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:90 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:91 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:92 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:88 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:89 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:93 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:95 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:99 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:103 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:101 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:102 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:73 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:68 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:63 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:64 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:87 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:88 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:89 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:90 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:91 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:92 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:85 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:86 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:95 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:97 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:81 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:80 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:82 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:83 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:107 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:101 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:63 Y:35}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:99 Y:35}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:89 Y:35}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:82 Y:35}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:81 Y:35}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:90 Y:35}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:91 Y:35}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:92 Y:35}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:50 Y:35}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:100 Y:35}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:50 Y:36}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:55 Y:36}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:97 Y:36}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:90 Y:36}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:98 Y:36}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:111 Y:36}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:102 Y:36}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:51 Y:37}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:71 Y:37}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:102 Y:37}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:106 Y:37}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:55 Y:38}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:110 Y:38}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:106 Y:38}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:108 Y:38}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:114 Y:39}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:106 Y:40}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:52 Y:41}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:57 Y:41}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:54 Y:41}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:102 Y:41}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:54 Y:42}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:56 Y:42}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:57 Y:42}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:110 Y:42}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>4</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:114 Y:42}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:101 Y:42}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:53 Y:43}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:55 Y:43}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:56 Y:43}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:107 Y:44}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:114 Y:44}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:53 Y:45}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:103 Y:45}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:55 Y:46}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:108 Y:46}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:112 Y:46}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:52 Y:47}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:54 Y:47}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:51 Y:49}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:53 Y:49}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:51 Y:50}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:50 Y:50}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:49 Y:50}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:53 Y:51}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:52 Y:52}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:54 Y:53}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:51 Y:54}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:53 Y:54}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>3</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:55 Y:54}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:50 Y:54}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:55 Y:55}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:50 Y:55}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:56 Y:55}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:49 Y:55}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L1Tile>
+		<Type>Default</Type>
+		<Position>{X:48 Y:55}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>2</TextureIndex>
+	</L1Tile>
+	<L2Tile>
+		<Type>RockL</Type>
+		<Position>{X:23 Y:14}</Position>
+		<Offset>{X:0 Y:-260}</Offset>
+		<TextureIndex>19</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockL</Type>
+		<Position>{X:33 Y:18}</Position>
+		<Offset>{X:0 Y:-260}</Offset>
+		<TextureIndex>19</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockL</Type>
+		<Position>{X:92 Y:25}</Position>
+		<Offset>{X:0 Y:-260}</Offset>
+		<TextureIndex>19</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockL</Type>
+		<Position>{X:52 Y:26}</Position>
+		<Offset>{X:0 Y:-260}</Offset>
+		<TextureIndex>19</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockL</Type>
+		<Position>{X:63 Y:27}</Position>
+		<Offset>{X:0 Y:-260}</Offset>
+		<TextureIndex>19</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockL</Type>
+		<Position>{X:9 Y:28}</Position>
+		<Offset>{X:0 Y:-260}</Offset>
+		<TextureIndex>19</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockL</Type>
+		<Position>{X:83 Y:28}</Position>
+		<Offset>{X:0 Y:-260}</Offset>
+		<TextureIndex>19</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockL</Type>
+		<Position>{X:47 Y:53}</Position>
+		<Offset>{X:0 Y:-260}</Offset>
+		<TextureIndex>19</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:86 Y:9}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:106 Y:10}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:24 Y:12}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:101 Y:12}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:121 Y:12}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:19 Y:15}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:21 Y:15}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:16 Y:18}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:32 Y:18}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:13 Y:19}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:15 Y:19}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:14 Y:21}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:28 Y:22}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:13 Y:24}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:28 Y:24}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:40 Y:24}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:42 Y:24}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:12 Y:25}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:31 Y:25}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:38 Y:25}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:44 Y:25}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:92 Y:26}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:12 Y:27}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:35 Y:27}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:50 Y:27}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:54 Y:27}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:59 Y:27}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:11 Y:28}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:56 Y:28}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:62 Y:28}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:73 Y:28}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:75 Y:28}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:97 Y:28}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:55 Y:29}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:69 Y:29}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:79 Y:29}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:80 Y:29}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:72 Y:30}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:85 Y:30}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:71 Y:31}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:91 Y:31}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:93 Y:31}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:87 Y:32}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:50 Y:33}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:97 Y:33}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:79 Y:34}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:49 Y:35}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:55 Y:41}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:52 Y:43}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:52 Y:45}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:51 Y:47}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:49 Y:49}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:51 Y:52}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockM</Type>
+		<Position>{X:49 Y:53}</Position>
+		<Offset>{X:0 Y:-75}</Offset>
+		<TextureIndex>18</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:91 Y:6}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:86 Y:10}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:107 Y:10}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:25 Y:11}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:25 Y:12}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:122 Y:12}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:24 Y:13}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:101 Y:13}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:24 Y:14}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:22 Y:15}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:18 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:19 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:20 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:21 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:22 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:34 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:35 Y:16}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:17 Y:17}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:20 Y:17}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:22 Y:17}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:23 Y:17}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:34 Y:17}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:17 Y:18}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:23 Y:18}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:24 Y:18}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:34 Y:18}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:16 Y:19}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:24 Y:19}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:25 Y:19}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:31 Y:19}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:32 Y:19}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:33 Y:19}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:15 Y:20}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:24 Y:20}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:15 Y:21}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:24 Y:21}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:25 Y:21}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:14 Y:22}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:15 Y:22}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:14 Y:23}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:93 Y:23}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:14 Y:24}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:45 Y:24}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:46 Y:24}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:47 Y:24}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:13 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:28 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:39 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:40 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:41 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:45 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:47 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:93 Y:25}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:13 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:14 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:29 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:30 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:31 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:36 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:38 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:40 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:47 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:64 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:93 Y:26}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:13 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:31 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:32 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:36 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:48 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:51 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:64 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:91 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:92 Y:27}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:12 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:32 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:33 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:34 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:35 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:49 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:50 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:51 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:57 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:58 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:59 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:63 Y:28}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:7 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:8 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:9 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:10 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:11 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:56 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:58 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:60 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:61 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:62 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:63 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:64 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:65 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:66 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:73 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:75 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:76 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:77 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:81 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:97 Y:29}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:6 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:9 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:62 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:66 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:67 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:74 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:77 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:78 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:79 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:80 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:97 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:98 Y:30}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:69 Y:31}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:72 Y:31}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:83 Y:31}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:70 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:71 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:88 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:89 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:90 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:91 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:93 Y:32}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:51 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:80 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:90 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:98 Y:33}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:50 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:80 Y:34}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:50 Y:35}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:56 Y:41}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:55 Y:42}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:52 Y:46}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:51 Y:48}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:50 Y:49}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:50 Y:53}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:51 Y:53}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:48 Y:54}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+	<L2Tile>
+		<Type>RockS</Type>
+		<Position>{X:49 Y:54}</Position>
+		<Offset>{X:0 Y:0}</Offset>
+		<TextureIndex>17</TextureIndex>
+	</L2Tile>
+</MapData>

@@ -11,6 +11,8 @@ namespace boardProto
 {
     class MouseManager
     {
+        bool managerActive = true;
+        MouseState oldMouseState;
         MouseState MOUSE_STATE;
         Vector2 RESOLUTION;
         Vector2 WORLD_SCROLL = new Vector2(0,0);
@@ -22,11 +24,14 @@ namespace boardProto
         {
             RESOLUTION = resolution;
             VIEWPORT = _viewport;
+            MOUSE_STATE = Mouse.GetState();
         }
 
         // Returns the mouse position adjusted for the virtual resolution
         public Vector2 GetMousePosition()
         {
+            if (managerActive)
+            {
             MOUSE_STATE = Mouse.GetState();
             if (VIEWPORT.X < RESOLUTION.X && VIEWPORT.Y < RESOLUTION.Y)
                 return new Vector2(MOUSE_STATE.X / (VIEWPORT.X / RESOLUTION.X),
@@ -34,6 +39,11 @@ namespace boardProto
             else
                 return new Vector2(MOUSE_STATE.X,
                                    MOUSE_STATE.Y);
+            }
+            else
+            {
+                return new Vector2();
+            }
         }
 
         // Returns the mouse state
@@ -41,6 +51,21 @@ namespace boardProto
         {
             MOUSE_STATE = Mouse.GetState();
             return MOUSE_STATE;
+        }
+        public bool ManagerActive
+        {
+            get { return managerActive; }
+            set { managerActive = value; }
+        }
+        public MouseState MouseState
+        {
+            get { return MOUSE_STATE; }
+            set { MOUSE_STATE = value; }
+        }
+        public MouseState OldMouseState
+        {
+            get { return oldMouseState; }
+            set { oldMouseState = value; }
         }
     }
 }
