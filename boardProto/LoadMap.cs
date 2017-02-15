@@ -19,6 +19,8 @@ namespace boardProto
 {
     public partial class LoadMap : Form
     {
+        List<Texture2D> tempTextureList;
+
         GraphicsDevice graphicsDevice;
         string mapName;
         string exeFilePath;
@@ -36,8 +38,10 @@ namespace boardProto
             L2Tile
         };
 
-        public LoadMap(GraphicsDevice _graphicsDevice)
+        public LoadMap(GraphicsDevice _graphicsDevice, List<Texture2D> _tempTextureList)
         {
+            tempTextureList = _tempTextureList;
+
             graphicsDevice = _graphicsDevice;
             // Changes form so it is not resizable
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -166,18 +170,18 @@ namespace boardProto
                                     }
                                 }
                                 break;
-                            case "TextureIndex":
+                            case "TextureID":
                                 if (xmlReader.Read())
                                 {
                                     if (tempTileType == tileType.L1Tile)
                                     {
                                         // Loads the texture index value
-                                        tempL1Tile.TextureIndex = Convert.ToInt32(xmlReader.Value);
+                                        tempL1Tile.TextureID = xmlReader.Value;
                                     }
                                     else if (tempTileType == tileType.L2Tile)
                                     {
                                         // Loads the texture index value
-                                        tempL2Tile.TextureIndex = Convert.ToInt32(xmlReader.Value);
+                                        tempL2Tile.TextureID = xmlReader.Value;
                                     }
                                 }
 

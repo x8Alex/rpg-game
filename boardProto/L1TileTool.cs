@@ -126,15 +126,15 @@ namespace boardProto
                 if (!_listL1Tiles.Exists(a => a.TilePosition == _tilePosition))
                 {
                     // Add a tile to Layer1Tiles with arguments "tile type", "tile position", "passable T/F", "texture".
-                    _listL1Tiles.Add(new L1Tile(selectedTileType, _tilePosition, true, listTextures.IndexOf(SelectedTileTexture, 0, listTextures.Count)));
+                    _listL1Tiles.Add(new L1Tile(selectedTileType, _tilePosition, true, selectedTileTexture.ToString()));
                 }
                 // If tile is occupied check if the tile being placed is the same as the one that already exists
-                else if (_listL1Tiles[_listL1Tiles.FindIndex(a => a.TilePosition == _tilePosition)].TextureIndex !=
-                                                                                                    listTextures.IndexOf(SelectedTileTexture, 0, listTextures.Count))
+                else if (_listL1Tiles[_listL1Tiles.FindIndex(a => a.TilePosition == _tilePosition)].TextureID !=
+                         selectedTileTexture.ToString())
                 {
                     // Overwrites the tile to Layer1Tiles with arguments "tile type", "tile position", "passable T/F", "texture".
                     _listL1Tiles[_listL1Tiles.FindIndex(a => a.TilePosition == _tilePosition)] =
-                                new L1Tile(selectedTileType, _tilePosition, true, listTextures.IndexOf(SelectedTileTexture, 0, listTextures.Count));
+                                new L1Tile(selectedTileType, _tilePosition, true, selectedTileTexture.ToString());
                 }
             }
 

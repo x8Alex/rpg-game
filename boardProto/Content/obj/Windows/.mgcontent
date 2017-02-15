@@ -7,17 +7,8 @@
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/DebugFont.spritefont</File>
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Panels/ToolMenuClosed.png</File>
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Panels/ToolMenuOpen.png</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileGrassThick4x4.png</File>
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Panels/Buttons/ButtonTileOFF.png</File>
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Panels/Buttons/ButtonTileON.png</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileGrassThick1x1.png</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileGrassThick2x2.png</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileDryDirt4x4.png</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileDryDirt1x1.png</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileDryDirt2x2.png</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileStone1x1.png</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileStone2x2.png</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileStone4x4.png</File>
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/GridTile.png</File>
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileSand4x4.png</File>
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileSand1x1.png</File>
@@ -25,10 +16,13 @@
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileDirt1x1.png</File>
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileDirt2x2.png</File>
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileDirt4x4.png</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Walls/TileRockA1x1.png</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Walls/TileRockA2x2.png</File>
-    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Walls/TileRockA4x4.png</File>
+    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Walls/TileRockB1x1.png</File>
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Walls/TileRockBA.png</File>
     <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Walls/TileRockBB.png</File>
+    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Walls/TileRockBC.png</File>
+    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Walls/TileRockC1x1.png</File>
+    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Walls/TileRockC2x2.png</File>
+    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Walls/TileRockC4x4.png</File>
+    <File>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Walls/TileShoreStonesCA.png</File>
   </SourceFiles>
 </SourceFileCollection>

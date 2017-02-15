@@ -14,9 +14,9 @@ namespace boardProto
         Vector2 tileOffset;
         bool passable;
         EditorManager.L1TileType tileType;
-        int textureIndex;
+        string textureID;
 
-        public L1Tile(EditorManager.L1TileType _tileType , Vector2 _tilePosition, bool _passable, int _textureIndex)
+        public L1Tile(EditorManager.L1TileType _tileType , Vector2 _tilePosition, bool _passable, string _textureID)
         {
             tileType = _tileType;
             if (tileType == EditorManager.L1TileType.GrassThick)
@@ -26,7 +26,7 @@ namespace boardProto
 
             tilePosition = _tilePosition;
             passable = _passable;
-            textureIndex = _textureIndex;
+            textureID = _textureID;
         }
 
         // Constructor for when loading tiles
@@ -51,10 +51,10 @@ namespace boardProto
             get { return tileType; }
             set { tileType = value; }
         }
-        public int TextureIndex
+        public string TextureID
         {
-            get { return textureIndex; }
-            set { textureIndex = value; }
+            get { return textureID; }
+            set { textureID = value; }
         }
     }
 }

@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boardProto.exe" size="202664">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="boardProto.exe" size="203176">
       <assemblyIdentity name="boardProto" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rdpkmFu5tJtMwR/c6WE5kOxVxPU8OhVzCPuGeXcXfYk=</dsig:DigestValue>
+        <dsig:DigestValue>AS1FHbkBtO1Fi1Y342tMbRqZtHv/pB55irNHwtLMTTc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -282,60 +282,6 @@
       <dsig:DigestValue>ogEdhfM8qaY3OjA/V2Oi3UlennZXWdMGB/u1XXZtm/I=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Tiles\Ground\TileDryDirt1x1.xnb" size="9365">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>qE3yaf910vd0f/YkPeiYv3Q6hxMC+Z+6Nsg2+Ukp8DA=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Tiles\Ground\TileDryDirt2x2.xnb" size="37205">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>uSxfuhYqiF0z6vKnjeS5lZqTW/5jnK5dSf6prx9R/EU=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Tiles\Ground\TileDryDirt4x4.xnb" size="148565">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>21SdJxpolyj6IJbS4OHIuvrgNEeOnVqZZpGDzQyhPi8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Tiles\Ground\TileGrassThick1x1.xnb" size="12565">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>tlAda/byKuy451X0x0IpIQYy2P4GnvYdISvnKdcQqIY=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Tiles\Ground\TileGrassThick2x2.xnb" size="43605">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>cDEZ0wTXnT2bTwloY8tWz5a73CsoVzao/nN6N/qC68E=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Tiles\Ground\TileGrassThick4x4.xnb" size="161365">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>m5oil7OdeeXpkrHyusRJ7o95EJZPVzPZK1brV6t8drs=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="Content\Tiles\Ground\TileSand1x1.xnb" size="12885">
     <hash>
       <dsig:Transforms>
@@ -363,58 +309,13 @@
       <dsig:DigestValue>fdQTc/WWrA4kv6PoE6wQv5a0xHzwPgJM+DKFVybElw0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Tiles\Ground\TileStone1x1.xnb" size="9365">
+  <file name="Content\Tiles\Walls\TileRockB1x1.xnb" size="51285">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>usPUsFaozx39RsUGG9yF4ELQmAQo4z46K74KX4FDOl0=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Tiles\Ground\TileStone2x2.xnb" size="37205">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>eOtRXQEAvdZoNrbRYsXafPRjdI3ip/UnhCHrM5NGwjY=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Tiles\Ground\TileStone4x4.xnb" size="148565">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>kaPt5UhqmLyjLNadUa/PLZUDNUdVGhFsNin3vaMQbm8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Tiles\Walls\TileRockA1x1.xnb" size="13845">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ufr3hy8N3/MYpJsVWPRFef/+0XPPBE/oiSqcjwrkwcQ=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Tiles\Walls\TileRockA2x2.xnb" size="76885">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>VYoTo3jhFqnOhsfotiss23Pa9E8u5oG7pLgMzIoeF8M=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\Tiles\Walls\TileRockA4x4.xnb" size="248325">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>UjX+yecw96l88PhKAPMK6KntzRrKPVg0UXeqN3hgY1M=</dsig:DigestValue>
+      <dsig:DigestValue>5MUKXVuYgqrFlu11Z3BPB/YJ538F5lchorG4HNZghoo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Tiles\Walls\TileRockBA.xnb" size="12885">
@@ -433,6 +334,51 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>TLq5dpMGDYnQfdRUc+ndfnMkMNdKePg4QXt6Cpcl27o=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\Walls\TileRockBC.xnb" size="12885">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>sIc1cF/0BBF/LzZhRgK/ToWjmyQvyfs+wbhchBK5rTY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\Walls\TileRockC1x1.xnb" size="13845">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ufr3hy8N3/MYpJsVWPRFef/+0XPPBE/oiSqcjwrkwcQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\Walls\TileRockC2x2.xnb" size="76885">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>VYoTo3jhFqnOhsfotiss23Pa9E8u5oG7pLgMzIoeF8M=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\Walls\TileRockC4x4.xnb" size="248325">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>UjX+yecw96l88PhKAPMK6KntzRrKPVg0UXeqN3hgY1M=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\Walls\TileShoreStonesCA.xnb" size="204885">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>hbOoTsaqVBxmBIVM0ZRcGPrXHqih0liOuni4WpOk3Ps=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Icon.ico" size="147541">

@@ -44,8 +44,13 @@ namespace boardProto
         L1TileTool l1TileTool;
         L2TileTool l2TileTool;
         List<Rectangle> ignoredMenuAreas;
+
+        // Currently selected tile coordinates
+        Vector2 selectedTileCoords;
+
         // Tool menu isn't displayed by default
         bool activeToolMenuShow = false;
+
         // Shows the grid by default
         bool gridShow = true;
         bool deleteTool = false;
@@ -55,6 +60,7 @@ namespace boardProto
         {
             None,
             TileDelete,
+            TileMover,
             L1TilePlacer,
             L2TilePlacer
         };
@@ -152,7 +158,7 @@ namespace boardProto
         }
 
         // Places, edits, deletes tiles in the world
-        public void EditTiles(MouseState _mouseState, MouseState _oldMouseState, Vector2 _tilePosition)
+        public void EditTiles(KeyboardState _keyboardState, MouseState _mouseState, MouseState _oldMouseState, Vector2 _tilePosition)
         {
             //_tilePosition += L1TileTool.TileOffset;
             // Check which panel is active
@@ -230,6 +236,43 @@ namespace boardProto
                     break;
                 }
             }
+            else if (activeTool == EditorTools.TileMover)
+            {
+                if (_mouseState.LeftButton == ButtonState.Pressed && _oldMouseState.LeftButton == ButtonState.Released)
+                {
+                    try
+                    {
+                        selectedTileCoords = listL2Tiles[listL2Tiles.FindIndex(a => a.TilePosition == mouseMapTilePosition)].TilePosition;
+                        Console.WriteLine("selected tile: " + selectedTileCoords);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("No tile selected.");
+                        selectedTileCoords = new Vector2(0.0001f, 0);
+                    }
+                }
+
+                if (_keyboardState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Up))
+                {
+                    try
+                    {
+                        L2Tile tile = listL2Tiles[listL2Tiles.FindIndex(a => a.TilePosition == selectedTileCoords)];
+                        listL2Tiles.Insert(listL2Tiles.Count, tile);
+                        listL2Tiles.Remove(tile);
+                    }
+                    catch { }
+                }
+                else if (_keyboardState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Down))
+                {
+                    try
+                    {
+                        L2Tile tile = listL2Tiles[listL2Tiles.FindIndex(a => a.TilePosition == selectedTileCoords)];
+                        listL2Tiles.Remove(tile);
+                        listL2Tiles.Insert(0, tile);
+                    }
+                    catch { }
+                }
+            }
         }
 
         // Detects which tile the mouse is hovered over and returns the matrix position
@@ -288,6 +331,7 @@ namespace boardProto
             }
             else if (_activeTool != EditorTools.None &&
                      _activeTool != EditorTools.TileDelete &&
+                     _activeTool != EditorTools.TileMover &&
                      !activeToolMenuShow)
             {
                 spriteBatch.Draw(l1TileTool.TextureMenuClosed, l1TileTool.RectangleMenuClosed, Color.White);
@@ -304,17 +348,20 @@ namespace boardProto
         {
             // Draws all created tiles
             // Layer 1
+            int tempTextureIndex;
             foreach (var _tile in listL1Tiles)
             {
+                tempTextureIndex = listTileTextures.FindIndex(a => a.ToString() == _tile.TextureID);
                 if (_tile.TileOffset == new Vector2(0,0))
-                    spriteBatch.Draw(listTileTextures[_tile.TextureIndex], new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
-                                                                    (tileSize.X / 2) - listTileTextures[_tile.TextureIndex].Width / 2,
-                                                                    (_tile.TilePosition.X + _tile.TilePosition.Y) * (tileSize.Y / 2))
+                    spriteBatch.Draw(listTileTextures[tempTextureIndex], 
+                                     new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
+                                     (tileSize.X / 2) - listTileTextures[tempTextureIndex].Width / 2,
+                                     (_tile.TilePosition.X + _tile.TilePosition.Y) * (tileSize.Y / 2))
                                                     + worldOffset,
                                  null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                 else
-                    spriteBatch.Draw(listTileTextures[_tile.TextureIndex], new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
-                                                                    (tileSize.X / 2) - listTileTextures[_tile.TextureIndex].Width / 2,
+                    spriteBatch.Draw(listTileTextures[tempTextureIndex], new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
+                                                                    (tileSize.X / 2) - listTileTextures[tempTextureIndex].Width / 2,
                                                                     (_tile.TilePosition.X + _tile.TilePosition.Y) * (tileSize.Y / 2))
                                                     + worldOffset + _tile.TileOffset,
                                  null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
@@ -322,15 +369,16 @@ namespace boardProto
             // Layer 2
             foreach (var _tile in listL2Tiles)
             {
+                tempTextureIndex = listTileTextures.FindIndex(a => a.ToString() == _tile.TextureID);
                 if (_tile.TileOffset == new Vector2(0, 0))
-                    spriteBatch.Draw(listTileTextures[_tile.TextureIndex], new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
-                                                                    (tileSize.X / 2) - listTileTextures[_tile.TextureIndex].Width / 2,
+                    spriteBatch.Draw(listTileTextures[tempTextureIndex], new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
+                                                                    (tileSize.X / 2) - listTileTextures[tempTextureIndex].Width / 2,
                                                                     (_tile.TilePosition.X + _tile.TilePosition.Y) * (tileSize.Y / 2))
                                                     + worldOffset,
                                  null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                 else
-                    spriteBatch.Draw(listTileTextures[_tile.TextureIndex], new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
-                                                                    (tileSize.X / 2) - listTileTextures[_tile.TextureIndex].Width / 2,
+                    spriteBatch.Draw(listTileTextures[tempTextureIndex], new Vector2((_tile.TilePosition.X - _tile.TilePosition.Y) *
+                                                                    (tileSize.X / 2) - listTileTextures[tempTextureIndex].Width / 2,
                                                                     (_tile.TilePosition.X + _tile.TilePosition.Y) * (tileSize.Y / 2))
                                                     + worldOffset + _tile.TileOffset,
                                  null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);

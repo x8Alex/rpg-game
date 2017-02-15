@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Ground/TileGrassThick1x1.png</SourceFile>
-  <SourceTime>2016-11-22T22:58:28.1225007-05:00</SourceTime>
-  <DestFile>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/bin/Windows/Tiles/Ground/TileGrassThick1x1.xnb</DestFile>
-  <DestTime>2017-01-21T00:27:58.3718555-05:00</DestTime>
+  <SourceFile>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/Tiles/Walls/TileRockC1x1.png</SourceFile>
+  <SourceTime>2017-01-30T22:59:46.5993004-05:00</SourceTime>
+  <DestFile>C:/Users/mxalex/documents/visual studio 2013/Projects/boardProto/boardProto/Content/bin/Windows/Tiles/Walls/TileRockC1x1.xnb</DestFile>
+  <DestTime>2017-02-07T21:51:53.9571991-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T02:36:08-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

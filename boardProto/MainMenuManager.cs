@@ -11,6 +11,8 @@ namespace boardProto
 {
     class MainMenuManager
     {
+        List<Texture2D> tempTextureList;
+
         bool exitGame = false;
         bool newMap = false;
         bool generateMapData = false;
@@ -25,8 +27,10 @@ namespace boardProto
         MouseState oldState;
         int menuButtonIndex = -1;
 
-        public void Initialize(GraphicsDevice _graphicsDevice, Texture2D _buttonTexture, SpriteFont _font)
+        public void Initialize(GraphicsDevice _graphicsDevice, Texture2D _buttonTexture, SpriteFont _font, List<Texture2D> _tempTextureList)
         {
+            tempTextureList = _tempTextureList;
+
             graphicsDevice = _graphicsDevice;
             MapLoaderInit();
 
@@ -39,7 +43,7 @@ namespace boardProto
 
         public void MapLoaderInit()
         {
-            mapLoader = new LoadMap(graphicsDevice);
+            mapLoader = new LoadMap(graphicsDevice, tempTextureList);
         }
 
         // Create menu buttons

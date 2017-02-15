@@ -106,7 +106,6 @@ namespace boardProto
                     if (!selectedTileTexture.ToString().Contains("1x1") &&
                         !selectedTileTexture.ToString().Substring(selectedTileTexture.ToString().Length - 1).Contains("A"))
                     {
-                        Console.WriteLine(tileTextureIndex);
                         try
                         {
                             selectedTileTexture = listTextures[tileTextureIndex - 1];
@@ -139,10 +138,7 @@ namespace boardProto
                         selectedTileTexture.ToString().Substring(selectedTileTexture.ToString().Length - 1).Contains("A"))
                         selectedTileType = EditorManager.L2TileType.RockS;
 
-                    if (selectedTileTexture.ToString().Contains("RockA"))
-                        tileOffset = new Vector2(0, 0);
-                    else
-                        tileOffset = new Vector2(0, 0);
+                        tileOffset = new Vector2(0, -1 * selectedTileTexture.Height + 40);
                 }
             }
         }
@@ -156,21 +152,37 @@ namespace boardProto
                 if (!_listL2Tiles.Exists(a => a.TilePosition == _tilePosition))
                 {
                     // Add a tile to Layer1Tiles with arguments "tile type", "tile position", "passable T/F", "texture".
-                    _listL2Tiles.Add(new L2Tile(selectedTileType, _tilePosition, true, listTextures.IndexOf(SelectedTileTexture, 0, listTextures.Count)));
+                    try
+                    {
+                        _listL2Tiles.Insert(_listL2Tiles.FindIndex(a => a.TilePosition.X >= _tilePosition.X &&
+                                                                        a.TilePosition.Y >= _tilePosition.Y),
+                                            new L2Tile(selectedTileType,
+                                                       _tilePosition,
+                                                       true,
+                                                       selectedTileTexture.ToString(),
+                                                       selectedTileTexture.Height));
+                    }
+                    catch
+                    {
+                        _listL2Tiles.Add(new L2Tile(selectedTileType,
+                                                       _tilePosition,
+                                                       true,
+                                                       selectedTileTexture.ToString(),
+                                                       selectedTileTexture.Height));
+                    }
                 }
                 // If tile is occupied check if the tile being placed is the same as the one that already exists
-                else if (_listL2Tiles[_listL2Tiles.FindIndex(a => a.TilePosition == _tilePosition)].TextureIndex !=
-                                                                                                    listTextures.IndexOf(SelectedTileTexture, 0, listTextures.Count))
+                else if (_listL2Tiles[_listL2Tiles.FindIndex(a => a.TilePosition == _tilePosition)].TextureID !=
+                         selectedTileTexture.ToString())
                 {
                     // Overwrites the tile to Layer1Tiles with arguments "tile type", "tile position", "passable T/F", "texture".
                     _listL2Tiles[_listL2Tiles.FindIndex(a => a.TilePosition == _tilePosition)] =
-                                new L2Tile(selectedTileType, _tilePosition, true, listTextures.IndexOf(SelectedTileTexture, 0, listTextures.Count));
+                                new L2Tile(selectedTileType, _tilePosition, true, selectedTileTexture.ToString(), selectedTileTexture.Height);
                 }
             }
 
             return _listL2Tiles;
         }
-
 
         // GETTERS AND SETTERS =====================================
         public List<Rectangle> IgnoredAreas

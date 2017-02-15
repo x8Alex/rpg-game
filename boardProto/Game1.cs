@@ -135,7 +135,7 @@ namespace boardProto
             // Initialize mainMenuManager
             if (EMPTY_SPACE == null)
                 Console.WriteLine("button texture is null");
-            mainMenuManager.Initialize(graphics.GraphicsDevice, EMPTY_SPACE, debugFont);
+            mainMenuManager.Initialize(graphics.GraphicsDevice, EMPTY_SPACE, debugFont, TEXTURE_LIST);
 
             // Load player resources
             playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Width / 2, 
@@ -225,17 +225,28 @@ namespace boardProto
                         editorManager.ActiveTool = EditorManager.EditorTools.TileDelete;
                     }
 
+                // Toggle tile mover tool
+                if (kbStateOld.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.Insert) && kbState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Insert))
+                    if (editorManager.ActiveTool == EditorManager.EditorTools.TileMover)
+                        editorManager.ActiveTool = editorManager.LastActiveTool;
+                    else
+                    {
+                        editorManager.LastActiveTool = editorManager.ActiveTool;
+                        editorManager.ActiveTool = EditorManager.EditorTools.TileMover;
+                    }
+
+                /*
                 // Organizes the tile lists
                 editorManager.ListL1Tiles = new List<L1Tile>(editorManager.ListL1Tiles.OrderBy(a => a.TilePosition.Y));
                 editorManager.ListL2Tiles = new List<L2Tile>(
-                                            editorManager.ListL2Tiles.OrderByDescending(a => a.TextureIndex)
-                                            .ThenBy(a => a.TilePosition.Y)
+                                            editorManager.ListL2Tiles
+                                            .OrderBy(a => a.TilePosition.Y)
                                             .ThenBy(a => a.TilePosition.X)
-                                            );
+                                            );*/
 
                 // Places tiles when LMB is pressed
                 if (editorManager.ActiveTool != EditorManager.EditorTools.None)
-                    editorManager.EditTiles(mouseManager.GetMouseState(), mouseManager.OldMouseState,
+                    editorManager.EditTiles(kbState, mouseManager.GetMouseState(), mouseManager.OldMouseState,
                                             editorManager.DetectClosestTilePosition(mouseWorldPosition,
                                                                                     editorManager.IgnoredMenuAreas));
             }

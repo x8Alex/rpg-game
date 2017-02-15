@@ -78,7 +78,7 @@ namespace boardProto
                     xmlWriter.WriteElementString("Type", _l1Tile.TileType.ToString());
                     xmlWriter.WriteElementString("Position", _l1Tile.TilePosition.ToString());
                     xmlWriter.WriteElementString("Offset", _l1Tile.TileOffset.ToString());
-                    xmlWriter.WriteElementString("TextureIndex", _l1Tile.TextureIndex.ToString());
+                    xmlWriter.WriteElementString("TextureID", _l1Tile.TextureID.ToString());
 
                     xmlWriter.WriteEndElement();
                 }
@@ -88,7 +88,7 @@ namespace boardProto
                     xmlWriter.WriteElementString("Type", _l2Tile.TileType.ToString());
                     xmlWriter.WriteElementString("Position", _l2Tile.TilePosition.ToString());
                     xmlWriter.WriteElementString("Offset", _l2Tile.TileOffset.ToString());
-                    xmlWriter.WriteElementString("TextureIndex", _l2Tile.TextureIndex.ToString());
+                    xmlWriter.WriteElementString("TextureID", _l2Tile.TextureID.ToString());
 
                     xmlWriter.WriteEndElement();
                 }
